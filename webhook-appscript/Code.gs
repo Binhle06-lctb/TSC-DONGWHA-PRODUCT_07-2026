@@ -5,7 +5,7 @@
  */
 
 var SHEET_NAME = 'Đơn hàng';
-var NOTIFY_EMAIL = 'lctbinh0006@gmail.com';   // Để '' nếu không muốn nhận email
+var NOTIFY_EMAIL = '';   // Đã tắt email — chỉ báo qua Zalo. Muốn bật lại: điền email vào đây
 
 // ==== ZALO BOT — điền 2 dòng dưới theo hướng dẫn ====
 var ZALO_BOT_TOKEN = '3954983369384332927:APeVViiDQFabibvfpjxkxGcBRWlYGztiDgAwErSWyLQITsbZseAzKbxVLTpThWQv';
@@ -27,7 +27,7 @@ function doPost(e) {
     }
 
     var payLabel = (data.payment_method === 'cod') ? 'COD' : 'Chuyển khoản';
-    var products = formatProducts(data.products || '') + (data.order_bump ? ' + 1 hộp Hồng Sâm (bump)' : '');
+    var products = formatProducts(data.products || ''); // bump Gas Whal đã nằm sẵn trong chuỗi products
     var total = Number(data.total_amount || 0).toLocaleString('vi-VN') + 'đ';
 
     sh.appendRow([
@@ -54,6 +54,7 @@ function doPost(e) {
       MailApp.sendEmail(NOTIFY_EMAIL, '🛒 ĐƠN MỚI [' + payLabel + '] ' + (data.fullname || '') + ' – ' + total, msg);
     }
     sendZalo(msg);
+    sendMetaCapi(data); // CAPI server-side — cùng event_id với Pixel, Meta tự khử trùng
 
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -127,10 +128,67 @@ function testSetup() {
   sendZalo('✅ Test: Zalo Bot đã kết nối với webhook LP Dongwha. Mỗi đơn mới sẽ báo vào đây.');
 }
 
-function formatProducts(s) {
-  var names = { 'hong-sam': 'Hồng Sâm Dongwha', 'gas-whal': 'Gas Whal', 'sangsangton': 'SangSangTon Up' };
-  return String(s).split(',').filter(Boolean).map(function (p) {
-    var a = p.split(':');
-    return (names[a[0]] || a[0]) + ' x' + (a[1] || 1);
-  }).join(', ');
+// ═══════════════ BÁO CÁO TỰ ĐỘNG 22H ═══════════════
+var TZ = 'Asia/Ho_Chi_Minh';
+var PROJECT_NAME = 'LP Hồng Sâm DONGWHA';
+
+/** CHẠY HÀM NÀY 1 LẦN để bật lịch báo cáo 22h mỗi tối */
+function setupTriggers() {
+  ScriptApp.getProjectTriggers().forEach(function (t) {
+    if (t.getHandlerFunction() === 'nightlyReport') ScriptApp.deleteTrigger(t);
+  });
+  ScriptApp.newTrigger('nightlyReport').timeBased().everyDays(1).atHour(22).nearMinute(0).inTimezone(TZ).create();
+  Logger.log('✅ Đã hẹn giờ báo cáo 22h mỗi tối (giờ VN). Chạy thử ngay: chọn hàm nightlyReport → Run');
 }
+
+/** Chạy tự động 22h: báo ngày + tuần (CN) + tháng (ngày cuối tháng) */
+function nightlyReport() {
+  var now = new Date();
+  var today = Utilities.formatDate(now, TZ, 'yyyy-MM-dd');
+  var d0 = new Date(today + 'T00:00:00+07:00');
+
+  sendZalo(buildReport(d0, now, '📊 BÁO CÁO CUỐI NGÀY (' + Utilities.formatDate(now, TZ, 'dd/MM/yyyy') + ')'));
+
+  var dow = Number(Utilities.formatDate(now, TZ, 'u')); // 1=Thứ2 ... 7=CN
+  if (dow === 7) {
+    var wStart = new Date(d0.getTime() - 6 * 86400000);
+    sendZalo(buildReport(wStart, now, '🗓️ BÁO CÁO TUẦN (' + Utilities.formatDate(wStart, TZ, 'dd/MM') + ' – ' + Utilities.formatDate(now, TZ, 'dd/MM/yyyy') + ')'));
+  }
+
+  var tomorrow = new Date(now.getTime() + 86400000);
+  if (Utilities.formatDate(tomorrow, TZ, 'dd') === '01') {
+    var mStart = new Date(Utilities.formatDate(now, TZ, 'yyyy-MM') + '-01T00:00:00+07:00');
+    sendZalo(buildReport(mStart, now, '📅 BÁO CÁO THÁNG ' + Utilities.formatDate(now, TZ, 'MM/yyyy')));
+  }
+}
+
+// ==== META CONVERSIONS API — bắn Lead đường server, dedup với Pixel qua event_id ====
+var META_PIXEL_ID = '1353204000286435';
+var META_CAPI_TOKEN = 'EAAYpr58KsFIBR5LniGLiPPhB0fblXE0h7I1uHfWJz0REZBxFisvO2fJeeHyV1xED5WCyKChTFFCexGeYu4lVZAwKMfcIZAHVDOFTUWsrEv8UNVQyitn6vZB9jZBnWlKaMyQZASCKxSsmQew84Yvd9CtahIaZBaQGkUKnMYGiPTliElv88159y1LVoTbBKOn9Pz0fgZDZD';
+
+function sha256hex(s) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8)
+    .map(function (b) { var v = (b < 0 ? b + 256 : b).toString(16); return v.length === 1 ? '0' + v : v; }).join('');
+}
+
+function sendMetaCapi(data) {
+  if (!META_CAPI_TOKEN) return null;
+  try {
+    var ph = String(data.phone || '').replace(/\D/g, '');
+    if (ph.charAt(0) === '0') ph = '84' + ph.slice(1);
+    var payload = { data: [{
+      event_name: 'Lead',
+      event_time: Number(data.event_time) || Math.floor(Date.now() / 1000),
+      event_id: data.event_id || '',
+      action_source: 'website',
+      event_source_url: data.event_source_url || '',
+      user_data: {
+        ph: ph ? [sha256hex(ph)] : undefined,
+        client_ip_address: data.client_ip_address || undefined,
+        client_user_agent: data.client_user_agent || undefined,
+        fbc: data.fbc || undefined,
+        fbp: data.fbp || undefined
+      },
+      custom_data: { value: Number(data.total_amount) || 0, currency: 'VND', content_name: 'Dongwha Red Ginseng' }
+    }] };
+  

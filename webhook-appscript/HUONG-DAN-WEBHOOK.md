@@ -42,12 +42,15 @@ Kèm **email báo đơn mới tức thì** về `lctbinh0006@gmail.com` (đổi/
 3. Đặt tên bot — bắt buộc bắt đầu bằng chữ `Bot`, ví dụ: **Bot TrungSon Don Hang**
 4. Tạo xong, Zalo **nhắn tin cho bạn cái Bot Token** → copy lại
 
-## Bước 2 — Điền token vào script
-Mở lại Apps Script (Sheet → Tiện ích mở rộng → Apps Script) → **dán đè toàn bộ Code.gs bản mới** (file này đã cập nhật) → điền token vào dòng:
+## Bước 2 — Điền token vào Script Properties (KHÔNG dán thẳng vào code nữa)
+Mở lại Apps Script (Sheet → Tiện ích mở rộng → Apps Script) → **dán đè toàn bộ Code.gs bản mới** (file này đã cập nhật) → bấm biểu tượng bánh răng **Project Settings** (menu bên trái) → cuộn xuống **Script Properties** → **Add script property**:
 ```
-var ZALO_BOT_TOKEN = 'dán-token-vào-đây';
+Property: SP_ZALO_BOT_TOKEN
+Value:    <dán token vừa copy vào đây>
 ```
-→ Bấm Lưu 💾
+→ Bấm **Save script properties**.
+
+⚠️ Code không còn chứa token cứng nữa — mọi secret (Zalo Bot Token, Meta CAPI Token, CS-Cart API key) đều đọc từ Script Properties, không được dán trực tiếp vào Code.gs (repo GitHub đang public).
 
 ## Bước 3 — Nhắn cho bot 1 tin
 Trên Zalo, tìm bot vừa tạo → nhắn bất kỳ, ví dụ "hi" (để bot biết mày là ai)

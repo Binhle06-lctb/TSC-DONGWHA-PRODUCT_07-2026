@@ -7,13 +7,25 @@
 var SHEET_NAME = 'Đơn hàng';
 var NOTIFY_EMAIL = '';   // Đã tắt email — chỉ báo qua Zalo. Muốn bật lại: điền email vào đây
 
+// ==== SECRET/KEY — KHÔNG hard-code nữa, đọc từ Script Properties (Project Settings > Script Properties) ====
+// Cách set: mở Apps Script editor → biểu tượng bánh răng "Project Settings" (bên trái) → mục
+// "Script Properties" → "Add script property" → nhập đúng tên key ở dưới (SP_*) + giá trị thật.
+// Toàn bộ key cũ từng bị hard-code trong file này (đã public trên GitHub) coi như đã lộ —
+// PHẢI tạo key mới ở Meta/Zalo/CS-Cart rồi điền key MỚI vào đây, không dùng lại key cũ.
+var SP = PropertiesService.getScriptProperties();
+function reqProp(name) {
+  var v = SP.getProperty(name);
+  if (!v) dbg('⚠️ Thiếu Script Property "' + name + '" — vào Project Settings > Script Properties để điền.');
+  return v || '';
+}
+
 // Nhật ký trên đám mây (Cloud Logging) của dự án này đang không hiển thị được (chờ mãi không lên) —
 // nên ghi debug trực tiếp vào Sheet để chắc chắn nhìn thấy, không phụ thuộc Executions/Cloud Logging nữa.
 var DEBUG_LOG = [];
 function dbg(msg) { try { Logger.log(msg); } catch (e) {} DEBUG_LOG.push(String(msg)); }
 
-// ==== ZALO BOT — điền 2 dòng dưới theo hướng dẫn ====
-var ZALO_BOT_TOKEN = '3954983369384332927:APeVViiDQFabibvfpjxkxGcBRWlYGztiDgAwErSWyLQITsbZseAzKbxVLTpThWQv';
+// ==== ZALO BOT — token đọc từ Script Property "SP_ZALO_BOT_TOKEN" ====
+var ZALO_BOT_TOKEN = reqProp('SP_ZALO_BOT_TOKEN');
 var ZALO_CHAT_IDS  = ['3f4e22e5d1ab38f561ba'];   // Bình Lê. Thêm người nhận: ['id1','id2']
 
 function doPost(e) {
@@ -238,6 +250,19 @@ function syncOrderStatus() {
         '\n📦 Đặt hàng: ' + (r[5] || '') +
         '\n💵 Thanh toán: ' + Number(hit.total || r[9] || 0).toLocaleString('vi-VN') + 'đ' +
         '\n🧾 Mã đơn: ' + (r[1] || ''));
+      // Bắn Purchase thật (server-side CAPI) đúng lúc đơn được XÁC NHẬN trên hệ thống —
+      // điểm xác thực duy nhất cho cả COD lẫn CK, tránh báo Purchase khi khách mới chỉ tự nhận (chưa chắc đã trả tiền).
+      try {
+        sendMetaCapi({
+          phone: r[3],
+          event_time: Math.floor(Date.now() / 1000),
+          event_id: 'purchase_' + (r[1] || '') + '_' + Date.now(),
+          event_source_url: r[20] || '',
+          total_amount: hit.total || r[9] || 0
+        }, 'Purchase');
+      } catch (capiErr) {
+        dbg('⚠️ sendMetaCapi Purchase lỗi: ' + capiErr);
+      }
     } else if (hit.st === 'huy') {
       sh.getRange(start + i, 12).setValue('Hủy đơn');
       changed++;
@@ -280,22 +305,22 @@ function nightlyReport() {
   }
 }
 
-// ==== META CONVERSIONS API — bắn Lead đường server, dedup với Pixel qua event_id ====
+// ==== META CONVERSIONS API — bắn Lead/Purchase đường server, dedup với Pixel qua event_id ====
 var META_PIXEL_ID = '1353204000286435';
-var META_CAPI_TOKEN = 'EAAYpr58KsFIBR5LniGLiPPhB0fblXE0h7I1uHfWJz0REZBxFisvO2fJeeHyV1xED5WCyKChTFFCexGeYu4lVZAwKMfcIZAHVDOFTUWsrEv8UNVQyitn6vZB9jZBnWlKaMyQZASCKxSsmQew84Yvd9CtahIaZBaQGkUKnMYGiPTliElv88159y1LVoTbBKOn9Pz0fgZDZD';
+var META_CAPI_TOKEN = reqProp('SP_META_CAPI_TOKEN'); // Script Property "SP_META_CAPI_TOKEN"
 
 function sha256hex(s) {
   return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8)
     .map(function (b) { var v = (b < 0 ? b + 256 : b).toString(16); return v.length === 1 ? '0' + v : v; }).join('');
 }
 
-function sendMetaCapi(data) {
+function sendMetaCapi(data, eventName) {
   if (!META_CAPI_TOKEN) return null;
   try {
     var ph = String(data.phone || '').replace(/\D/g, '');
     if (ph.charAt(0) === '0') ph = '84' + ph.slice(1);
     var payload = { data: [{
-      event_name: 'Lead',
+      event_name: eventName || 'Lead',
       event_time: Number(data.event_time) || Math.floor(Date.now() / 1000),
       event_id: data.event_id || '',
       action_source: 'website',
@@ -327,8 +352,8 @@ function testMetaCapi() {
 }
 
 // ==== TRUNG SƠN CARE API — đối soát đơn thật trên hệ thống ====
-var TSC_API_EMAIL = 'binhlct@trungsoncare.com';
-var TSC_API_KEY = 'V9K0721871ce0Pk3436Cg264v7M3c655';
+var TSC_API_EMAIL = reqProp('SP_TSC_API_EMAIL'); // Script Property "SP_TSC_API_EMAIL"
+var TSC_API_KEY = reqProp('SP_TSC_API_KEY');     // Script Property "SP_TSC_API_KEY"
 // Trạng thái được tính là ĐƠN CHỐT (viết thường, khớp theo tên trong admin)
 var TSC_CONFIRM_STATUSES = ['xác nhận đơn', 'hoàn tất', 'đã thanh toán'];
 

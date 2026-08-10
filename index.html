@@ -2647,6 +2647,8 @@
     function getCookie(n){var m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?decodeURIComponent(m[2]):'';}
     function getFbc(){var c=getCookie('_fbc');if(c)return c;var p=new URLSearchParams(window.location.search);var fb=p.get('fbclid');if(fb){c='fb.1.'+Date.now()+'.'+fb;document.cookie='_fbc='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}return '';}
     function getFbp(){var c=getCookie('_fbp');if(c)return c;var r=Math.floor(Math.random()*2147483647);c='fb.1.'+Date.now()+'.'+r;document.cookie='_fbp='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}
+    // GA4 client_id từ cookie _ga (định dạng GA1.1.XXXXXXXXXX.YYYYYYYYYY) — dùng để nối Purchase server-side vào đúng session GA4
+    function getGaClientId(){var c=getCookie('_ga');if(!c)return '';var parts=c.split('.');return parts.length>=4?parts.slice(-2).join('.'):'';}
 
     // ===== IP fetch =====
     var userIP='';var ipResolved=false;
@@ -2883,6 +2885,7 @@
           // Meta CAPI fields - KHONG goi CAPI o day, backend tu xu ly
           fbc:getFbc(),fbp:getFbp(),
           fbclid:qp.get('fbclid')||'',
+          ga_client_id:getGaClientId(),
           client_user_agent:navigator.userAgent||'',
           client_ip_address:userIP,
           event_source_url:window.location.href,

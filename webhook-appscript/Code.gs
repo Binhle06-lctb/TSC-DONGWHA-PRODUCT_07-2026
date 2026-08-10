@@ -38,7 +38,7 @@ function doPost(e) {
       'Bump hộp 2', 'Thanh toán', 'Tổng tiền', 'Ghi chú', 'Trạng thái gọi',
       'UTM Source', 'UTM Medium', 'UTM Campaign', 'UTM Content', 'UTM Term', 'Ref', 'fbclid', 'Event ID', 'URL nguồn',
       'Mã đơn hệ thống', 'Đã nhận tiền (CK)', 'Products raw (ẩn)',
-      'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)'];
+      'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID'];
     if (sh.getLastRow() === 0) {
       sh.appendRow(headers);
       sh.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#d1fae5');
@@ -58,7 +58,8 @@ function doPost(e) {
       data.utm_source || '', data.utm_medium || '', data.utm_campaign || '',
       data.utm_content || '', data.utm_term || '', data.ref || '', data.fbclid || '',
       data.event_id || '', data.event_source_url || '', '', '', data.products || '',
-      data.province || '', data.province_code || '', data.district || '', data.district_code || ''
+      data.province || '', data.province_code || '', data.district || '', data.district_code || '',
+      '', data.ga_client_id || ''
     ]);
 
     // COD → đẩy ngay vào hệ thống trungsoncare.com (dược sĩ xử lý luôn trong đó, khỏi gõ tay lại).
@@ -213,7 +214,7 @@ function syncOrderStatus() {
 
   var last = sh.getLastRow();
   var start = Math.max(2, last - 300); // chỉ quét ~300 dòng gần nhất cho nhẹ
-  var vals = sh.getRange(start, 1, last - start + 1, 22).getValues(); // mở rộng tới cột 22 để lấy "Mã đơn hệ thống"
+  var vals = sh.getRange(start, 1, last - start + 1, 30).getValues(); // mở rộng tới cột 30 để lấy "Mã đơn hệ thống" (22) và "GA Client ID" (30)
   var changed = 0;
   vals.forEach(function (r, i) {
     if (!(r[0] instanceof Date)) return;
@@ -250,7 +251,7 @@ function syncOrderStatus() {
         '\n📦 Đặt hàng: ' + (r[5] || '') +
         '\n💵 Thanh toán: ' + Number(hit.total || r[9] || 0).toLocaleString('vi-VN') + 'đ' +
         '\n🧾 Mã đơn: ' + (r[1] || ''));
-      // Bắn Purchase thật (server-side CAPI) đúng lúc đơn được XÁC NHẬN trên hệ thống —
+      // Bắn Purchase thật (server-side, Meta CAPI + GA4 Measurement Protocol) đúng lúc đơn được XÁC NHẬN trên hệ thống —
       // điểm xác thực duy nhất cho cả COD lẫn CK, tránh báo Purchase khi khách mới chỉ tự nhận (chưa chắc đã trả tiền).
       try {
         sendMetaCapi({
@@ -262,6 +263,15 @@ function syncOrderStatus() {
         }, 'Purchase');
       } catch (capiErr) {
         dbg('⚠️ sendMetaCapi Purchase lỗi: ' + capiErr);
+      }
+      try {
+        sendGA4Purchase({
+          ga_client_id: r[29] || '',
+          code: r[1] || '',
+          total_amount: hit.total || r[9] || 0
+        });
+      } catch (ga4Err) {
+        dbg('⚠️ sendGA4Purchase lỗi: ' + ga4Err);
       }
     } else if (hit.st === 'huy') {
       sh.getRange(start + i, 12).setValue('Hủy đơn');
@@ -349,6 +359,46 @@ function testMetaCapi() {
     total_amount: 356000, payment_method: 'cod'
   });
   Logger.log('Meta trả về: ' + r);
+}
+
+// ==== GA4 MEASUREMENT PROTOCOL — bắn Purchase server-side, song song với Meta CAPI ====
+var GA4_MEASUREMENT_ID = reqProp('SP_GA4_MEASUREMENT_ID'); // vd: G-XXXXXXXXXX
+var GA4_API_SECRET = reqProp('SP_GA4_API_SECRET');         // tạo ở GA4 > Admin > Data Streams > Measurement Protocol API secrets
+
+/** ga_client_id lấy từ cookie _ga phía landing page (định dạng GAx.y.XXXXXXXXXX.YYYYYYYYYY).
+ * Nếu không có (khách chặn cookie/không cài GA4 tag) thì tự sinh 1 client_id ngẫu nhiên —
+ * GA4 vẫn nhận event nhưng sẽ tính thành session mới, không nối được vào hành trình duyệt web gốc của khách. */
+function sendGA4Purchase(data) {
+  if (!GA4_MEASUREMENT_ID || !GA4_API_SECRET) return null;
+  try {
+    var clientId = data.ga_client_id || (Math.floor(Math.random() * 2147483647) + '.' + Math.floor(Date.now() / 1000));
+    var payload = {
+      client_id: clientId,
+      events: [{
+        name: 'purchase',
+        params: {
+          transaction_id: data.code || data.event_id || '',
+          currency: 'VND',
+          value: Number(data.total_amount) || 0,
+          items: [{ item_name: 'Dongwha Red Ginseng', quantity: 1, price: Number(data.total_amount) || 0 }]
+        }
+      }]
+    };
+    var url = 'https://www.google-analytics.com/mp/collect?measurement_id=' + GA4_MEASUREMENT_ID + '&api_secret=' + GA4_API_SECRET;
+    var res = UrlFetchApp.fetch(url, {
+      method: 'post', contentType: 'application/json', payload: JSON.stringify(payload), muteHttpExceptions: true
+    });
+    return res.getResponseCode(); // GA4 mp/collect luôn trả 204 nếu nhận được, không có body — không dùng để debug nội dung được
+  } catch (e) { return String(e); }
+}
+
+/** Chạy hàm này để test GA4 — không có response body để đọc (GA4 luôn trả 204 rỗng),
+ * muốn xem event có vào không thì đổi endpoint sang /debug/mp/collect và đọc log validationMessages. */
+function testGA4Purchase() {
+  var code = sendGA4Purchase({
+    ga_client_id: '', code: 'TEST-' + Date.now(), total_amount: 356000
+  });
+  Logger.log('GA4 response code: ' + code);
 }
 
 // ==== TRUNG SƠN CARE API — đối soát đơn thật trên hệ thống ====
@@ -536,7 +586,7 @@ function tscCreateOrder(data) {
 /** Đảm bảo Sheet có đủ 3 cột mới (idempotent — gọi nhiều lần vô hại) */
 function ensureExtraColumns(sh) {
   var wanted = ['Mã đơn hệ thống', 'Đã nhận tiền (CK)', 'Products raw (ẩn)',
-    'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)'];
+    'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID'];
   var lastCol = Math.max(sh.getLastColumn(), 1);
   var existing = sh.getRange(1, 1, 1, lastCol).getValues()[0];
   wanted.forEach(function (name) {

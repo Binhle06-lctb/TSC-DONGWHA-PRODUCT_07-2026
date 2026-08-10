@@ -120,7 +120,7 @@
     function updateCountdownUI(s){
       var m=Math.floor(s/60), sec=s%60;
       var timeEl=document.getElementById('pmTime');
-      if(timeEl)timeEl.textContent=m+':'+(sec<10?'0':'')+sec;
+      if(timeEl)timeEl.textContent=(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;
       // Ring counter-clockwise right→left: dashoffset increases as time decreases
       var pct=s/300;
       var ring=document.getElementById('pmRingFill');
@@ -189,15 +189,15 @@
   <style>
     html,body{overflow-x:hidden!important;max-width:100vw}
     :root{
-      --primary:#b45309;--secondary:#f59e0b;
-      --gradient:linear-gradient(135deg,#b45309 0%,#f59e0b 100%);
-      --gradient-soft:linear-gradient(135deg,rgba(180,83,9,0.10),rgba(245,158,11,0.12));
-      --bg-primary:#fffaf5;--bg-secondary:#fff3e5;--bg-tertiary:#fef2e2;
-      --text-primary:#3b2a1d;--text-secondary:#6b4a2b;--text-muted:#8a6947;
-      --glass-bg:rgba(255,250,245,0.78);
-      --glass-shadow:0 8px 32px rgba(180,83,9,0.10);
+      --primary:#0F5C4A;--secondary:#2F8F6F;
+      --gradient:linear-gradient(135deg,#0F5C4A 0%,#2F8F6F 100%);
+      --gradient-soft:linear-gradient(135deg,rgba(15,92,74,0.10),rgba(47,143,111,0.12));
+      --bg-primary:#f6fbfa;--bg-secondary:#eaf6f2;--bg-tertiary:#e3f2ec;
+      --text-primary:#1d3b33;--text-secondary:#2b5f4f;--text-muted:#5a8a7a;
+      --glass-bg:rgba(246,251,250,0.78);
+      --glass-shadow:0 8px 32px rgba(15,92,74,0.10);
       --glass-inset:inset 0 1px 0 rgba(255,255,255,0.7);
-      --blob-opacity:0;--accent:#d97706;--accent-soft:rgba(217,119,6,0.12);--accent-gradient:linear-gradient(135deg,#d97706,#f59e0b);
+      --blob-opacity:0;--accent:#1B6B52;--accent-soft:rgba(27,107,82,0.12);--accent-gradient:linear-gradient(135deg,#1B6B52,#2F8F6F);
       --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-2xl:24px;--radius-pill:50px;
       --transition-normal:.3s ease;--transition-smooth:.4s cubic-bezier(.4,0,.2,1);--transition-slow:.8s cubic-bezier(.4,0,.2,1);
     }
@@ -601,7 +601,7 @@
     /* === WC RIBBON on trusted stats === */
     .stats-section{position:relative; overflow:hidden}
     .stats-section::before{
-      content:'⚽ FIFA WORLD CUP 2026 ⚽';
+      content:'🌊 MÙA HÈ BIỂN XANH 2026 🌊';
       position:absolute; top:0; left:0; right:0;
       background:linear-gradient(90deg,transparent,rgba(200,16,46,.08),rgba(10,49,97,.08),transparent);
       color:rgba(200,16,46,.5); font-size:.7rem; font-weight:700; letter-spacing:2px;
@@ -617,13 +617,13 @@
 
     /* === BEAR MASCOT CARD decoration === */
     .bear-mascot-strip{
-      background:linear-gradient(135deg,#0a0a16 0%,#12142e 50%,#07070d 100%);
+      background:linear-gradient(135deg,#052e3d 0%,#0b4a5c 55%,#062229 100%);
       padding:3.5rem 2rem; position:relative; overflow:hidden;
     }
     .bear-mascot-strip::before{
       content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse at 20% 50%,rgba(200,16,46,.15),transparent 60%),
-                 radial-gradient(ellipse at 80% 50%,rgba(10,49,97,.15),transparent 60%);
+      background:radial-gradient(ellipse at 20% 30%,rgba(249,115,22,.18),transparent 60%),
+                 radial-gradient(ellipse at 80% 70%,rgba(8,145,178,.22),transparent 60%);
     }
     .bear-strip-inner{
       max-width:1200px; margin:0 auto; display:flex; align-items:center;
@@ -684,7 +684,7 @@
 
     /* === HERO WC countdown style badge === */
     .wc-hero-badge{
-      display:inline-flex; align-items:center; gap:.5rem;
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
       background:linear-gradient(135deg,var(--wc-red),var(--wc-blue));
       color:#fff; padding:.35rem .9rem; border-radius:50px;
       font-size:.78rem; font-weight:700; letter-spacing:.3px;
@@ -705,12 +705,12 @@
     /* === OFFER section WC football accent === */
     .offer-section{position:relative; overflow:hidden}
     .offer-section::before{
-      content:'⚽'; position:absolute; right:-1rem; top:2rem;
+      content:'🌊'; position:absolute; right:-1rem; top:2rem;
       font-size:8rem; opacity:.04; transform:rotate(-15deg);
       pointer-events:none; z-index:0;
     }
     .offer-section::after{
-      content:'🏆'; position:absolute; left:-0.5rem; bottom:2rem;
+      content:'🐚'; position:absolute; left:-0.5rem; bottom:2rem;
       font-size:6rem; opacity:.04; transform:rotate(15deg);
       pointer-events:none; z-index:0;
     }
@@ -724,13 +724,13 @@
     @keyframes shimmer{0%,100%{opacity:.6}50%{opacity:1}}
     @keyframes waveFlag{0%,100%{transform:skewX(0deg)}50%{transform:skewX(-3deg)}}
 
-    .wc-banner{background:linear-gradient(135deg,#C8102E 0%,#0A3161 100%);color:#fff;padding:1rem 2rem;text-align:center;position:relative;overflow:hidden}
+    .wc-banner{background:linear-gradient(90deg,#f97316 0%,#0891b2 100%);color:#fff;padding:1rem 2rem;text-align:center;position:relative;overflow:hidden}
     .wc-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='8' stroke='rgba(255,255,255,0.06)' stroke-width='1' fill='none'/%3E%3C/svg%3E") repeat;pointer-events:none}
     .wc-inner{position:relative;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
-    .wc-ball{font-size:1.4rem;animation:ballRotate 2s linear infinite;display:inline-flex;align-items:center;vertical-align:middle}
-    @keyframes ballRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .wc-ball{font-size:1.4rem;animation:waveBob 2s ease-in-out infinite;display:inline-flex;align-items:center;vertical-align:middle}
+    @keyframes waveBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
     .wc-title{font-size:1rem;font-weight:800;letter-spacing:.5px}
-    .wc-title span{color:#f48120}
+    .wc-title span{color:#FFD700}
     .wc-sub{font-size:.82rem;opacity:.85}
 
     /* Confetti / pháo bông */
@@ -898,19 +898,19 @@
     /* Football watermark mỗi section */
     .problem-section::before,.promise-section::before,
     .faq-section::before{
-      content:'⚽';
+      content:'🌊';
       position:absolute; right:2%; top:3%;
       font-size:5rem; opacity:.04; pointer-events:none;
       animation:wcSpin 20s linear infinite; z-index:0;
     }
     .proof-section::before{
-      content:'🏆';
+      content:'🐚';
       position:absolute; left:2%; top:5%;
       font-size:5rem; opacity:.04; pointer-events:none;
       animation:wcSpin 25s linear infinite reverse; z-index:0;
     }
     .ingredients-section::before{
-      content:'⚽';
+      content:'🌊';
       position:absolute; left:3%; bottom:5%;
       font-size:4rem; opacity:.04; pointer-events:none;
       animation:wcSpin 18s linear infinite; z-index:0;
@@ -951,10 +951,10 @@
     .hero-badges-row .hero-badge{margin-bottom:0}
     .wc-hero-badge-standalone{
       display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
-      background:linear-gradient(135deg,var(--wc-red),var(--wc-blue));
+      background:linear-gradient(135deg,#f97316,#0891b2);
       color:#fff; padding:.38rem 1.1rem; border-radius:50px;
       font-size:.78rem; font-weight:700; letter-spacing:.3px;
-      box-shadow:0 3px 14px rgba(200,16,46,.35);
+      box-shadow:0 3px 14px rgba(249,115,22,.35);
       margin-bottom:0; max-width:fit-content;
       animation:shimmer 2.5s ease-in-out infinite;
     }
@@ -1003,14 +1003,14 @@
     .pm-close:hover{background:rgba(239,68,68,.12);color:#ef4444}
 
     /* ── COUNTDOWN trong header ── */
-    .pm-header-timer{display:flex;align-items:center;gap:.5rem}
-    .pm-timer-ring{position:relative;width:38px;height:38px}
+    .pm-header-timer{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+    .pm-timer-ring{position:relative;width:38px;height:38px;flex-shrink:0}
     .pm-timer-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
     .ring-track{fill:none;stroke:rgba(0,0,0,.1);stroke-width:4}
     .ring-fill{fill:none;stroke:#22c55e;stroke-width:4;stroke-linecap:round;
       stroke-dasharray:100.53 100.53;stroke-dashoffset:0;transition:stroke-dashoffset .9s linear,stroke .4s}
-    .pm-timer-text{text-align:center}
-    #pmTime{font-size:.95rem;font-weight:800;color:#1a2332;display:block;line-height:1}
+    .pm-timer-text{text-align:center;width:2.8em;flex-shrink:0}
+    #pmTime{font-size:.95rem;font-weight:800;color:#1a2332;display:block;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
     .pm-timer-label{font-size:.6rem;color:#64748b;display:block}
     .pm-timer-ring.warn .ring-fill{stroke:#f59e0b}
     .pm-timer-ring.danger .ring-fill{stroke:#ef4444}
@@ -1272,7 +1272,7 @@
       .wc-inner { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .3rem; }
       .wc-title { font-size: .85rem; }
       .wc-sub { font-size: .75rem; }
-      .wc-ball img { width: 1rem !important; height: 1rem !important; }
+      .wc-ball { font-size: 1rem; }
     }
 
     /* Desktop: cap form width, center it nicely */
@@ -1471,17 +1471,17 @@
   <div class="wc-particles-fixed" aria-hidden="true" id="wcParticles"></div>
 
   <!-- Floating WC Ball -->
-  <a href="#form" class="wc-float-ball" title="Đặt hàng ngay - Ưu đãi World Cup 2026"><img src="img/asset-3.webp" style="width:100%;height:100%;object-fit:contain" alt="⚽"></a>
+  <a href="#form" class="wc-float-ball" title="Đặt hàng ngay - Ưu đãi mùa hè biển xanh">🌊</a>
 
   <!-- World Cup 2026 Banner -->
   <div class="wc-banner">
     <div class="wc-inner">
-      <span class="wc-ball"><img src="data:image/png;base64,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" style="width:1.4rem;height:1.4rem;object-fit:contain;display:block" alt="⚽"></span>
+      <span class="wc-ball">🌊</span>
       <div>
-        <div class="wc-title">ĐỒNG HÀNH CÙNG <span>FIFA WORLD CUP 2026™</span></div>
+        <div class="wc-title">ĐỒNG HÀNH CÙNG <span>MÙA HÈ BIỂN XANH 2026</span></div>
         <div class="wc-sub">Nạp năng lượng – Tăng sức bền – Sẵn sàng chiến hết mình!</div>
       </div>
-      <span class="wc-ball" style="animation-delay:.5s"><img src="data:image/png;base64,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" style="width:1.4rem;height:1.4rem;object-fit:contain;display:block" alt="⚽"></span>
+      <span class="wc-ball" style="animation-delay:.5s">🌊</span>
     </div>
   </div>
 
@@ -1531,14 +1531,14 @@
       <div class="confetti-piece"></div><div class="confetti-piece"></div>
       <div class="confetti-piece"></div>
     </div>
-    <div class="hero-football">⚽</div>
-    <div class="hero-football-2">⚽</div>
+    <div class="hero-football">🌊</div>
+    <div class="hero-football-2">🐚</div>
     <div class="hero-grid"></div>
     <div class="hero-container">
       <div class="hero-text">
       <div class="hero-badges-row reveal">
         <div class="wc-hero-badge-standalone">
-          🏆 <strong>FIFA WORLD CUP 2026™</strong>
+          🏝️ <strong>MÙA HÈ BIỂN XANH 2026</strong>
         </div>
         <div class="hero-badge">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1549,7 +1549,7 @@
       <p class="hero-desc reveal">Hồng sâm Hàn Quốc chuẩn hóa Saponin 70mg/g, được cấp phép số đăng ký 01-TP/PHARMINA/2024. 1 chai mỗi ngày để cơ thể tăng cường đề kháng và phục hồi năng lượng.</p>
       <div class="hero-mascot-mobile-inline">
       <div class="hero-mascot-wrap reveal">
-        <img src="img/asset-5.webp" class="hero-mascot-img" alt="Mascot Dongwha World Cup 2026">
+        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển">
       </div>
       </div>
       <div class="hero-cta reveal" style="flex-wrap:wrap;margin-bottom:3rem">
@@ -1594,7 +1594,7 @@
       </div><!-- end .hero-text -->
 
       <div class="hero-mascot-wrap reveal hero-mascot-desktop">
-        <img src="img/asset-6.webp" class="hero-mascot-img" alt="Mascot Dongwha World Cup 2026">
+        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển">
       </div>
     </div>
   </section>
@@ -1915,7 +1915,7 @@
       </div>
     </div>
     <div class="offer-box reveal">
-      <div class="offer-tag">HOT DEAL THÁNG 7/2026</div>
+      <div class="offer-tag">HOT DEAL THÁNG 8/2026</div>
       <div class="offer-product">HỒNG SÂM DONGWHA</div>
       <div class="offer-spec">10 chai x 100ml – Xuất xứ Hàn Quốc</div>
       <div class="offer-price">
@@ -1928,7 +1928,7 @@
       <p style="background:#fef3e2;color:#854F0B;font-weight:700;font-size:.9rem;border-radius:10px;padding:.5rem 1rem;display:inline-block;margin:0 0 .5rem">🎁 Mua 3 hộp – trọn 1 tháng, 1 chai mỗi ngày: <strong>559,000đ</strong> + TẶNG áo mưa cao cấp</p>
       <p class="offer-deadline" style="margin-bottom:.5rem">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Ưu đãi kết thúc lúc 23:59 ngày 31/07/2026
+        Ưu đãi kết thúc lúc 23:59 ngày 26/08/2026
       </p>
       <div class="offer-countdown">
         <div class="of-cd-box"><span class="of-cd-num" id="ofCdDay">--</span><span class="of-cd-label">Ngày</span></div>
@@ -2106,8 +2106,8 @@
                 <label>
                   <input type="checkbox" id="orderBumpCheck" onchange="handleBumpChange(this)">
                   <div class="order-bump-info">
-                    <div class="order-bump-name">Thêm 1 hộp Gas Whal Dongwha – món chăm ông bà</div>
-                    <div class="order-bump-desc">Thảo mộc Hàn Quốc hỗ trợ tiêu hóa, ấm bụng cho người lớn tuổi. Đi cùng đơn – không tốn thêm phí ship.</div>
+                    <div class="order-bump-name">Thêm 1 hộp Gas Whal Dongwha – bạn đồng hành mọi chuyến đi</div>
+                    <div class="order-bump-desc">Thảo mộc Hàn Quốc hỗ trợ tiêu hóa, ấm bụng – ăn hải sản, đồ nướng thoải mái mà không lo đầy bụng. Đi cùng đơn – không tốn thêm phí ship.</div>
                     <div class="order-bump-price">
                       <span class="order-bump-price-old">300,000đ</span>
                       <span class="order-bump-price-new">210,000đ</span>
@@ -2123,7 +2123,7 @@
           <!-- GIFT PROGRESS BAR -->
           <div class="gift-bar-wrap" id="giftBar">
             <div class="gift-bar-header">
-              <img class="gift-bar-img" src="img/asset-20.webp" alt="Áo mưa">
+              <img class="gift-bar-img" src="img/1784782495994_8037431706076599402_g4751216447892692751_80d28ad11e0ab62e4d9601d4d61d0fe4-opt.webp" alt="Áo mưa" loading="lazy">
               <div class="gift-bar-info">
                 <span class="gift-bar-badge gift-bar-badge--locked" id="giftBadge">CHƯA ĐỦ ĐIỀU KIỆN</span>
                 <div class="gift-bar-title">Áo mưa cao cấp – Quà tặng miễn phí</div>
@@ -2220,30 +2220,30 @@
 
 
 
-  <!-- BEAR MASCOT STRIP -->
-  <div class="wc-divider"></div>
+  <!-- BEACH ENERGY MASCOT STRIP (đã đổi từ World Cup sang du lịch biển) -->
+  <div class="wc-divider" style="background:linear-gradient(90deg,transparent,#0891b2 20%,#f97316 50%,#fbbf24 80%,transparent)"></div>
   <section class="bear-mascot-strip">
     <div class="bear-strip-inner">
       <div class="bear-strip-copy reveal">
-        <div class="wc-hero-badge" style="margin-bottom:.85rem">🐻 Mascot Trung Sơn Care</div>
-        <h3>Cùng <span>Dr.Gấu</span><br>Chinh Phục World Cup 2026!</h3>
-        <p>Bộ sưu tập hình ảnh chiến dịch độc quyền mùa bóng đá – mỗi sản phẩm, một tinh thần chiến đấu khác nhau.</p>
+        <div class="wc-hero-badge" style="background:linear-gradient(90deg,#fb923c 0%,#22d3ee 100%);box-shadow:0 3px 14px rgba(251,146,60,.4)">🐻 Mascot Trung Sơn Care</div>
+        <h3>Cùng <span>Dr.Gấu</span><br>Tiếp Sức Mùa Hè Biển Xanh!</h3>
+        <p>Lặn biển, chèo SUP, chạy bộ bình minh trên cát hay chỉ đơn giản là rong chơi cả ngày dưới nắng – chuyến đi biển nào cũng cần một nguồn năng lượng bền bỉ. Hồng Sâm Dongwha đồng hành để bạn không đuối sức giữa hành trình.</p>
         <a href="#form" class="bear-strip-cta" style="background:linear-gradient(135deg,#f48120,#e06800);box-shadow:0 4px 16px rgba(244,129,32,.4)">
-          <img src="img/asset-21.webp" style="width:22px;height:22px;object-fit:contain;vertical-align:middle"> Đặt ngay – Ưu đãi 30%
+          🌊 Đặt ngay – Ưu đãi 30%
         </a>
       </div>
       <div class="bear-strip-cards reveal">
         <div class="bear-card">
-          <img src="img/asset-22.webp" alt="MUA 2 TẶNG 1" loading="lazy">
+          <img src="img/ChatGPT Image 10_56_52 31 thg 7, 2026-opt.webp" alt="Nạp năng lượng du lịch hết mình" loading="lazy">
         </div>
         <div class="bear-card">
-          <img src="img/asset-23.webp" alt="ĂN MỪNG VUI HẾT CỠ" loading="lazy">
+          <img src="img/ChatGPT Image 10_56_52 31 thg 7, 2026 (1)-opt.webp" alt="Khỏe trọn hành trình, vui trọn chuyến đi" loading="lazy">
         </div>
         <div class="bear-card">
-          <img src="img/asset-24.webp" alt="TẬP LUYỆN HẾT SỨC" loading="lazy">
+          <img src="img/ChatGPT Image 16_56_31 31 thg 7, 2026-opt.webp" alt="Nạp đầy năng lượng, vi vu hết mình" loading="lazy">
         </div>
         <div class="bear-card">
-          <img src="img/asset-25.webp" alt="NẠP NĂNG LƯỢNG BÚT TỐC" loading="lazy">
+          <img src="img/1786359131333_1792366899713373759_1242371195981340125_2e82c3cc504ad12832a88ff8abe41694-opt.webp" alt="Bứt phá năng lượng, chinh phục mọi hành trình – combo mua 3 hộp tặng áo mưa cao cấp" loading="lazy">
         </div>
       </div>
     </div>
@@ -2573,7 +2573,7 @@
     // ===== Deadline Countdown =====
     (function(){
       // ⚠️ DEADLINE KHUYẾN MÃI — cập nhật mỗi đợt, phải khớp với text "Ưu đãi kết thúc..." trên trang
-      var deadline=new Date('2026-07-31T23:59:00').getTime();
+      var deadline=new Date('2026-08-26T23:59:00').getTime();
       function pad(n){return n<10?'0'+n:String(n);}
       function tick(){
         var now=Date.now();
@@ -2910,7 +2910,7 @@
         if(payload.payment_method==='cod'){
           // ── COD: xác nhận đơn ngay, không cần chuyển khoản trước ──
           var tyA=document.getElementById('tyAddr');if(tyA)tyA.textContent=payload.full_address||payload.address||'—';
-          var tyS=document.getElementById('tySub');if(tyS)tyS.textContent='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi xác nhận trong 5 phút. Bạn thanh toán khi nhận hàng – nhớ đồng kiểm cùng bưu tá nhé!';
+          var tyS=document.getElementById('tySub');if(tyS)tyS.textContent='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi xác nhận trong ít phút. Bạn thanh toán khi nhận hàng – nhớ đồng kiểm cùng bưu tá nhé!';
           var tyP=document.getElementById('tyProduct');if(tyP)tyP.textContent=buildOrderSummaryText();
           var tyOv=document.getElementById('thankYouOverlay');if(tyOv)tyOv.classList.add('active');
           var ctaBar2=document.querySelector('.mobile-cta-bar');if(ctaBar2)ctaBar2.style.setProperty('display','none','important');
@@ -2971,7 +2971,7 @@
       var amount=document.getElementById('pmAmount').textContent||'203,000đ';
       var code=document.getElementById('pmOrderCode').textContent||'—';
       var addr=document.getElementById('pmInfoAddress').textContent||'—';
-      var sub='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi cho bạn để xác nhận đơn hàng trong 5 phút!';
+      var sub='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi cho bạn để xác nhận đơn hàng trong ít phút!';
       var tySub=document.getElementById('tySub');
       var tyInfo=document.getElementById('tyOrderInfo');
       var tyAddr=document.getElementById('tyAddr');
@@ -3094,7 +3094,7 @@
           </button>
           <div class="pm-status-msg" id="paymentStatusMsg" style="display:none;margin-top:.6rem;font-size:.84rem;color:#ef4444;text-align:center"></div>
           <p class="pm-note" style="margin-top:.75rem;font-size:.8rem;color:#64748b;text-align:center;line-height:1.5">
-            Sau khi chuyển khoản, <strong style="color:#1a2332">dược sĩ nhà thuốc Trung Sơn sẽ gọi điện để xác nhận</strong> trong vòng 5 phút.<br>
+            Sau khi chuyển khoản, <strong style="color:#1a2332">dược sĩ nhà thuốc Trung Sơn sẽ gọi điện để xác nhận</strong> trong ít phút.<br>
             Hỗ trợ: <strong>1800 55 88 98</strong> (miễn phí)
           </p>
         </div>
@@ -3105,7 +3105,7 @@
         <div class="pm-state" style="display:block;padding:2.5rem 1.5rem;text-align:center">
           <div style="font-size:3.5rem;margin-bottom:1rem">✅</div>
           <h3 style="color:var(--primary);font-size:1.3rem;margin-bottom:.5rem">Thanh toán thành công!</h3>
-          <p style="color:#475569;margin:.5rem 0 1rem">Cảm ơn bạn đã đặt hàng. Dược sĩ Trung Sơn sẽ liên hệ xác nhận trong vòng 5 phút.</p>
+          <p style="color:#475569;margin:.5rem 0 1rem">Cảm ơn bạn đã đặt hàng. Dược sĩ Trung Sơn sẽ liên hệ xác nhận trong ít phút.</p>
           <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:.6rem .85rem;margin-bottom:1rem;text-align:left;font-size:.82rem;font-weight:700;color:#1a2332" id="pmConfirmProduct">📦 Hồng Sâm DONGWHA – 1 hộp 10 chai</div>
           <div style="background:#f0f7ff;border-radius:12px;padding:.8rem 1rem;margin-bottom:1rem;text-align:left">
             <div style="font-weight:700;font-size:.88rem;margin-bottom:.25rem">🔥 Chờ đã ! Còn 1 ưu đãi chờ bạn</div>
@@ -3137,7 +3137,7 @@
       </div>
       <div class="ty-badge">● ĐẶT HÀNG THÀNH CÔNG</div>
       <h2 class="ty-heading">Cảm ơn bạn đã đặt hàng!</h2>
-      <p class="ty-sub" id="tySub">Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi cho bạn để xác nhận đơn hàng trong 5 phút!</p>
+      <p class="ty-sub" id="tySub">Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi cho bạn để xác nhận đơn hàng trong ít phút!</p>
       <div class="ty-info-grid">
         <div class="ty-info-row">
           <div class="ty-info-icon">📦</div>
@@ -3159,6 +3159,10 @@
       <button class="ty-cta-btn" onclick="window.open('https://zalo.me/780850929659163636','_blank')">
         💬 Bấm Theo dõi — Nhận Voucher ngay
       </button>
+      <label style="display:flex;align-items:flex-start;gap:.5rem;margin-top:.85rem;font-size:.78rem;color:#64748b;text-align:left;cursor:pointer;line-height:1.5">
+        <input type="checkbox" id="tyMemberOptIn" style="margin-top:.2rem;flex-shrink:0;width:16px;height:16px;cursor:pointer">
+        <span>Bạn đồng ý dùng thông tin này để đăng ký tài khoản thành viên trungsoncare.com</span>
+      </label>
     </div>
   </div>
 

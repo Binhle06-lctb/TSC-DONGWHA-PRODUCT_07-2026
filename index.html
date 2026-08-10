@@ -3579,5 +3579,16 @@ function handleBumpChange(cb){
 }
 syncFplPayload(); updateAmount();
 </script>
+<!-- Báo chiều cao cho trang cha khi trang này được nhúng qua iframe (vd: trungsoncare.com) -->
+<script>
+function sendHeight() {
+    window.parent.postMessage({
+        height: document.documentElement.scrollHeight
+    }, "*");
+}
+window.onload = sendHeight;
+window.onresize = sendHeight;
+new ResizeObserver(sendHeight).observe(document.body);
+</script>
 </body>
 </html>

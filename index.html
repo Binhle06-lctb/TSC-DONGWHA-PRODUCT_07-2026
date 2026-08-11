@@ -1076,10 +1076,12 @@
     #transferContent{font-size:.82rem;font-weight:800;color:#0f172a;font-family:monospace;letter-spacing:.5px;word-break:break-all}
     .pm-copy-btn{
       background:var(--gradient);color:#fff;border:none;
-      padding:.22rem .7rem;border-radius:50px;font-size:.7rem;font-weight:700;
+      width:26px;height:26px;padding:0;border-radius:8px;font-size:.7rem;font-weight:700;
       cursor:pointer;white-space:nowrap;transition:opacity .2s;flex-shrink:0;
+      display:inline-flex;align-items:center;justify-content:center;
     }
     .pm-copy-btn:hover{opacity:.8}
+    .pm-copy-btn svg{width:14px;height:14px;display:block}
 
     /* ── CTA & NOTE ── */
     button,input,select,textarea{font-family:inherit}
@@ -2647,8 +2649,9 @@
     function getCookie(n){var m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?decodeURIComponent(m[2]):'';}
     function copyToClipboard(btn,text){
       navigator.clipboard.writeText(text).then(function(){
-        var old=btn.textContent;btn.textContent='✓ Đã copy';
-        setTimeout(function(){btn.textContent=old;},1500);
+        var old=btn.innerHTML;
+        btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function(){btn.innerHTML=old;},1500);
       });
     }
     function getFbc(){var c=getCookie('_fbc');if(c)return c;var p=new URLSearchParams(window.location.search);var fb=p.get('fbclid');if(fb){c='fb.1.'+Date.now()+'.'+fb;document.cookie='_fbc='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}return '';}
@@ -3081,21 +3084,21 @@
               <span class="lbl">Ngân hàng</span>
               <span style="display:flex;align-items:center;gap:.5rem">
                 <span class="val">VIETINBANK CN CAN THO</span>
-                <button class="pm-copy-btn" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')">Copy</button>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
               </span>
             </div>
             <div class="pm-bank-row">
               <span class="lbl">Số tài khoản</span>
               <span style="display:flex;align-items:center;gap:.5rem">
                 <span class="val">111003064062</span>
-                <button class="pm-copy-btn" onclick="copyToClipboard(this,'111003064062')">Copy</button>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'111003064062')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
               </span>
             </div>
             <div class="pm-bank-row">
               <span class="lbl">Chủ TK</span>
               <span style="display:flex;align-items:center;gap:.5rem">
                 <span class="val">CONG TY TNHH TRUNG SON ALPHA</span>
-                <button class="pm-copy-btn" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')">Copy</button>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
               </span>
             </div>
             <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">203,000đ</span></div>
@@ -3103,7 +3106,7 @@
               <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
               <div class="pm-transfer-box" style="flex:1;min-width:0">
                 <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
-                <button class="pm-copy-btn" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())">Copy</button>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
               </div>
             </div>
           </div>

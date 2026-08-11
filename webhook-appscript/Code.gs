@@ -62,10 +62,12 @@ function doPost(e) {
       '', data.ga_client_id || ''
     ]);
 
-    // COD → đẩy ngay vào hệ thống trungsoncare.com (dược sĩ xử lý luôn trong đó, khỏi gõ tay lại).
-    // CK → CHƯA đẩy — chỉ đẩy khi dược sĩ tick "Đã nhận tiền (CK)" (xem pushConfirmedBankOrders, chạy mỗi 10 phút).
+    // COD lẫn CK → đẩy ngay vào hệ thống trungsoncare.com lúc khách đặt hàng (dược sĩ thấy đơn ngay,
+    // xử lý luôn trong đó, khỏi gõ tay lại). Đơn CK tạo với payment_id="Chuyển khoản" nên hệ thống tự
+    // hiện đúng trạng thái "chưa thanh toán" — dược sĩ vẫn phải tự kiểm tra tiền đã về chưa trước khi giao,
+    // KHÔNG coi việc đơn xuất hiện trên hệ thống là đã xác nhận thanh toán.
     var newOrderId = null; // khai báo ngoài if để dùng được ở response JSON trả về cho landing page (hiện mã đơn thật)
-    if (data.payment_method === 'cod') {
+    {
       DEBUG_LOG.length = 0;
       try {
         newOrderId = tscCreateOrder(data);
@@ -94,7 +96,7 @@ function doPost(e) {
     }
     sendMetaCapi(data); // CAPI server-side — cùng event_id với Pixel, Meta tự khử trùng
 
-    // order_id: chỉ có với COD (tạo đơn ngay) — landing page dùng để hiện mã đơn CS-Cart thật thay cho mã tạm.
+    // order_id: có với cả COD lẫn CK (đều tạo đơn ngay) — landing page dùng để hiện mã đơn CS-Cart thật thay cho mã tạm.
     return ContentService.createTextOutput(JSON.stringify({ ok: true, order_id: newOrderId || null }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
@@ -607,9 +609,11 @@ function colIndex(sh, name) {
 }
 
 /**
- * Chạy mỗi 10 phút (gọi từ syncOrderStatus): quét các dòng CK mà dược sĩ đã tick "Đã nhận tiền (CK)"
- * nhưng CHƯA có "Mã đơn hệ thống" → tạo đơn thật bên hệ thống, ghi order_id vào Sheet.
- * Sau đó syncOrderStatus (chạy ngay sau) sẽ tiếp tục đối soát như bình thường.
+ * Chạy mỗi 10 phút (gọi từ syncOrderStatus): lưới an toàn dự phòng — quét các dòng CK mà dược sĩ đã
+ * tick "Đã nhận tiền (CK)" nhưng CHƯA có "Mã đơn hệ thống" (vd: lần tạo đơn ngay lúc đặt hàng bị lỗi/API
+ * timeout) → thử tạo lại đơn thật bên hệ thống, ghi order_id vào Sheet. Từ khi doPost() tạo đơn CK ngay
+ * lúc đặt hàng (giống COD), hàm này thường sẽ không có gì để làm (maHeThong đã có sẵn), chỉ chạy khi
+ * lần đầu bị lỗi.
  */
 function pushConfirmedBankOrders() {
   var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);

@@ -2936,31 +2936,26 @@
             amount: AMOUNT
           });
         }
-        if(payload.payment_method==='cod'){
-          // COD: chờ webhook trả về mã đơn CS-Cart thật (order_id) rồi mới thay vào ô "Mã đơn" —
-          // không dùng no-cors ở đây vì cần ĐỌC được response. Có timeout 6s: nếu chậm/lỗi thì
-          // dùng tạm mã ngắn tự sinh (regCode), không để khách chờ vô thời hạn.
-          var codeTimer=setTimeout(function(){
-            var tyCode=document.getElementById('tyOrderCode');
-            if(tyCode&&tyCode.textContent==='Đang tạo mã đơn…')tyCode.textContent=regCode;
-          },6000);
-          fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
-            .then(function(r){return r.json();})
-            .then(function(res){
-              clearTimeout(codeTimer);
-              var tyCode=document.getElementById('tyOrderCode');
-              if(tyCode)tyCode.textContent=(res&&res.order_id)?('#'+res.order_id):regCode;
-            })
-            .catch(function(){
-              clearTimeout(codeTimer);
-              var tyCode=document.getElementById('tyOrderCode');
-              if(tyCode)tyCode.textContent=regCode;
-            });
-        }else{
-          // Chuyển khoản: đơn CK CHƯA tồn tại bên CS-Cart lúc này (chỉ tạo sau khi dược sĩ xác nhận
-          // đã nhận tiền) — không có số thật để chờ, giữ nguyên kiểu gửi ngầm cũ, không block UX.
-          fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).catch(function(){});
-        }
+        // COD lẫn CK giờ đều tạo đơn thật ngay bên CS-Cart lúc khách đặt hàng — chờ webhook trả về
+        // order_id thật rồi thay vào ô mã đơn. Có timeout 6s: nếu chậm/lỗi thì dùng tạm mã ngắn tự
+        // sinh (regCode), không để khách chờ vô thời hạn.
+        var codeTargetId=(payload.payment_method==='cod')?'tyOrderCode':'pmOrderCode';
+        var codeTimer=setTimeout(function(){
+          var el=document.getElementById(codeTargetId);
+          if(el&&el.textContent==='Đang tạo mã đơn…')el.textContent=regCode;
+        },6000);
+        fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+          .then(function(r){return r.json();})
+          .then(function(res){
+            clearTimeout(codeTimer);
+            var el=document.getElementById(codeTargetId);
+            if(el)el.textContent=(res&&res.order_id)?('#'+res.order_id):regCode;
+          })
+          .catch(function(){
+            clearTimeout(codeTimer);
+            var el=document.getElementById(codeTargetId);
+            if(el)el.textContent=regCode;
+          });
       });
     });
 

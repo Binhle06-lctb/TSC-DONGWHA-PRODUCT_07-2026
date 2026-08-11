@@ -2645,6 +2645,12 @@
 
     // ===== Meta Pixel helpers =====
     function getCookie(n){var m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?decodeURIComponent(m[2]):'';}
+    function copyToClipboard(btn,text){
+      navigator.clipboard.writeText(text).then(function(){
+        var old=btn.textContent;btn.textContent='✓ Đã copy';
+        setTimeout(function(){btn.textContent=old;},1500);
+      });
+    }
     function getFbc(){var c=getCookie('_fbc');if(c)return c;var p=new URLSearchParams(window.location.search);var fb=p.get('fbclid');if(fb){c='fb.1.'+Date.now()+'.'+fb;document.cookie='_fbc='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}return '';}
     function getFbp(){var c=getCookie('_fbp');if(c)return c;var r=Math.floor(Math.random()*2147483647);c='fb.1.'+Date.now()+'.'+r;document.cookie='_fbp='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}
     // GA4 client_id từ cookie _ga (định dạng GA1.1.XXXXXXXXXX.YYYYYYYYYY) — dùng để nối Purchase server-side vào đúng session GA4
@@ -2683,9 +2689,9 @@
 
     // ==== CONFIG - thay khi deploy ====
     var WEBHOOK_URL='https://script.google.com/macros/s/AKfycbyZdYALGhIMranvla22dV0c5DrlJtCURkX3NsPzIfqdUn2J_6rVD2E-WUCkkDgzck1-GA/exec'; // Apps Script → Google Sheet + email báo đơn
-    var BANK_CODE='TPB';
-    var BANK_STK='0329160517';
-    var ACCOUNT_NAME='LECHAUTHANHIBINH';
+    var BANK_CODE='ICB';
+    var BANK_STK='111003064062';
+    var ACCOUNT_NAME='CONG TY TNHH TRUNG SON ALPHA';
     var AMOUNT=203000;
     var TRANSFER_PREFIX='DONGWHA';
     var registeredPhone='',registeredCode='';
@@ -3056,9 +3062,9 @@
 
       <!-- ── STATE 1: QR ── -->
       <div class="pm-state active" id="pmQR">
-        <div class="pm-body">
-          <!-- QR col -->
-          <div class="pm-qr-col">
+        <div class="pm-body" style="grid-template-columns:1fr">
+          <!-- QR col: tạm ẩn, chuyển sang nhập tay thông tin chuyển khoản -->
+          <div class="pm-qr-col" style="display:none">
             <div class="pm-section-label">Quét QR để thanh toán</div>
             <div class="pm-qr-frame">
               <img id="qrImage" src="" alt="QR thanh toán VietQR" width="160" height="160">
@@ -3070,16 +3076,34 @@
           </div>
           <!-- Bank info col -->
           <div class="pm-bank-col">
-            <div class="pm-section-label">Chuyển khoản thủ công</div>
-            <div class="pm-bank-row"><span class="lbl">Ngân hàng</span><span class="val">TPBank</span></div>
-            <div class="pm-bank-row"><span class="lbl">Số tài khoản</span><span class="val">0329160517</span></div>
-            <div class="pm-bank-row"><span class="lbl">Chủ TK</span><span class="val">LE CHAU THANH BINH</span></div>
+            <div class="pm-section-label">Chuyển khoản ngân hàng</div>
+            <div class="pm-bank-row">
+              <span class="lbl">Ngân hàng</span>
+              <span style="display:flex;align-items:center;gap:.5rem">
+                <span class="val">VIETINBANK CN CAN THO</span>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')">Copy</button>
+              </span>
+            </div>
+            <div class="pm-bank-row">
+              <span class="lbl">Số tài khoản</span>
+              <span style="display:flex;align-items:center;gap:.5rem">
+                <span class="val">111003064062</span>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'111003064062')">Copy</button>
+              </span>
+            </div>
+            <div class="pm-bank-row">
+              <span class="lbl">Chủ TK</span>
+              <span style="display:flex;align-items:center;gap:.5rem">
+                <span class="val">CONG TY TNHH TRUNG SON ALPHA</span>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')">Copy</button>
+              </span>
+            </div>
             <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">203,000đ</span></div>
             <div class="pm-bank-row" style="align-items:center;gap:.5rem;flex-wrap:wrap">
               <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
               <div class="pm-transfer-box" style="flex:1;min-width:0">
                 <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
-                <button class="pm-copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('transferContent').textContent.trim()).then(function(){this.textContent='✓ Đã copy';}.bind(this))">Copy</button>
+                <button class="pm-copy-btn" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())">Copy</button>
               </div>
             </div>
           </div>

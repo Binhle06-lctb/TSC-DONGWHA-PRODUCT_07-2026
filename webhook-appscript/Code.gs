@@ -762,6 +762,19 @@ function testTscApi() {
   Logger.log('Orders 7 ngày (3 đơn mẫu): ' + (od ? JSON.stringify(od).slice(0, 600) : '❌ null'));
 }
 
+/** Chạy hàm này khi testTscApi() báo null — gọi thẳng không qua tscFetch để lộ ra ĐÚNG mã lỗi HTTP + nội dung CS-Cart trả về.
+ * 401/403 = sai email hoặc key (hoặc IP bị chặn). 404 = sai đường dẫn API. 500 = lỗi phía CS-Cart. */
+function testTscApiRaw() {
+  Logger.log('TSC_API_EMAIL đang dùng: ' + TSC_API_EMAIL);
+  Logger.log('TSC_API_KEY đang dùng (10 ký tự đầu): ' + String(TSC_API_KEY).slice(0, 10) + '...');
+  var res = UrlFetchApp.fetch('https://trungsoncare.com/api/statuses?type=O&items_per_page=5', {
+    headers: { Authorization: 'Basic ' + Utilities.base64Encode(TSC_API_EMAIL + ':' + TSC_API_KEY) },
+    muteHttpExceptions: true
+  });
+  Logger.log('HTTP status code: ' + res.getResponseCode());
+  Logger.log('Response body: ' + res.getContentText().slice(0, 1000));
+}
+
 /**
  * CHẠY 1 LẦN — chỉ để dò thông tin cần thiết trước khi bật tính năng "đẩy đơn tự động vào hệ thống".
  * Lấy danh sách: payment methods (COD/CK là ID mấy), shipping methods (dùng ID nào),

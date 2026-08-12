@@ -281,6 +281,18 @@
       .price-save{font-size:.72rem;padding:.2rem .45rem;white-space:nowrap}
       .price-old{font-size:.85rem}
     }
+    /* Tắt backdrop-filter:blur trên mobile để lướt trang mượt hơn (tốn hiệu năng nhất trong các
+       thuộc tính CSS, đang lặp lại ở ~9 khối "kính mờ" lớn) — giữ nguyên hiệu ứng ở desktop. */
+    @media(max-width:768px){
+      .price-hero,.problem-item,.promise-card,.proof-card,.ingredient-card,
+      .offer-box,.form-container,.faq-item,header.scrolled{
+        backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+      }
+      .price-hero,.problem-item,.promise-card,.proof-card,.ingredient-card,
+      .offer-box,.form-container,.faq-item{
+        background:rgba(246,251,250,.97);
+      }
+    }
     .hero-trust{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;margin-top:1rem;justify-items:start;justify-content:center}
     .hero-trust-item{display:flex;align-items:flex-start;gap:.4rem;font-size:.85rem;color:var(--text-secondary)}
     .hero-trust-item svg{color:var(--primary);flex-shrink:0}

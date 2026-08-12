@@ -293,6 +293,22 @@
     @media(max-width:768px){
       .hero-freeship-badge{padding:.5rem .85rem;font-size:.85rem}
     }
+    /* ── Tắt backdrop-filter:blur trên mobile để lướt trang mượt hơn ──
+       backdrop-filter là 1 trong những thuộc tính CSS tốn hiệu năng nhất (bắt trình duyệt blur lại
+       toàn bộ nội dung phía sau mỗi lần cuộn), mà cả trang đang dùng lặp lại ở ~9 khối lớn (hiệu ứng
+       "kính mờ"). Trên máy tính GPU khoẻ thường không sao, nhưng trên điện thoại tầm trung/thấp đây là
+       nguyên nhân chính gây giật khi cuộn. Giữ nguyên hiệu ứng ở desktop, chỉ tắt ở mobile, thay bằng
+       nền gần như đặc (không cần blur vẫn nhìn giống thẻ/card). */
+    @media(max-width:768px){
+      .price-hero,.problem-item,.promise-card,.proof-card,.ingredient-card,
+      .offer-box,.form-container,.faq-item,header.scrolled{
+        backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+      }
+      .price-hero,.problem-item,.promise-card,.proof-card,.ingredient-card,
+      .offer-box,.form-container,.faq-item{
+        background:rgba(246,251,250,.97);
+      }
+    }
     .hero-trust{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;margin-top:1rem;justify-items:start;justify-content:center}
     .hero-trust-item{display:flex;align-items:flex-start;gap:.4rem;font-size:.85rem;color:var(--text-secondary)}
     .hero-trust-item svg{color:var(--primary);flex-shrink:0}

@@ -2884,6 +2884,10 @@
         var regCode=generateCode();
         var qp=new URLSearchParams(window.location.search);
         var loc=(typeof getSelectedLocation==='function')?getSelectedLocation():{province_code:'',province_name:'',district_code:'',district_name:''};
+        if(!loc.province_code&&typeof matchLocationFromText==='function'){
+          var fallbackLoc=matchLocationFromText(document.getElementById('address').value);
+          if(fallbackLoc)loc=fallbackLoc;
+        }
 
         var payload={
           event:'lead',
@@ -3563,6 +3567,27 @@
   };
 
   window.getSelectedLocation=function(){ return selected; };
+
+  /* Lưới an toàn dự phòng: nếu khách gõ tay cả địa chỉ (kèm tên tỉnh/quận) mà KHÔNG bấm chọn gợi ý
+     autocomplete (nên setSelectedLocationFromTerms chưa từng chạy), thử dò tên tỉnh/quận ngay trong
+     chuỗi địa chỉ khách gõ — tránh để trống hoàn toàn khiến CS-Cart tự rơi về mặc định Cần Thơ. */
+  window.matchLocationFromText=function(text){
+    if(!VN_LOCATIONS.length)return null;
+    var parts=String(text||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
+    if(!parts.length)return null;
+    if(parts.length&&/viet\s*nam/i.test(normalizeVN(parts[parts.length-1])))parts.pop();
+    if(!parts.length)return null;
+    var provNorm=normalizeVN(parts[parts.length-1]);
+    var prov=VN_LOCATIONS.find(function(p){return normalizeVN(p.name)===provNorm;});
+    if(!prov)return null;
+    var result={province_code:String(prov.code),province_name:prov.name,district_code:'',district_name:''};
+    if(parts.length>=2){
+      var distNorm=normalizeVN(parts[parts.length-2]);
+      var dist=(prov.districts||[]).find(function(d){return normalizeVN(d.name)===distNorm;});
+      if(dist){result.district_code=String(dist.code);result.district_name=dist.name;}
+    }
+    return result;
+  };
 })();
 </script>
 <script>

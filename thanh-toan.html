@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://sgtm.trungsoncare.com/gtm.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','id=GTM-WR8BMRNK');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán Đơn Hàng - Hồng Sâm Dongwha | Trung Sơn Care</title>
+  <meta name="description" content="Hoàn tất đặt hàng Hồng Sâm Dongwha - Quét mã QR VietQR chuyển khoản nhanh chóng, an toàn, được dược sĩ Trung Sơn xác nhận.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/png" href="img/asset-1.webp">
+  <link rel="apple-touch-icon" href="img/asset-2.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1353204000286435');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    html,body{overflow-x:hidden!important;max-width:100vw}
+    :root{
+      --primary:#0F5C4A;--secondary:#2F8F6F;
+      --gradient:linear-gradient(135deg,#0F5C4A 0%,#2F8F6F 100%);
+      --gradient-soft:linear-gradient(135deg,rgba(15,92,74,0.10),rgba(47,143,111,0.12));
+      --bg-primary:#f6fbfa;--bg-secondary:#eaf6f2;--bg-tertiary:#e3f2ec;
+      --text-primary:#1d3b33;--text-secondary:#2b5f4f;--text-muted:#5a8a7a;
+      --glass-bg:rgba(246,251,250,0.78);
+      --glass-shadow:0 8px 32px rgba(15,92,74,0.10);
+      --glass-inset:inset 0 1px 0 rgba(255,255,255,0.7);
+      --blob-opacity:0;--accent:#1B6B52;--accent-soft:rgba(27,107,82,0.12);--accent-gradient:linear-gradient(135deg,#1B6B52,#2F8F6F);
+      --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-2xl:24px;--radius-pill:50px;
+      --transition-normal:.3s ease;--transition-smooth:.4s cubic-bezier(.4,0,.2,1);--transition-slow:.8s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+    .gradient-text{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .reveal{opacity:0;transform:translateY(30px);transition:all var(--transition-slow)}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    .section-tag{display:inline-block;background:var(--gradient-soft);color:var(--primary);padding:.5rem 1rem;border-radius:var(--radius-pill);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
+    .section-header{text-align:center;max-width:700px;margin:0 auto 4rem}
+    .section-header h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+    .section-header p{color:var(--text-secondary);font-size:1.1rem}
+
+    /* Urgency bar */
+    .urgency-bar{background:var(--gradient);color:#fff;text-align:center;padding:.6rem 1rem;font-size:.88rem;font-weight:600;position:fixed;top:0;left:0;width:100%;z-index:1003}
+    .urgency-bar span{opacity:1}
+
+    /* Blobs */
+    .bg-decoration{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+    .bg-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:var(--blob-opacity);animation:blobFloat 20s ease-in-out infinite}
+    .bg-blob-1{width:600px;height:600px;background:var(--primary);top:-200px;right:-200px}
+    .bg-blob-2{width:500px;height:500px;background:var(--secondary);bottom:-150px;left:-150px;animation-delay:-7s}
+    .bg-blob-3{width:400px;height:400px;background:var(--gradient);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-30px) scale(1.05)}50%{transform:translate(-20px,20px) scale(.95)}75%{transform:translate(-30px,-20px) scale(1.02)}}
+
+    /* Header */
+    /* ── ANNOUNCEMENT BAR ── */
+
+    header{position:fixed;top:0;left:0;width:100%;z-index:1002;padding:.35rem 0;transition:background .3s,box-shadow .3s;background:#fff;box-shadow:0 2px 16px rgba(180,83,9,0.10);}
+    
+    header.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(180,83,9,0.14)}
+    .header-container{max-width:1400px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:.25rem}
+    .logo{text-decoration:none;display:flex;align-items:center;padding-right:0}
+    .logo-img{height:56px;width:auto;display:block;object-fit:contain}
+    .header-actions{display:flex;align-items:center;gap:.75rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient);color:#fff;padding:.9rem 1.75rem;border-radius:var(--radius-pill);text-decoration:none;font-weight:700;box-shadow:0 4px 16px rgba(180,83,9,.3);transition:all .3s;border:none;cursor:pointer;font-family:inherit;font-size:1rem;position:relative;overflow:hidden}
+    .btn-header-cta::after,.btn-primary::after,.form-submit::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 20%,rgba(255,255,255,0.45) 50%,rgba(255,255,255,0) 80%,transparent 100%);transform:skewX(-20deg);animation:btnShimmer 2s linear infinite;pointer-events:none}
+    @keyframes btnShimmer{0%{left:-100%}100%{left:160%}}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(180,83,9,.4)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--text-primary);padding:.9rem 1.75rem;border-radius:var(--radius-pill);text-decoration:none;font-weight:700;box-shadow:0 4px 16px rgba(180,83,9,.12);transition:all .3s;border:none;cursor:pointer;font-family:inherit;font-size:1rem}
+    .btn-secondary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(180,83,9,.2)}
+    .nav-menu{display:flex;align-items:center;gap:.25rem;margin-right:.5rem}
+    .nav-link{padding:.55rem .9rem;border-radius:var(--radius-pill);color:#1e293b;text-decoration:none;font-size:.9rem;font-weight:600;transition:all .25s;white-space:nowrap}
+    .nav-link:hover{color:var(--primary);background:rgba(180,83,9,0.07)}
+    .nav-link.active{color:var(--primary);font-weight:700}
+    .menu-toggle{display:none;width:40px;height:40px;border-radius:50%;border:none;background:var(--bg-tertiary);color:var(--text-primary);cursor:pointer;align-items:center;justify-content:center;transition:all .3s}
+    .menu-toggle:hover{color:var(--primary)}
+    .mobile-nav{position:fixed;top:0;right:0;width:280px;max-width:85vw;height:100vh;background:var(--bg-primary);box-shadow:-10px 0 40px rgba(0,0,0,.15);z-index:1100;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:5rem 1.5rem 2rem}
+    .mobile-nav.open{transform:translateX(0)}
+    .mobile-nav .nav-link{padding:1rem;border-radius:var(--radius-md);font-size:1.05rem;font-weight:600;color:var(--text-primary)}
+    .mobile-nav .btn-primary{margin-top:1rem;justify-content:center}
+    .mobile-nav-close{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:50%;border:none;background:var(--bg-tertiary);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center}
+    .mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:1050;opacity:0;pointer-events:none;transition:opacity .3s}
+    .mobile-overlay.open{opacity:1;pointer-events:auto}
+    @media(max-width:1024px){.nav-menu{display:none}.menu-toggle{display:flex}}
+    @media(max-width:768px){.btn-header-cta{display:none}}
+
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:4rem 2rem 5rem;position:relative;overflow:hidden}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(19,103,53,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(19,103,53,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);pointer-events:none}
+    .hero-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 480px;align-items:center;gap:2rem;position:relative;z-index:1}
+    .hero-text{text-align:left}
+    .hero-mascot-wrap{display:flex;justify-content:center;align-items:flex-end;position:relative;padding-top:0;margin-top:-2rem}
+    .hero-mascot-img{width:100%;max-width:760px;height:auto;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.18));animation:mascotFloat 3.5s ease-in-out infinite}
+    @keyframes mascotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-soft);color:var(--primary);padding:.5rem 1.2rem;border-radius:var(--radius-pill);font-size:.85rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 4px 15px rgba(19,103,53,.15)}
+    .hero h1{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.5rem}
+    .hero-desc{font-size:1.15rem;color:var(--text-secondary);max-width:680px;margin:0 auto 1rem}
+    .hero-sub{font-size:.95rem;color:var(--text-muted);margin-bottom:2.5rem}
+    .hero-cta{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap;margin-bottom:3rem}
+    .price-hero{display:inline-flex;align-items:center;gap:.75rem;background:var(--glass-bg);backdrop-filter:blur(20px);padding:.75rem 1.5rem;border-radius:var(--radius-pill);box-shadow:var(--glass-shadow)}
+    .price-old{text-decoration:line-through;color:var(--text-muted);font-size:1rem}
+    .price-new{font-size:1.5rem;font-weight:800;color:var(--primary)!important}
+    .price-save{background:#ef4444!important;color:#fff;font-size:.8rem;font-weight:700;padding:.25rem .6rem;border-radius:var(--radius-pill)}
+    @media(max-width:768px){
+      .price-hero{flex-wrap:wrap;gap:.3rem .5rem;padding:.5rem .85rem;align-items:center}
+      .price-save{font-size:.72rem;padding:.2rem .45rem;white-space:nowrap}
+      .price-old{font-size:.85rem}
+    }
+    .hero-trust{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;margin-top:1rem;justify-items:start;justify-content:center}
+    .hero-trust-item{display:flex;align-items:flex-start;gap:.4rem;font-size:.85rem;color:var(--text-secondary)}
+    .hero-trust-item svg{color:var(--primary);flex-shrink:0}
+
+    /* Stats bar */
+    .stats-bar{padding:3rem 2rem;background:var(--bg-secondary)}
+    .stats-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+    .stat-item .stat-num{font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .stat-item .stat-label{font-size:.85rem;color:var(--text-muted);margin-top:.25rem}
+
+    /* Problem section */
+    .problem-section{padding:6rem 2rem;background:var(--bg-primary)}
+    .problem-section .section-header{max-width:1100px}
+    .problem-section .section-header h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+    .problem-section .section-header p{font-size:.9rem}
+    .problem-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .problem-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:2rem}
+    .problem-item{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-lg);box-shadow:var(--glass-shadow)}
+    .problem-icon{width:44px;height:44px;border-radius:var(--radius-md);background:rgba(239,68,68,.1);color:#ef4444;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .problem-text h4{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+    .problem-text p{font-size:.9rem;color:var(--text-secondary);line-height:1.5}
+    .cost-box{background:var(--gradient-soft);border-radius:var(--radius-xl);padding:2rem;margin-top:2rem}
+    .cost-box h4{font-weight:700;margin-bottom:.75rem;color:var(--primary)}
+    .cost-box p{color:var(--text-secondary);font-size:.95rem;line-height:1.7}
+    .cost-highlight{font-weight:700;color:var(--text-primary)}
+
+    /* Promise section */
+    .promise-section{padding:6rem 2rem;background:var(--bg-secondary)}
+    .promise-grid{max-width:1100px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .promise-card{background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-2xl);box-shadow:var(--glass-shadow);padding:2rem;position:relative}
+    .promise-num{position:absolute;top:-18px;right:1.5rem;width:44px;height:44px;border-radius:50%;background:var(--gradient);color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(180,83,9,.3)}
+    .promise-icon{width:56px;height:56px;border-radius:var(--radius-xl);background:var(--gradient);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+    .promise-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.75rem;padding-right:2rem}
+    .promise-card p{color:var(--text-secondary);font-size:.92rem;line-height:1.65}
+    .mechanism-box{max-width:800px;margin:2.5rem auto 0;background:var(--gradient-soft);border-radius:var(--radius-xl);padding:2rem}
+    .mechanism-box h4{font-weight:700;color:var(--primary);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+    .mechanism-box p{color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+
+    /* Proof section */
+    .proof-section{padding:6rem 2rem;background:var(--bg-primary)}
+    .proof-tiers{max-width:1100px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .proof-card{background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-2xl);box-shadow:var(--glass-shadow);padding:2rem;text-align:center}
+    .proof-card .tier-label{display:inline-block;background:var(--gradient);color:#fff;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:var(--radius-pill);margin-bottom:1rem;letter-spacing:.5px;text-transform:uppercase}
+    .proof-card .tier-icon{width:64px;height:64px;border-radius:50%;background:var(--gradient-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+    .proof-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.75rem}
+    .proof-card p{color:var(--text-secondary);font-size:.9rem;line-height:1.65}
+    .proof-stat{font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.25rem}
+
+    /* ── EVENT PHOTOS GALLERY ── */
+    .proof-event-gallery{max-width:1100px;margin:3rem auto 0;padding:0 1rem}
+    .proof-event-label{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--primary);margin-bottom:1.25rem;opacity:.75}
+    .proof-event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch}
+    .proof-event-item{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/5;box-shadow:0 8px 28px rgba(0,0,0,.13);transition:transform .3s,box-shadow .3s;display:block;text-decoration:none}
+    .proof-event-item img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s}
+    .proof-event-item:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.2)}
+    .proof-event-item:hover img{transform:scale(1.04)}
+    .proof-event-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.3) 60%,transparent 100%);color:#fff;font-size:.74rem;font-weight:600;padding:2rem .85rem .75rem;line-height:1.4}
+    .proof-event-link-hint{position:absolute;top:.65rem;right:.65rem;background:rgba(0,0,0,.45);color:#fff;font-size:.65rem;font-weight:600;padding:.2rem .5rem;border-radius:50px;backdrop-filter:blur(4px);display:flex;align-items:center;gap:.25rem}
+    @media(max-width:768px){
+      .proof-event-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+    }
+    @media(max-width:480px){
+      .proof-event-grid{grid-template-columns:1fr 1fr;gap:.5rem}
+      .proof-event-item{aspect-ratio:3/4}
+    }
+
+    /* Trust banner */
+    .trust-banner{padding:2.5rem 2rem;background:var(--bg-secondary)}
+    .trust-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+    .trust-item{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+    .trust-item .icon-circle{width:52px;height:52px;border-radius:50%;background:var(--gradient);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto}
+    .trust-item span{font-size:.88rem;font-weight:600;color:var(--text-secondary)}
+    .trust-item small{font-size:.78rem;color:var(--text-muted)}
+
+    /* Brand Video */
+    .brand-video-section{padding:5rem 1.5rem;background:linear-gradient(180deg,#f8fffe 0%,#f0fff4 100%)}
+    .bv-inner{max-width:760px;margin:0 auto;text-align:center}
+    .bv-video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,.18);margin-bottom:2rem}
+    .bv-video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:16px}
+    .bv-badges{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .bv-badge{background:#fff;border:1px solid #ffe4c4;border-radius:12px;padding:.75rem 1.25rem;min-width:90px;text-align:center;box-shadow:0 2px 8px rgba(249,115,22,.08)}
+    .bv-badge-num{display:block;font-size:1.25rem;font-weight:900;color:#f97316;line-height:1.1}
+    .bv-badge-lbl{display:block;font-size:.7rem;color:#64748b;margin-top:.2rem;font-weight:600}
+    @media(max-width:600px){.bv-badges{gap:.65rem}.bv-badge{padding:.6rem .85rem;min-width:72px}.bv-badge-num{font-size:1.1rem}}
+
+    /* Ingredients */
+    .ingredients-section{padding:6rem 2rem;background:var(--bg-primary)}
+    .ingredients-grid{max-width:1000px;margin:2.5rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .ingredient-card{background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-lg);box-shadow:var(--glass-shadow);padding:1.25rem;display:flex;align-items:center;gap:.9rem}
+    .ingredient-dot{width:10px;height:10px;border-radius:50%;background:var(--gradient);flex-shrink:0}
+    .ingredient-card h4{font-size:.92rem;font-weight:700;margin-bottom:.15rem}
+    .ingredient-card p{font-size:.8rem;color:var(--text-muted);line-height:1.4}
+
+    /* Offer section */
+    .offer-section{padding:6rem 2rem;background:var(--bg-secondary)}
+    .offer-box{max-width:700px;margin:3rem auto 0;background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-2xl);box-shadow:0 25px 80px rgba(180,83,9,.12),0 0 0 1px rgba(180,83,9,.08);padding:3rem;text-align:center}
+    .offer-tag{display:inline-block;background:#ef4444;color:#fff;font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:var(--radius-pill);margin-bottom:1rem;letter-spacing:.5px}
+    .offer-product{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+    .offer-spec{color:var(--text-muted);font-size:.9rem;margin-bottom:1.5rem}
+    .offer-price{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap}
+    .offer-price-old{font-size:1.25rem;color:var(--text-muted);text-decoration:line-through}
+    .offer-price-new{font-size:2.5rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .offer-price-badge{background:#ef4444;color:#fff;font-size:1rem;font-weight:800;padding:.45rem 1rem;border-radius:50px;letter-spacing:.5px}
+    .offer-save{font-size:.95rem;color:var(--text-secondary);margin-bottom:1.5rem}
+    .offer-save strong{color:var(--primary)}
+    .offer-deadline{font-size:.9rem;color:#ef4444;font-weight:600;margin-bottom:2rem}
+    .offer-risks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:2rem 0}
+    .offer-risk-item{display:flex;align-items:flex-start;gap:.6rem;text-align:left}
+    .offer-risk-item svg{color:var(--primary);flex-shrink:0;margin-top:.1rem}
+    .offer-risk-item p{font-size:.82rem;color:var(--text-secondary);line-height:1.5}
+
+    /* Form section */
+    .form-section{padding:6rem 2rem;background:var(--bg-primary)}
+    .form-wrapper{max-width:620px;margin:0 auto}
+    .form-container{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-radius:var(--radius-2xl);box-shadow:var(--glass-shadow),var(--glass-inset);padding:2.5rem}
+    .form-title{text-align:center;margin-bottom:1.75rem}
+    .form-title h3{font-size:1.5rem;font-weight:700;margin-bottom:.4rem}
+    .form-title p{color:var(--text-secondary);font-size:.95rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .form-group{margin-bottom:1.1rem}
+    /* TrackAsia Address Autocomplete */
+    .address-ac-wrap{position:relative}
+    .address-ac-wrap input{width:100%}
+    .address-suggestions{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #cbd5e1;border-top:none;border-radius:0 0 10px 10px;box-shadow:0 6px 20px rgba(0,0,0,.13);z-index:9999;max-height:260px;overflow-y:auto;display:none}
+    .address-suggestions.show{display:block}
+    .sug-item{padding:.6rem 1rem;cursor:pointer;border-bottom:1px solid #f1f5f9;transition:background .12s}
+    .sug-item:last-child{border-bottom:none}
+    .sug-item:hover,.sug-item.active{background:#f0fdf4}
+    .sug-main{font-weight:600;font-size:.87rem;color:#1e293b}
+    .sug-sub{font-size:.76rem;color:#64748b;margin-top:.1rem}
+    .form-group label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.88rem;color:var(--text-primary)}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:.8rem .95rem;background:var(--bg-primary);color:var(--text-primary);border:1.5px solid var(--bg-tertiary);border-radius:var(--radius-md);font-family:inherit;font-size:1rem;transition:all .3s}
+    .form-group textarea{min-height:80px;resize:vertical}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(180,83,9,.1)}
+    .form-group input.error,.form-group select.error{border-color:#ef4444}
+    .form-error{display:none;color:#ef4444;font-size:.8rem;margin-top:.3rem}
+    .form-group.has-error .form-error{display:block}
+    .hp-field{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+    .form-submit{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--gradient);color:#fff;border:none;padding:1.1rem 1.5rem;border-radius:var(--radius-pill);font-family:inherit;font-weight:700;font-size:1.05rem;cursor:pointer;transition:all .3s;box-shadow:0 4px 16px rgba(180,83,9,.3);margin-top:.75rem;position:relative;overflow:hidden}
+    .form-submit:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(180,83,9,.4)}
+    .form-submit:disabled{opacity:.7;cursor:not-allowed;transform:none}
+    .form-submit .spinner{display:none}
+    .form-submit.loading .btn-text,.form-submit.loading .btn-icon{display:none}
+    .form-submit.loading .spinner{display:block;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes btnShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+    .form-submit.shake{animation:btnShake .4s ease}
+    .form-fields.hidden{display:none}
+    .payment-qr{display:none;animation:fadeInUp .5s ease}
+    .payment-qr.active{display:block}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .payment-qr>h3,.payment-qr>p{text-align:center}
+    .qr-image-wrapper{text-align:center;padding:1.25rem;background:#fff;border-radius:var(--radius-lg);margin:1rem 0}
+    .qr-image-wrapper img{max-width:240px;width:100%}
+    .bank-info{background:var(--bg-tertiary);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1rem}
+    .bank-info-row{display:flex;justify-content:space-between;padding:.45rem 0;font-size:.92rem}
+    .bank-info-label{color:var(--text-muted)}
+    .bank-info-value{font-weight:600;color:var(--text-primary)}
+    .copy-btn{background:var(--gradient);color:#fff;border:none;padding:.25rem .6rem;border-radius:var(--radius-sm);cursor:pointer;font-size:.78rem;font-family:inherit;font-weight:600;margin-left:.4rem}
+    .payment-note{font-size:.82rem;color:var(--text-muted);text-align:center;margin-bottom:1rem}
+    .payment-confirmed{display:none;text-align:center;padding:2rem 0}
+    .payment-confirmed.active{display:block;animation:fadeInUp .5s ease}
+    .confirmed-icon{width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;background:var(--gradient);color:#fff;display:flex;align-items:center;justify-content:center;animation:pop .6s cubic-bezier(.5,1.6,.4,1)}
+    @keyframes pop{0%{transform:scale(0)}80%{transform:scale(1.1)}100%{transform:scale(1)}}
+    .check-payment-btn{width:100%;margin-top:1rem;padding:.85rem;background:var(--bg-tertiary);color:var(--text-primary);border:none;border-radius:var(--radius-pill);font-family:inherit;font-weight:600;cursor:pointer;transition:all .3s;font-size:.95rem}
+    .check-payment-btn:hover{background:var(--gradient);color:#fff}
+    .check-payment-btn:disabled{opacity:.7;cursor:not-allowed}
+    .payment-status-msg{margin-top:.75rem;padding:.75rem 1rem;border-radius:var(--radius-md);font-size:.88rem;text-align:center}
+    .payment-status-msg.error{background:rgba(239,68,68,.1);color:#ef4444}
+    .payment-status-msg.success{background:rgba(34,197,94,.1);color:#22c55e}
+
+    /* FAQ */
+    .faq-section{padding:6rem 2rem;background:var(--bg-secondary)}
+    .faq-list{max-width:760px;margin:3rem auto 0;display:flex;flex-direction:column;gap:1rem}
+    .faq-item{background:var(--glass-bg);backdrop-filter:blur(20px);border-radius:var(--radius-lg);box-shadow:var(--glass-shadow);overflow:hidden}
+    .faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:none;border:none;font-family:inherit;font-size:1rem;font-weight:600;color:var(--text-primary);cursor:pointer;text-align:left}
+    .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--gradient-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
+    .faq-item.open .faq-icon{transform:rotate(180deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+    .faq-item.open .faq-answer{max-height:300px}
+    .faq-answer p{padding:0 1.5rem 1.25rem;color:var(--text-secondary);font-size:.95rem;line-height:1.7}
+
+    /* Final CTA */
+    .final-cta{padding:6rem 2rem;background:var(--gradient);text-align:center;position:relative;overflow:hidden}
+    .final-cta::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .final-cta h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;margin-bottom:1rem;position:relative}
+    .final-cta p{color:rgba(255,255,255,.85);font-size:1.1rem;margin-bottom:2.5rem;position:relative}
+    .final-cta .btn-cta-white{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--primary);padding:1rem 2.5rem;border-radius:var(--radius-pill);text-decoration:none;font-weight:800;font-size:1.05rem;box-shadow:0 6px 24px rgba(0,0,0,.15);transition:all .3s;position:relative}
+    .final-cta .btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.2)}
+
+    /* Footer */
+    footer{padding:3.5rem 2rem 0;background:var(--bg-primary);border-top:1px solid rgba(180,83,9,.1)}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:2.5rem;padding-bottom:2.5rem}
+    .footer-col-brand .footer-brand{font-size:1.25rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem}
+    .footer-col-brand .footer-tagline{color:var(--text-muted);font-size:.85rem;margin-bottom:1.1rem}
+    .footer-col-brand .footer-contact-list{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.55rem}
+    .footer-col-brand .footer-contact-list li a{color:var(--text-secondary);text-decoration:none;font-size:.88rem;display:flex;align-items:center;gap:.45rem;transition:color .3s}
+    .footer-col-brand .footer-contact-list li a:hover{color:var(--primary)}
+    .footer-social{display:flex;gap:.6rem;margin-bottom:1.1rem}
+    .footer-social a{width:34px;height:34px;border-radius:50%;background:var(--bg-tertiary);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);text-decoration:none;transition:all .3s;font-size:.8rem;font-weight:700}
+    .footer-social a:hover{background:var(--primary);color:#fff}
+    .footer-bct{font-size:.75rem;color:var(--text-muted);line-height:1.5}
+    .footer-col-title{font-size:.82rem;font-weight:700;color:var(--text-primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.9rem}
+    .footer-nav-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.55rem}
+    .footer-nav-list a{color:var(--text-secondary);text-decoration:none;font-size:.88rem;transition:color .3s}
+    .footer-nav-list a:hover{color:var(--primary)}
+    .footer-col-contact .footer-col-title{margin-bottom:.9rem}
+    .footer-col-contact p{font-size:.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:.5rem}
+    .footer-col-contact strong{color:var(--primary)}
+    .footer-copy-row{max-width:1200px;margin:0 auto;padding:.75rem 0;text-align:center}
+    .footer-copy{color:var(--text-muted);font-size:.8rem}
+    .footer-bottom{border-top:1px solid rgba(0,0,0,.07)}
+    .footer-bottom-links{max-width:100%;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+    .footer-bottom-links a{color:var(--text-muted);text-decoration:none;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:1rem 0;transition:color .3s}
+    .footer-bottom-links a:hover{color:var(--primary)}
+    .footer-bottom-links a:hover{color:var(--primary)}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+
+    /* Floating buttons */
+    .floating-btns{position:fixed;bottom:2rem;right:1.5rem;display:flex;flex-direction:column;gap:.75rem;z-index:999}
+    .fb-btn{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.15);transition:all .3s}
+    .fb-btn:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.2)}
+    .fb-zalo{background:var(--gradient);color:#fff}
+    .fb-phone{background:var(--gradient);color:#fff}
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .problem-grid{grid-template-columns:1fr}
+      .promise-grid{grid-template-columns:1fr 1fr}
+      .proof-tiers{grid-template-columns:1fr 1fr}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}
+      .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+      .ingredients-grid{grid-template-columns:1fr 1fr}
+      .offer-risks{grid-template-columns:1fr}
+    }
+    @media(max-width:768px){
+      .hero{padding:1rem 1rem 3.5rem}
+      .hero-container{grid-template-columns:1fr;text-align:center}
+      .hero-text{text-align:center}
+      .hero-mascot-wrap{order:0}
+      .hero-mascot-img{max-width:200px;margin:0 auto}
+      .hero h1{font-size:clamp(1.85rem,7vw,2.5rem)}
+      .hero-desc{font-size:1rem}
+      .hero-cta{flex-direction:row;align-items:center;padding:0 .5rem;flex-wrap:wrap;justify-content:center}
+      .hero-cta{flex-direction:row!important;flex-wrap:wrap!important;gap:.5rem}
+      .hero-cta .btn-primary,.hero-cta .btn-secondary{flex:0 0 auto;justify-content:center;padding:.65rem 1rem;font-size:.85rem;white-space:nowrap}
+      .hero-trust{gap:.75rem}
+      .promise-grid{grid-template-columns:1fr}
+      .proof-tiers{grid-template-columns:1fr}
+      .ingredients-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .form-section{padding:4rem 1rem}
+      .form-container{padding:1.5rem}
+      .offer-box{padding:2rem 1.25rem}
+      .offer-price-new{font-size:2rem}
+      .bank-info-row{flex-direction:column;gap:.2rem}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .problem-section,.promise-section,.proof-section,.ingredients-section,.offer-section,.faq-section{padding:4rem 1rem}
+      .section-header{margin-bottom:2.5rem}
+      .bg-blob-1{width:300px;height:300px;top:-100px;right:-100px}
+      .bg-blob-2{width:250px;height:250px;bottom:-80px;left:-80px}
+      .form-group input,.form-group select,.form-group textarea{font-size:16px}
+    }
+    @media(max-width:480px){
+      .hero{padding:2.5rem .75rem 3rem}
+      .hero-mascot-img{max-width:200px}
+      .hero h1{font-size:1.7rem;line-height:1.2}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .qr-image-wrapper img{max-width:200px}
+      .confirmed-icon{width:60px;height:60px}
+    }
+  
+    /* ===== ORDER BUMP ===== */
+    .order-bump{margin:1.25rem 0;border:2px dashed var(--accent,#f48120);border-radius:var(--radius-lg);overflow:hidden;transition:border-color .3s}
+    .order-bump.checked{border-color:var(--primary);background:rgba(180,83,9,.06)}
+    .order-bump-header{background:var(--accent,#f48120);color:#fff;padding:.45rem 1rem;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:.4rem}
+    .order-bump-body{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.1rem}
+    .order-bump-check{display:flex;align-items:flex-start;padding-top:.15rem}
+    .order-bump-check input[type=checkbox]{width:20px;height:20px;cursor:pointer;accent-color:var(--primary);flex-shrink:0;margin:0}
+    .order-bump-img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff8f0;flex-shrink:0;border:1px solid rgba(244,129,32,.2)}
+    .order-bump-info{flex:1}
+    .order-bump-name{font-weight:700;font-size:.95rem;color:var(--text-primary);margin-bottom:.25rem;line-height:1.35}
+    .order-bump-desc{font-size:.84rem;color:var(--text-secondary);margin-bottom:.4rem;line-height:1.5}
+    .order-bump-price{display:flex;align-items:center;gap:.5rem}
+    .order-bump-price-old{text-decoration:line-through;color:var(--text-muted);font-size:.86rem}
+    .order-bump-price-new{font-weight:800;color:var(--primary);font-size:1.05rem}
+    .order-bump-save{background:#f48120;color:#fff;font-size:.75rem;font-weight:700;padding:.15rem .5rem;border-radius:50px}
+    .order-bump label{cursor:pointer;display:flex;align-items:flex-start;gap:.75rem;width:100%}
+    
+
+    /* ===== WORLD CUP 2026 FULL-SITE ===== */
+    :root{
+      --wc-red:#C8102E; --wc-blue:#0A3161; --wc-gold:#f48120;
+      --wc-gradient:linear-gradient(135deg,#C8102E,#0A3161);
+    }
+
+    /* === FLOATING FOOTBALL SCROLL COMPANION === */
+    .wc-float-ball{
+      position:fixed; right:1.5rem; bottom:6rem; z-index:900;
+      width:52px; height:52px; border-radius:50%;
+      background:linear-gradient(135deg,#f48120,#e06800); color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem; box-shadow:0 4px 20px rgba(0,0,0,.35);
+      cursor:pointer; text-decoration:none;
+      animation:wcPulse 2.5s ease-in-out infinite;
+      transition:transform .25s;
+    }
+    .wc-float-ball:hover{transform:scale(1.12) rotate(15deg)}
+    @keyframes wcPulse{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 0 rgba(0,0,0,.3)}60%{box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 14px rgba(0,0,0,0)}}
+
+    /* === WORLD CUP SECTION LABEL OVERRIDE === */
+    .wc-section-label{
+      display:inline-flex; align-items:center; gap:.45rem;
+      background:linear-gradient(135deg,rgba(200,16,46,.08),rgba(10,49,97,.08));
+      color:var(--wc-red); border:1px solid rgba(200,16,46,.2);
+      padding:.3rem .9rem; border-radius:50px; font-size:.78rem; font-weight:700;
+    }
+
+    /* === WC RIBBON on trusted stats === */
+    .stats-section{position:relative; overflow:hidden}
+    .stats-section::before{
+      content:'🌊 MÙA HÈ BIỂN XANH 2026 🌊';
+      position:absolute; top:0; left:0; right:0;
+      background:linear-gradient(90deg,transparent,rgba(200,16,46,.08),rgba(10,49,97,.08),transparent);
+      color:rgba(200,16,46,.5); font-size:.7rem; font-weight:700; letter-spacing:2px;
+      text-align:center; padding:.35rem 0;
+      border-bottom:1px dashed rgba(200,16,46,.15);
+    }
+
+    /* === WC GOLD accents on section numbers / highlights === */
+    .stat-number,.hero-badge,.proof-number{
+      background:linear-gradient(135deg,var(--primary),var(--wc-gold));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    /* === BEAR MASCOT CARD decoration === */
+    .bear-mascot-strip{
+      background:linear-gradient(135deg,#052e3d 0%,#0b4a5c 55%,#062229 100%);
+      padding:3.5rem 2rem; position:relative; overflow:hidden;
+    }
+    .bear-mascot-strip::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 20% 30%,rgba(249,115,22,.18),transparent 60%),
+                 radial-gradient(ellipse at 80% 70%,rgba(8,145,178,.22),transparent 60%);
+    }
+    .bear-strip-inner{
+      max-width:1200px; margin:0 auto; display:flex; align-items:center;
+      gap:2rem; flex-wrap:wrap; position:relative;
+    }
+    .bear-strip-cards{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem; flex:1; min-width:0;
+    }
+    .bear-card{
+      border-radius:16px; overflow:hidden;
+      position:relative; cursor:pointer;
+      box-shadow:0 8px 30px rgba(0,0,0,.4);
+      transition:transform .3s,box-shadow .3s;
+      border:2px solid rgba(255,255,255,.08);
+    }
+    .bear-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 16px 50px rgba(200,16,46,.3)}
+    .bear-card img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block;transition:transform .4s;background:#0a0a16}
+    .bear-card:hover img{transform:scale(1.06)}
+    .bear-card-label{
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(transparent,rgba(0,0,0,.8));
+      padding:1.5rem .75rem .6rem;
+      color:#fff; font-size:.78rem; font-weight:700; text-align:center;
+      text-shadow:0 1px 4px rgba(0,0,0,.8);
+    }
+    .bear-strip-copy{flex:0 0 300px; color:#fff}
+    .bear-strip-copy h3{font-size:1.6rem; font-weight:800; line-height:1.3; margin-bottom:.75rem}
+    .bear-strip-copy h3 span{color:var(--wc-gold)}
+    .bear-strip-copy p{opacity:.8; font-size:.92rem; line-height:1.6; margin-bottom:1.25rem}
+    .bear-strip-cta{
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:linear-gradient(135deg,var(--wc-red),var(--wc-blue));
+      color:#fff; padding:.75rem 1.75rem; border-radius:50px;
+      font-weight:700; text-decoration:none; font-size:.92rem;
+      box-shadow:0 4px 16px rgba(200,16,46,.4);
+      transition:all .3s;
+    }
+    .bear-strip-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,16,46,.5)}
+    @media(max-width:768px){
+      .bear-strip-inner{flex-direction:column}
+      .bear-strip-copy{flex:unset;text-align:center}
+      .bear-strip-cards{grid-template-columns:repeat(2,1fr)}
+      .bear-card img{aspect-ratio:1/1;height:auto}
+    }
+
+    /* === FOOTBALL FIELD DIVIDER === */
+    .wc-divider{
+      height:3px; background:linear-gradient(90deg,transparent,var(--wc-red) 20%,var(--wc-blue) 50%,var(--wc-gold) 80%,transparent);
+      margin:0; position:relative;
+    }
+
+    /* === PROOF / TESTIMONIAL WC accent === */
+    .proof-section .section-tag,
+    .trust-section .section-tag{
+      background:linear-gradient(135deg,rgba(200,16,46,.1),rgba(255,215,0,.1));
+      color:var(--wc-red); border-color:rgba(200,16,46,.2);
+    }
+
+    /* === HERO WC countdown style badge === */
+    .wc-hero-badge{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      background:linear-gradient(135deg,var(--wc-red),var(--wc-blue));
+      color:#fff; padding:.35rem .9rem; border-radius:50px;
+      font-size:.78rem; font-weight:700; letter-spacing:.3px;
+      box-shadow:0 3px 12px rgba(200,16,46,.4);
+      margin-bottom:.75rem; width:fit-content;
+    }
+
+    /* === WC tint on ingredients section === */
+    .ingredients-section{
+      background:linear-gradient(180deg,#f8fffe 0%,#f0fff4 100%);
+      position:relative;
+    }
+    .ingredients-section::after{
+      content:''; position:absolute; top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg,var(--wc-red),var(--primary),var(--wc-blue));
+    }
+
+    /* === OFFER section WC football accent === */
+    .offer-section{position:relative; overflow:hidden}
+    .offer-section::before{
+      content:'🌊'; position:absolute; right:-1rem; top:2rem;
+      font-size:8rem; opacity:.04; transform:rotate(-15deg);
+      pointer-events:none; z-index:0;
+    }
+    .offer-section::after{
+      content:'🐚'; position:absolute; left:-0.5rem; bottom:2rem;
+      font-size:6rem; opacity:.04; transform:rotate(15deg);
+      pointer-events:none; z-index:0;
+    }
+
+    /* === WC Footer ribbon === */
+    footer{border-top:3px solid transparent;border-image:linear-gradient(90deg,var(--wc-red),var(--wc-blue),var(--wc-gold)) 1}
+
+    /* ===== WORLD CUP 2026 original ===== */
+    @keyframes ballSpin{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-12px)}100%{transform:rotate(360deg) translateY(0)}}
+    @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+    @keyframes shimmer{0%,100%{opacity:.6}50%{opacity:1}}
+    @keyframes waveFlag{0%,100%{transform:skewX(0deg)}50%{transform:skewX(-3deg)}}
+
+    .wc-banner{background:linear-gradient(90deg,#f97316 0%,#0891b2 100%);color:#fff;padding:1rem 2rem;text-align:center;position:relative;overflow:hidden}
+    .wc-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='8' stroke='rgba(255,255,255,0.06)' stroke-width='1' fill='none'/%3E%3C/svg%3E") repeat;pointer-events:none}
+    .wc-inner{position:relative;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .wc-ball{font-size:1.4rem;animation:waveBob 2s ease-in-out infinite;display:inline-flex;align-items:center;vertical-align:middle}
+    @keyframes waveBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    .wc-title{font-size:1rem;font-weight:800;letter-spacing:.5px}
+    .wc-title span{color:#FFD700}
+    .wc-sub{font-size:.82rem;opacity:.85}
+
+    /* Confetti / pháo bông */
+    .confetti-wrap{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+    .confetti-piece{position:absolute;top:-16px;width:10px;height:14px;opacity:0;animation:confettiFall linear infinite}
+    .confetti-piece:nth-child(1){left:5%;background:#C8102E;animation-duration:3.2s;animation-delay:0s;transform:skewX(-10deg)}
+    .confetti-piece:nth-child(2){left:12%;background:#f48120;width:8px;height:12px;animation-duration:2.8s;animation-delay:.4s;transform:rotate(30deg)}
+    .confetti-piece:nth-child(3){left:22%;background:#0A3161;animation-duration:3.5s;animation-delay:.8s;border-radius:50%}
+    .confetti-piece:nth-child(4){left:33%;background:#fff;width:12px;height:8px;animation-duration:2.6s;animation-delay:1.2s;transform:rotate(-20deg)}
+    .confetti-piece:nth-child(5){left:45%;background:#f48120;animation-duration:3.8s;animation-delay:.2s;border-radius:2px}
+    .confetti-piece:nth-child(6){left:55%;background:#C8102E;width:7px;height:16px;animation-duration:3s;animation-delay:1.6s;transform:skewX(15deg)}
+    .confetti-piece:nth-child(7){left:66%;background:#f48120;animation-duration:2.9s;animation-delay:.6s;border-radius:50%}
+    .confetti-piece:nth-child(8){left:77%;background:#0A3161;width:11px;height:9px;animation-duration:3.4s;animation-delay:1s;transform:rotate(45deg)}
+    .confetti-piece:nth-child(9){left:88%;background:#fff;animation-duration:2.7s;animation-delay:1.4s;transform:skewX(-5deg)}
+    @keyframes confettiFall{
+      0%{transform:translateY(-20px) rotate(0deg);opacity:1}
+      80%{opacity:.8}
+      100%{transform:translateY(105vh) rotate(720deg);opacity:0}
+    }
+
+    /* Floating football in hero */
+    .hero-football{position:absolute;right:5%;top:30%;font-size:4rem;opacity:.12;animation:ballSpin 8s linear infinite;pointer-events:none;z-index:0}
+    .hero-football-2{position:absolute;left:3%;bottom:20%;font-size:2.5rem;opacity:.08;animation:ballSpin 12s linear infinite reverse;pointer-events:none;z-index:0}
+
+    /* World Cup badge on hero */
+    .wc-badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,#C8102E,#0A3161);color:#fff;padding:.35rem .9rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.3px;margin-left:.75rem;animation:shimmer 2s ease-in-out infinite}
+
+    /* Campaign section */
+    .campaign-section{padding:5rem 2rem;background:linear-gradient(180deg,#fff 0%,#f5f9f6 100%)}
+    .campaign-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:900px;margin:2rem auto 0}
+    @media(max-width:640px){.campaign-grid{grid-template-columns:1fr}}
+    .campaign-card{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;transition:transform .3s,box-shadow .3s;aspect-ratio:1/1;background:#150a12;border:2px solid rgba(200,16,46,.15)}
+    .campaign-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .campaign-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+    .campaign-card:hover img{transform:scale(1.05)}
+    .campaign-card-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:1.25rem 1rem .85rem;color:#fff}
+    .campaign-card-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#f48120;margin-bottom:.2rem}
+    .campaign-card-title{font-size:1rem;font-weight:800;line-height:1.3}
+    .campaign-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:linear-gradient(135deg,#150a12,#0A3161);color:rgba(255,255,255,.5);font-size:.88rem;padding:1.5rem;text-align:center}
+    .campaign-placeholder .ph-icon{font-size:2.5rem;opacity:.4}
+    .campaign-placeholder .ph-name{font-weight:700;color:rgba(255,255,255,.7);font-size:.95rem}
+    .campaign-placeholder .ph-hint{font-size:.78rem;opacity:.5;margin-top:.25rem}
+
+    
+    /* ===== MOBILE OPTIMIZATION ===== */
+    /* Orange accent utility */
+    .text-accent{color:var(--accent)!important}
+    .bg-accent{background:var(--accent-gradient)!important}
+
+    /* Stars rating — cam brand */
+    .star,.review-star,span[aria-label="sao"]{color:#f48120!important}
+
+    /* Prices — cam nổi bật */
+    .price-original,.offer-price-new,
+    .order-bump-price-new,.offer-price-wrapper .price{color:#f48120}
+    .offer-price-new{color:#f48120;-webkit-text-fill-color:#f48120;background:none}
+
+    /* Save badge — cam */
+    .save-badge,.discount-tag,.order-bump-save{background:var(--accent-gradient);color:#fff}
+
+    /* CTA button — keep green primary, add orange glow on hover */
+    .btn-primary:hover{box-shadow:0 8px 28px rgba(244,129,32,.35)}
+
+    /* Header: đảm bảo logo text luôn hiện trên mọi màn hình */
+    @media(max-width:480px){
+      .logo-img{height:46px}
+    }
+
+    /* WC Banner: wrap tốt trên mobile */
+    @media(max-width:600px){
+      .wc-banner{padding:.65rem 1rem}
+      .wc-inner{gap:.5rem;flex-direction:row;flex-wrap:nowrap;align-items:center}
+      .wc-sub{display:none}
+      .wc-title{font-size:.88rem}
+      .wc-ball{font-size:1.1rem}
+    }
+
+    /* Urgency bar: mobile wrap */
+    @media(max-width:500px){
+      .urgency-bar{font-size:.78rem;padding:.5rem .75rem}
+    }
+
+    /* Hero: mobile cải thiện */
+    @media(max-width:480px){
+      .hero{padding:2.5rem 1rem 3rem}
+      .hero-container{grid-template-columns:1fr}
+      .hero-text{text-align:center}
+      .hero h1{font-size:clamp(1.6rem,8vw,2rem)!important}
+      .wc-hero-badge{font-size:.7rem;padding:.9rem 1rem .5rem}
+      .hero-badge{font-size:.78rem;padding:.9rem 1.1rem .55rem}
+    }
+
+    /* Stats: mobile 2 cột */
+    @media(max-width:360px){
+      .stats-grid{grid-template-columns:1fr}
+    }
+
+    /* Bear strip: mobile */
+    @media(max-width:480px){
+      .bear-strip-copy h3{font-size:1.25rem}
+      .bear-strip-cards{grid-template-columns:repeat(2,1fr);gap:.5rem}
+    }
+
+    /* Campaign grid: mobile 1 cột */
+    @media(max-width:480px){
+      .campaign-grid{grid-template-columns:1fr}
+      .campaign-card{aspect-ratio:1/1}
+    }
+
+    /* Buttons touch target */
+    .btn-primary,.btn-secondary,.bear-strip-cta{
+      min-height:48px;
+    }
+    @media(max-width:768px){
+      .btn-primary,.btn-secondary{padding:.85rem 1.5rem;font-size:.95rem}
+    }
+
+    /* Form: mobile */
+    @media(max-width:480px){
+      .form-container{padding:1.25rem}
+      .order-bump{padding:.85rem}
+    }
+
+    /* FAQ: mobile */
+    @media(max-width:480px){
+      .faq-item{padding:.85rem}
+      .faq-question{font-size:.95rem}
+    }
+
+    /* Footer: mobile */
+    @media(max-width:480px){
+      .footer-grid{grid-template-columns:1fr!important}
+      .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
+    }
+
+    /* Floating ball: mobile position */
+    @media(max-width:480px){
+      .wc-float-ball{display:none;right:1rem;bottom:5rem;width:46px;height:46px;font-size:1.4rem}
+    }
+
+    /* Scroll-reveal on mobile: reduce motion if needed */
+    @media(prefers-reduced-motion:reduce){
+      .reveal,.wc-float-ball,.bg-blob{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}
+      .confetti-wrap{display:none}
+    }
+
+    
+    .nav-wc{
+      background:linear-gradient(135deg,rgba(200,16,46,.1),rgba(10,49,97,.1));
+      color:#C8102E!important; border:1px solid rgba(200,16,46,.2);
+      border-radius:50px; font-weight:700;
+    }
+    .nav-wc:hover{background:linear-gradient(135deg,rgba(200,16,46,.18),rgba(10,49,97,.18))!important}
+    @media(max-width:1100px){.nav-wc span{display:none}}
+
+    
+    /* ===== WC FULL-SITE particles ===== */
+    .wc-particles-fixed{display:none}
+    .wc-p{display:none}
+    /* WC section-level decoration */
+    .problem-section,.promise-section,.proof-section,
+    .ingredients-section,.offer-section,.faq-section{
+      position:relative;
+    }
+    /* Football watermark mỗi section */
+    .problem-section::before,.promise-section::before,
+    .faq-section::before{
+      content:'🌊';
+      position:absolute; right:2%; top:3%;
+      font-size:5rem; opacity:.04; pointer-events:none;
+      animation:wcSpin 20s linear infinite; z-index:0;
+    }
+    .proof-section::before{
+      content:'🐚';
+      position:absolute; left:2%; top:5%;
+      font-size:5rem; opacity:.04; pointer-events:none;
+      animation:wcSpin 25s linear infinite reverse; z-index:0;
+    }
+    .ingredients-section::before{
+      content:'🌊';
+      position:absolute; left:3%; bottom:5%;
+      font-size:4rem; opacity:.04; pointer-events:none;
+      animation:wcSpin 18s linear infinite; z-index:0;
+    }
+    @keyframes wcSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+    /* WC gold accent trên stat numbers */
+    .stat-number{
+      background:linear-gradient(135deg,#b45309,#f48120)!important;
+      -webkit-background-clip:text!important;
+      -webkit-text-fill-color:transparent!important;
+      background-clip:text!important;
+    }
+    /* WC accent trên proof tier badge */
+    .proof-tier-badge,.tier-badge{
+      border-left:3px solid #f48120;
+    }
+    /* WC accent trên ingredient cards */
+    .ingredient-card:hover{
+      border-color:rgba(200,16,46,.2)!important;
+      box-shadow:0 8px 24px rgba(200,16,46,.1)!important;
+    }
+    /* WC themed trust stats bar */
+    .trust-section,.stats-section{
+      position:relative;
+    }
+    .trust-section::after,.stats-section::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--wc-red),var(--primary),var(--wc-blue),var(--wc-gold));
+    }
+
+    
+
+
+    
+    .hero-badges-row{display:flex;align-items:center;gap:.65rem;flex-wrap:nowrap;margin-bottom:1.25rem}
+    @media(max-width:768px){.hero-badges-row{margin-top:5vw}}
+    .hero-badges-row .hero-badge{margin-bottom:0}
+    .wc-hero-badge-standalone{
+      display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+      background:linear-gradient(135deg,#f97316,#0891b2);
+      color:#fff; padding:.38rem 1.1rem; border-radius:50px;
+      font-size:.78rem; font-weight:700; letter-spacing:.3px;
+      box-shadow:0 3px 14px rgba(249,115,22,.35);
+      margin-bottom:0; max-width:fit-content;
+      animation:shimmer 2.5s ease-in-out infinite;
+    }
+    @media(max-width:480px){.wc-hero-badge-standalone{font-size:.7rem;padding:.38rem 1.1rem}}
+
+    
+    /* ===== PAYMENT MODAL — LIGHT THEME ===== */
+    .pm-overlay{
+      display:none;position:fixed;inset:0;z-index:9999;
+      background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      align-items:center;justify-content:center;padding:1rem;
+    }
+    .pm-overlay.open{display:flex;animation:pmFadeIn .22s ease}
+    @keyframes pmFadeIn{from{opacity:0}to{opacity:1}}
+
+    .pm-card{
+      background:#ffffff;color:#1a2332;
+      border-radius:18px;width:100%;max-width:640px;
+      max-height:92vh;overflow-y:auto;position:relative;
+      box-shadow:0 24px 80px rgba(0,0,0,.22),0 2px 12px rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.08);
+      animation:pmSlideUp .3s cubic-bezier(.34,1.4,.64,1);
+    }
+    @keyframes pmSlideUp{from{transform:translateY(36px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .pm-state{display:none}
+    .pm-state.active{display:block}
+
+    /* ── HEADER ── */
+    .pm-header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1.1rem 1.4rem .9rem;
+      border-bottom:1px solid rgba(0,0,0,.08);
+      background:#f8fafc;
+      border-radius:18px 18px 0 0;
+    }
+    .pm-header-left{display:flex;align-items:center;gap:.75rem}
+    .pm-logo-dot{width:36px;height:36px;border-radius:10px;
+      background:var(--gradient);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+    .pm-title{font-size:1rem;font-weight:800;color:var(--primary);margin:0;letter-spacing:.3px}
+    .pm-sub{font-size:.75rem;color:#64748b;margin:0;margin-top:.1rem}
+    .pm-header-right{display:flex;align-items:center;gap:.75rem}
+    .pm-close{background:rgba(0,0,0,.06);border:none;border-radius:50%;
+      width:32px;height:32px;cursor:pointer;color:#64748b;font-size:.95rem;
+      display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+    .pm-close:hover{background:rgba(239,68,68,.12);color:#ef4444}
+
+    /* ── COUNTDOWN trong header ── */
+    .pm-header-timer{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+    .pm-timer-ring{position:relative;width:38px;height:38px;flex-shrink:0}
+    .pm-timer-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+    .ring-track{fill:none;stroke:rgba(0,0,0,.1);stroke-width:4}
+    .ring-fill{fill:none;stroke:#22c55e;stroke-width:4;stroke-linecap:round;
+      stroke-dasharray:100.53 100.53;stroke-dashoffset:0;transition:stroke-dashoffset .9s linear,stroke .4s}
+    .pm-timer-text{text-align:center;width:2.8em;flex-shrink:0}
+    #pmTime{font-size:.95rem;font-weight:800;color:#1a2332;display:block;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+    .pm-timer-label{font-size:.6rem;color:#64748b;display:block}
+    .pm-timer-ring.warn .ring-fill{stroke:#f59e0b}
+    .pm-timer-ring.danger .ring-fill{stroke:#ef4444}
+
+    /* ── ORDER INFO (top) ── */
+    .pm-order-info{
+      padding:.9rem 1.4rem;
+      border-bottom:1px solid rgba(0,0,0,.07);
+    }
+    .pm-section-label{
+      font-size:.65rem;font-weight:700;letter-spacing:1.5px;
+      color:#94a3b8;text-transform:uppercase;margin-bottom:.65rem;
+    }
+    .pm-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .75rem}
+    .pm-info-item{}
+    .pm-info-item .lbl{font-size:.72rem;color:#94a3b8;margin-bottom:.1rem}
+    .pm-info-item .val{font-size:.88rem;font-weight:700;color:#1a2332}
+    .pm-info-item .val.highlight{color:#f48120}
+
+    /* ── MAIN BODY 2-col ── */
+    .pm-body{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+    @media(max-width:520px){
+      .pm-body{grid-template-columns:1fr}
+    }
+
+    /* ── QR COL ── */
+    .pm-qr-col{
+      padding:1.1rem 1rem 1.1rem 1.4rem;
+      border-right:1px solid rgba(0,0,0,.07);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;
+    }
+    @media(max-width:520px){.pm-qr-col{border-right:none;border-bottom:1px solid rgba(0,0,0,.07);padding:1rem 1.4rem}}
+    .pm-qr-frame{
+      background:#fff;border-radius:14px;padding:.4rem;
+      display:inline-flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 18px rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.07);
+    }
+    .pm-qr-frame img{width:260px;height:260px;display:block;border-radius:6px}
+    .pm-dl-btn{
+      display:flex;align-items:center;justify-content:center;gap:.4rem;
+      width:100%;padding:.6rem;border-radius:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;
+      background:#f1f5f9;color:#475569;font-size:.82rem;font-weight:600;
+      transition:background .2s;
+    }
+    .pm-dl-btn:hover{background:#e2e8f0}
+
+    /* ── BANK INFO COL ── */
+    .pm-bank-col{padding:1.1rem 1.4rem 1.1rem 1rem}
+    @media(max-width:520px){.pm-bank-col{padding:1rem 1.4rem}}
+    .pm-bank-row{display:flex;justify-content:space-between;align-items:flex-start;
+      padding:.45rem 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.83rem}
+    .pm-bank-row:last-of-type{border-bottom:none}
+    .pm-bank-row .lbl{color:#94a3b8;flex-shrink:0;padding-right:.5rem}
+    .pm-bank-row .val{color:#1a2332;font-weight:700;text-align:right}
+    .pm-bank-row .val.price{color:#f48120;font-size:1.1rem;font-weight:800}
+    .pm-transfer-box{
+      background:#f1f5f9;border:1px solid rgba(0,0,0,.09);
+      border-radius:10px;padding:.65rem .85rem;margin-top:.6rem;
+    }
+    .pm-transfer-box .lbl{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94a3b8;margin-bottom:.35rem}
+    .pm-transfer-content-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+    #transferContent{font-size:.82rem;font-weight:800;color:#0f172a;font-family:monospace;letter-spacing:.5px;word-break:break-all}
+    .pm-copy-btn{
+      background:var(--gradient);color:#fff;border:none;
+      width:26px;height:26px;padding:0;border-radius:8px;font-size:.7rem;font-weight:700;
+      cursor:pointer;white-space:nowrap;transition:opacity .2s;flex-shrink:0;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .pm-copy-btn:hover{opacity:.8}
+    .pm-copy-btn svg{width:14px;height:14px;display:block}
+
+    /* ── CTA & NOTE ── */
+    button,input,select,textarea{font-family:inherit}
+    .pm-footer{padding:.9rem 1.4rem 1.1rem;border-top:1px solid rgba(0,0,0,.07)}
+    .pm-check-btn{
+      font-family:inherit;
+      width:100%;padding:.9rem;border-radius:12px;border:none;cursor:pointer;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:800;font-size:.95rem;
+      transition:all .25s;box-shadow:0 4px 14px rgba(180,83,9,.3);
+      display:flex;align-items:center;justify-content:center;gap:.5rem;
+    }
+    .pm-check-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,83,9,.4)}
+    .pm-note{text-align:center;font-size:.76rem;color:#64748b;margin-top:.65rem;line-height:1.5}
+    .pm-note strong{color:#1a2332}
+    .pm-status-msg{margin-top:.6rem;padding:.55rem .85rem;border-radius:8px;font-size:.8rem;text-align:center;display:none}
+    .pm-status-msg.error{display:block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+    .pm-status-msg.success{display:block;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+
+    /* ── CONFIRMED state ── */
+    .pm-confirmed-wrap{padding:2.5rem 1.4rem;text-align:center}
+    .pm-confirmed-icon{
+      width:72px;height:72px;border-radius:50%;
+      background:linear-gradient(135deg,#22c55e,#16a34a);
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      margin:0 auto 1rem;box-shadow:0 8px 28px rgba(34,197,94,.25);
+    }
+    .pm-state h3{font-size:1.2rem;font-weight:800;color:var(--primary);margin-bottom:.5rem}
+    .pm-state p{color:#64748b;font-size:.88rem;line-height:1.6}
+    .pm-order-code-box{
+      margin:1rem auto;background:#f1f5f9;
+      border:1px dashed rgba(0,0,0,.15);
+      border-radius:8px;padding:.6rem 1rem;
+      font-family:monospace;font-size:.9rem;color:#1a2332;font-weight:700;
+    }
+    .pm-close-final{
+      display:block;width:100%;margin-top:1.25rem;padding:.85rem;
+      background:var(--gradient);color:#fff;border:none;border-radius:12px;
+      font-weight:700;font-size:.95rem;cursor:pointer;
+    }
+
+    /* ── EXPIRED state ── */
+    .pm-expired-wrap{padding:2.5rem 1.4rem;text-align:center}
+
+    /* ── THANK YOU OVERLAY ── */
+    #thankYouOverlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:1rem;overflow-y:auto}
+    #thankYouOverlay.active{display:flex}
+    .ty-card{background:#fff;border-radius:20px;max-width:380px;width:100%;padding:1.25rem 1.15rem 1rem;text-align:center;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.22);border-top:4px solid #f97316;animation:tySlideIn .38s cubic-bezier(.34,1.56,.64,1)}
+    @keyframes tySlideIn{from{transform:translateY(28px) scale(.95);opacity:0}to{transform:none;opacity:1}}
+    .ty-check-circle{width:56px;height:56px;border-radius:50%;margin:0 auto .6rem;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(34,197,94,.3)}
+    .ty-badge{display:inline-flex;align-items:center;gap:.35rem;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;border-radius:50px;padding:.22rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.05em;margin-bottom:.6rem}
+    .ty-heading{font-size:1.15rem;font-weight:900;color:#1a2332;margin:0 0 .3rem;line-height:1.25}
+    .ty-sub{font-size:.81rem;color:#64748b;line-height:1.5;margin-bottom:.75rem}
+    .ty-info-grid{background:#f8fafc;border-radius:10px;overflow:hidden;margin-bottom:.65rem;text-align:left;border:1px solid #e2e8f0}
+    .ty-info-row{display:flex;align-items:center;gap:.6rem;padding:.5rem .85rem;border-bottom:1px solid #e2e8f0}
+    .ty-info-row:last-child{border-bottom:none}
+    .ty-info-icon{font-size:1rem;flex-shrink:0}
+    .ty-info-label{font-size:.64rem;font-weight:700;color:#94a3b8;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.1rem}
+    .ty-info-val{font-size:.82rem;font-weight:700;color:#1a2332}
+    .ty-next-box{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:12px;padding:.7rem .85rem;margin-bottom:.75rem;text-align:center}
+    .ty-next-title{font-size:.8rem;font-weight:800;color:#1e40af;margin-bottom:.28rem;display:flex;align-items:center;justify-content:center;gap:.35rem}
+    .ty-next-body{font-size:.79rem;color:#1e3a8a;line-height:1.55;margin:0;text-align:center}
+    .ty-cta-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;border-radius:12px;border:none;cursor:pointer;background:linear-gradient(135deg,#0068ff,#00a8e6);color:#fff;font-weight:800;font-size:.92rem;font-family:inherit;text-decoration:none;margin-bottom:.6rem;box-shadow:0 4px 18px rgba(0,104,255,.35);transition:all .25s;position:relative;overflow:hidden}
+    .ty-cta-btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:tyShimmer 2s infinite}
+    @keyframes tyShimmer{0%{left:-100%}60%,100%{left:160%}}
+    .ty-cta-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,104,255,.45)}
+    .ty-close{position:absolute;top:.65rem;right:.75rem;width:28px;height:28px;border-radius:50%;border:none;background:#f1f5f9;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#94a3b8;line-height:1;transition:background .2s}
+    .ty-close:hover{background:#e2e8f0;color:#475569}
+    .ty-back{background:none;border:none;color:#94a3b8;font-size:.78rem;cursor:pointer;text-decoration:underline;display:block;width:100%;padding:.25rem 0}
+    @media(max-width:480px){
+      .pm-card{border-radius:18px 18px 0 0;max-height:95vh;position:fixed;bottom:0;left:0;right:0;max-width:100%}
+      .pm-overlay{align-items:flex-end;padding:0}
+      .pm-info-grid{grid-template-columns:1fr 1fr}
+    }
+
+    /* === Mini countdown (urgency bar) === */
+    .mini-cd{display:inline-flex;align-items:center;gap:4px;vertical-align:middle;margin-left:6px}
+    .mini-cd-box{background:rgba(255,255,255,.25);border-radius:4px;padding:1px 6px;font-size:.82rem;font-weight:800;min-width:24px;text-align:center;letter-spacing:0}
+    .mini-cd-sep{opacity:1;font-weight:700}
+
+    /* === Flip-clock countdown (offer section) === */
+    .offer-countdown{display:flex;gap:10px;justify-content:center;margin:1rem 0 1.25rem}
+    .of-cd-box{background:#0d2818;border-radius:10px;padding:.65rem .9rem;min-width:68px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+    .of-cd-num{font-size:2rem;font-weight:900;color:#fff;display:block;line-height:1;font-variant-numeric:tabular-nums}
+    .of-cd-label{font-size:.58rem;color:rgba(255,255,255,.55);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:.35rem}
+    @media(max-width:480px){
+      .of-cd-box{min-width:58px;padding:.5rem .65rem}
+      .of-cd-num{font-size:1.65rem}
+    }
+
+    
+    /* ── FPL Multi-select ── */
+    .fpl-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.5rem}
+    .fpl-item{display:flex;align-items:center;gap:.65rem;padding:10px;border-radius:12px;border:2px solid #e2e8f0;cursor:pointer;transition:border-color .18s,background .18s;user-select:none;background:#fff}
+    .fpl-item:hover{border-color:var(--primary)}
+    .fpl-item.active{border-color:var(--primary);background:rgba(180,83,9,.05)}
+    .fpl-check-wrap{flex-shrink:0;width:20px;height:20px;border-radius:5px;border:2px solid #cbd5e1;background:#fff;display:flex;align-items:center;justify-content:center;transition:all .18s}
+    .fpl-item.active .fpl-check-wrap{border-color:var(--primary);background:var(--primary)}
+    .fpl-check{font-size:.65rem;color:#fff;opacity:0;transition:opacity .15s;line-height:1;font-weight:900}
+    .fpl-item.active .fpl-check{opacity:1}
+    .fpl-img{border-radius:8px;flex-shrink:0;object-fit:contain;background:#f8fafc}
+    .fpl-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}
+    .fpl-name{font-size:.86rem;font-weight:700;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .fpl-price{font-size:.76rem;color:var(--primary);font-weight:700}
+    .fpl-qty{display:flex;align-items:center;gap:.3rem;flex-shrink:0;opacity:.3;pointer-events:none;transition:opacity .18s}
+    .fpl-item.active .fpl-qty{opacity:1;pointer-events:auto}
+    .fpl-qty-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid #cbd5e1;background:#fff;color:#475569;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;line-height:1;transition:all .15s}
+    .fpl-item.active .fpl-qty-btn{border-color:var(--primary);color:var(--primary)}
+    .fpl-qty-btn:hover{background:var(--primary)!important;border-color:var(--primary)!important;color:#fff!important}
+    .fpl-qty-val{min-width:20px;text-align:center;font-size:.88rem;font-weight:700;color:var(--text-primary)}
+    .fpl-product-label{font-weight:600;font-size:.86rem;color:var(--text-primary);margin-bottom:.4rem;display:flex;align-items:center;justify-content:space-between}
+    .fpl-product-label small{color:var(--text-muted);font-weight:500;font-size:.75rem}
+
+    /* ── Product Selection Cards ── */
+    .prod-select-section{padding:5rem 2rem;background:var(--bg-secondary)}
+    .prod-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:960px;margin:0 auto}
+    @media(max-width:768px){.prod-cards{grid-template-columns:1fr;max-width:420px}}
+    .prod-card{position:relative;background:#fff;border-radius:16px;border:2px solid #e2e8f0;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .prod-card:hover{border-color:var(--primary);box-shadow:0 12px 32px rgba(180,83,9,.15);transform:translateY(-8px) scale(1.02)}
+    .prod-card:hover .btn-select-prod{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .prod-card--selected{border-color:var(--primary);box-shadow:0 4px 24px rgba(180,83,9,.12)}
+    .prod-card--featured{border-color:var(--primary)}
+    .prod-card:not(.prod-card--featured){
+      background:linear-gradient(160deg,#e4f5ec 0%,#d5eee2 100%);
+      border-color:rgba(15,92,74,.12);
+    }
+    .prod-card-badge-check{position:absolute;top:-.8rem;right:1rem;background:var(--primary);color:#fff;font-size:.72rem;font-weight:700;padding:.2rem .65rem;border-radius:20px}
+    .prod-card-badge-popular{position:absolute;top:-.9rem;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-size:.75rem;font-weight:700;padding:.28rem 1rem;border-radius:20px;white-space:nowrap;box-shadow:0 2px 8px rgba(180,83,9,.4);letter-spacing:.01em}
+    .prod-card-icon{font-size:1.4rem;margin-bottom:.1rem}
+    .prod-card h3{font-size:.97rem;font-weight:700;color:var(--text-primary);margin:0}
+    .prod-card p{font-size:.8rem;color:var(--text-muted);line-height:1.5;flex:1;margin:0}
+    .prod-card-price{font-size:1.55rem;font-weight:800;color:var(--primary);margin-top:.3rem}
+    .prod-card-unit{font-size:.76rem;color:var(--text-muted);margin-top:-.3rem}
+    .btn-select-prod{width:100%;padding:.72rem;border-radius:50px;border:2px solid var(--primary);background:#fff;color:var(--primary);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .18s;margin-top:.6rem}
+    .btn-select-prod:hover,.btn-select-prod--primary{background:var(--primary);color:#fff}
+    .btn-select-prod--primary:hover{opacity:.88}
+
+    /* ── Gift Progress Bar ── */
+    .gift-bar-wrap{border:1.5px dashed #f59e42;border-radius:14px;padding:1rem 1rem .9rem;margin-bottom:1rem;background:#fffdf9}
+    .gift-bar-header{display:flex;align-items:center;gap:.75rem}
+    .gift-bar-img{width:56px;height:56px;object-fit:contain;flex-shrink:0;border-radius:8px;background:#f8f8f8}
+    .gift-bar-info{flex:1;min-width:0}
+    .gift-bar-badge{display:inline-block;font-size:.68rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.25rem;letter-spacing:.02em}
+    .gift-bar-badge--locked{background:#fee2e2;color:#dc2626}
+    .gift-bar-badge--unlocked{background:#dcfce7;color:#16a34a}
+    .gift-bar-title{font-size:.85rem;font-weight:700;color:var(--text-primary);margin:0 0 .1rem}
+    .gift-bar-cond{font-size:.75rem;color:var(--text-muted);margin:0}
+    .gift-bar-lock{font-size:1.3rem;flex-shrink:0;transition:transform .3s}
+    .gift-progress-track{margin-top:.75rem;height:6px;background:#e2e8f0;border-radius:10px;overflow:hidden}
+    .gift-progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#f97316,#f48120);transition:width .4s ease}
+    .gift-progress-fill--done{background:linear-gradient(90deg,#22c55e,#16a34a)}
+    .gift-bar-msg{margin-top:.45rem;font-size:.76rem;color:#92400e;text-align:center}
+    .gift-bar-msg--done{color:#16a34a;font-weight:700}
+
+    /* ══ OPTIMIZATION PATCH ══ */
+
+    /* Scroll margin for fixed header + urgency bar (~110px total) */
+    section[id], div[id="form"], div[id="chon-san-pham"] {
+      scroll-margin-top: 110px;
+    }
+
+    /* FPL image: larger product thumbnails */
+    .fpl-img { width: 56px !important; height: 56px !important; border-radius: 10px; }
+    .fpl-item { padding: .7rem .9rem; gap: .75rem; }
+
+    /* WC Banner: better mobile stacking */
+    .wc-inner { gap: .65rem; }
+    .wc-title { font-size: .95rem; }
+    .wc-sub { font-size: .8rem; }
+
+    /* Touch targets: all buttons min 44px */
+    button, .btn-primary, .btn-secondary, .fpl-qty-btn,
+    .form-submit, .btn-select-prod { touch-action: manipulation; }
+
+    /* Form container: tighter on small screens */
+    @media(max-width:480px) {
+      .form-container { padding: 1.1rem .9rem; border-radius: 16px; }
+      .form-group label { font-size: .82rem; }
+      .form-group input, .form-group select, .form-group textarea {
+        font-size: 16px !important; /* prevent iOS zoom */
+        padding: .6rem .75rem;
+      }
+      .fpl-item { padding: .6rem .7rem; gap: .55rem; }
+      .fpl-img { width: 48px !important; height: 48px !important; }
+      .fpl-name { font-size: .82rem; }
+      .fpl-price { font-size: .72rem; }
+      .fpl-qty-btn { width: 28px; height: 28px; font-size: .9rem; }
+      .form-submit { font-size: 1rem; padding: .9rem 1rem; }
+    }
+
+    /* WC Banner mobile */
+    @media(max-width:600px) {
+      .wc-banner { padding: .75rem 1rem; }
+      .wc-inner { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .3rem; }
+      .wc-title { font-size: .85rem; }
+      .wc-sub { font-size: .75rem; }
+      .wc-ball { font-size: 1rem; }
+    }
+
+    /* Desktop: cap form width, center it nicely */
+    @media(min-width: 1024px) {
+      .form-section .form-container { max-width: 680px; margin-left: auto; margin-right: auto; }
+    }
+
+    /* Address autocomplete: ensure visible above everything on mobile */
+    .address-suggestions { z-index: 10000 !important; }
+
+    /* Payment modal: better scroll on small phones */
+    @media(max-width: 480px) {
+      .pm-card { max-height: 92vh; border-radius: 20px 20px 0 0; }
+      .pm-header { padding: 1rem 1.1rem .75rem; }
+      .pm-body { padding: 0 1.1rem 1.1rem; }
+    }
+
+    /* Announcement bar: visible but not too tall on mobile */
+    @media(max-width: 480px) {
+      .urgency-bar { font-size: .78rem; padding: .45rem .75rem; }
+    }
+
+    /* Hero: proper top padding on all screen sizes to clear fixed bars */
+    @media(min-width: 769px) {
+      .hero { padding-top: 2rem; }
+    }
+    @media(max-width: 768px) {
+      .hero { padding-top: 0.5rem; }
+    }
+
+    /* Stats bar: better mobile grid */
+    @media(max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: .65rem; }
+    }
+
+    /* Proof section: full-width on small phones */
+    @media(max-width: 360px) {
+      .proof-event-grid { grid-template-columns: 1fr; }
+    }
+
+    /* === MOBILE BOTTOM CTA BAR === */
+
+    @keyframes confettiFall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+    #festive-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99998;display:none}
+    @media(max-width:768px){#festive-canvas{display:block}}
+
+
+    .footer-logo-desktop{display:none}
+    .footer-logo-mobile{display:none}
+    @media(max-width:768px){
+      .footer-logo-desktop{display:none}
+      .footer-logo-mobile{display:block;max-height:56px;width:auto;margin-bottom:.85rem}
+    }
+
+
+    .hero-mascot-mobile-inline{display:none}
+    @media(max-width:768px){
+      .hero-mascot-mobile-inline{display:block;text-align:center;margin:.25rem 0;padding-top:5%}
+      .hero-mascot-mobile-inline .hero-mascot-img{max-width:260px;margin:0 auto}
+    }
+
+
+    .hero-mascot-desktop{display:block}
+    @media(max-width:768px){
+      .hero-mascot-desktop{display:none!important}
+    }
+
+
+    /* ===== SOCIAL PROOF & SCARCITY NOTIFICATIONS ===== */
+    #live-notify{
+      position:fixed;bottom:10%;left:1.25rem;z-index:10000;
+      max-width:320px;pointer-events:none;
+    }
+    @media(max-width:768px){
+      #live-notify{bottom:22%;left:.75rem;max-width:calc(100vw - 1.5rem - 80px)}
+    }
+    .lnotify{
+      position:relative;display:flex;align-items:center;gap:.65rem;
+      background:rgba(28,18,10,.92);border:1px solid rgba(244,129,32,.35);
+      border-radius:10px;padding:.65rem .85rem;
+      backdrop-filter:blur(8px);
+      box-shadow:0 4px 24px rgba(0,0,0,.45);
+      opacity:0;transform:translateX(-20px) translateY(8px);
+      transition:opacity .4s ease,transform .4s ease;
+      pointer-events:none;
+    }
+    .lnotify.show{opacity:1;transform:translateX(0) translateY(0);pointer-events:auto}
+    .lnotify-close{
+      position:absolute;top:.35rem;right:.4rem;
+      background:none;border:none;color:rgba(255,255,255,.5);
+      font-size:.85rem;cursor:pointer;line-height:1;padding:2px 4px;
+    }
+    .lnotify-close:hover{color:#fff}
+    .lnotify-dot{
+      width:8px;height:8px;border-radius:50%;
+      background:#22c55e;flex-shrink:0;
+      box-shadow:0 0 0 0 rgba(34,197,94,.6);
+      animation:lnPulse 1.5s ease-out infinite;
+    }
+    .lnotify-dot.red{background:#ef4444;box-shadow:0 0 0 0 rgba(239,68,68,.6)}
+    @keyframes lnPulse{
+      0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}
+      70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}
+      100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+    }
+    .lnotify-dot.red{animation-name:lnPulseRed}
+    @keyframes lnPulseRed{
+      0%{box-shadow:0 0 0 0 rgba(239,68,68,.6)}
+      70%{box-shadow:0 0 0 7px rgba(239,68,68,0)}
+      100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}
+    }
+    .lnotify-text{font-size:.78rem;color:#e2d5c8;line-height:1.4}
+    .lnotify-text strong{color:#f48120;font-weight:700}
+    .lnotify-text .ln-warn{color:#ef4444;font-weight:800;font-size:.76rem;letter-spacing:.5px;text-transform:uppercase}
+    .lnotify-icon{font-size:1rem;flex-shrink:0}
+
+
+    .order-summary{background:#f8fffe;border:1.5px solid var(--primary);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1rem}
+    .order-summary-title{font-size:.78rem;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem}
+    .order-summary-row{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;margin-bottom:.4rem;color:var(--text-secondary)}
+    .order-summary-row.total{border-top:1.5px dashed #d1fae5;margin-top:.6rem;padding-top:.6rem;font-weight:800;font-size:1rem;color:var(--text-primary)}
+    .order-summary-row.total .os-val{color:var(--primary);font-size:1.1rem}
+    .order-summary-row .os-discount{color:#ef4444;font-weight:600}
+
+    @keyframes mobShimmer{0%{left:-100%}100%{left:160%}}
+    .mobile-cta-bar{display:none;opacity:0;transform:translateX(-50%) translateY(20px);transition:opacity .3s,transform .3s}
+    @media(max-width:768px){
+      .mobile-cta-bar{
+        display:flex;position:fixed;bottom:5%;left:50%;
+        transform:translateX(-50%) translateY(20px);
+        background:#fff;border-radius:50px;padding:8px;gap:6px;
+        z-index:9999;box-shadow:0 6px 28px rgba(0,0,0,.22);
+        align-items:center;white-space:nowrap;
+        max-width:calc(100% - 2rem);opacity:0;
+      }
+      .mobile-cta-bar.visible{
+        opacity:1;transform:translateX(-50%) translateY(0);
+      }
+      .mob-btn{
+        display:flex;align-items:center;gap:5px;padding:10px 14px;
+        border-radius:50px;font-weight:600;font-size:.82rem;
+        text-decoration:none;color:#111;transition:all .2s;flex-shrink:0;
+        white-space:nowrap;
+      }
+      .mob-btn svg{flex-shrink:0;width:18px;height:18px}
+      .mob-chat,.mob-call{border:1.5px solid var(--primary)}
+      .mob-buy{
+        background:var(--gradient);color:#fff;font-weight:800;
+        padding:12px 22px;position:relative;overflow:hidden;
+      }
+      .mob-buy::after{
+        content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+        background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 20%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 80%,transparent 100%);
+        transform:skewX(-20deg);animation:mobShimmer 2s linear infinite;
+        pointer-events:none;
+      }
+      .mob-chat svg{color:#0068ff}
+      .floating-btns{display:none!important}
+      .wc-float-ball{display:none!important}
+    }
+    @media(max-width:360px){
+      .mob-btn{padding:10px 12px;font-size:.8rem;gap:4px}
+      .mob-buy{padding:10px 15px}
+    }
+    
+    @media(max-width:768px){body{padding-bottom:80px}}
+    </style>
+  <style>
+    /* ===== CHECKOUT PAGE — CSS bổ sung riêng cho thanh-toan.html ===== */
+    body{padding-top:84px}
+    .checkout-hero{padding:2.25rem 1.5rem .5rem;text-align:center;max-width:720px;margin:0 auto}
+    .checkout-hero .crumb{font-size:.8rem;color:var(--text-muted);margin-bottom:.75rem}
+    .checkout-hero .crumb a{color:var(--primary);text-decoration:none;font-weight:600}
+    .checkout-hero .crumb a:hover{text-decoration:underline}
+    .checkout-hero h1{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem;color:var(--text-primary)}
+    .checkout-hero p{color:var(--text-secondary);font-size:.95rem;max-width:560px;margin:0 auto}
+    .checkout-steps{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1.35rem 0 .25rem;flex-wrap:wrap}
+    .checkout-step{display:flex;align-items:center;gap:.4rem;font-size:.76rem;font-weight:700;color:#94a3b8;padding:.4rem .85rem;border-radius:50px;background:#eef2f1;transition:all .25s}
+    .checkout-step.active{color:#fff;background:var(--gradient);box-shadow:0 3px 10px rgba(15,92,74,.28)}
+    .checkout-step.done{color:#fff;background:#16a34a}
+    .checkout-step-sep{width:22px;height:2px;background:#e2e8f0;flex-shrink:0}
+    .checkout-section{padding:1.25rem 1.5rem 5rem}
+    .checkout-card-wrap{max-width:640px;margin:0 auto}
+    .pm-card--inline{position:static;max-width:100%;width:100%;margin:0;animation:none;box-shadow:0 10px 36px rgba(15,92,74,.10),0 2px 10px rgba(0,0,0,.05)}
+    @media(max-width:480px){.pm-card--inline{border-radius:18px;max-height:none}}
+    .checkout-back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.83rem;font-weight:700;color:var(--text-muted);background:none;border:none;cursor:pointer;margin-bottom:.9rem;padding:0;font-family:inherit}
+    .checkout-back-link:hover{color:var(--primary)}
+    .checkout-back-link svg{width:15px;height:15px;flex-shrink:0}
+    #checkoutPaySection,#checkoutConfirmedSection,#checkoutExpiredSection{display:none}
+    .co-state-wrap{background:#fff;border-radius:18px;padding:2.75rem 1.9rem;text-align:center;box-shadow:0 10px 36px rgba(15,92,74,.10),0 2px 10px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.05)}
+    .co-icon-circle{width:72px;height:72px;border-radius:50%;margin:0 auto 1.1rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#22c55e,#16a34a);box-shadow:0 8px 28px rgba(34,197,94,.28)}
+    .co-icon-circle svg{width:34px;height:34px}
+    .co-icon-circle.warn{background:linear-gradient(135deg,#f59e0b,#e8690c);box-shadow:0 8px 28px rgba(232,105,12,.28)}
+    .co-icon-circle svg path,.co-icon-circle svg polyline,.co-icon-circle svg circle,.co-icon-circle svg line{stroke:#fff}
+    .co-state-wrap h2{font-size:1.35rem;font-weight:800;color:var(--primary);margin-bottom:.5rem}
+    .co-state-wrap p.co-desc{color:#64748b;margin:.4rem 0 1.15rem;font-size:.92rem;line-height:1.6}
+    .co-order-code-box{margin:0 auto 1.15rem;max-width:340px;background:#f8fafc;border:1px dashed rgba(0,0,0,.15);border-radius:10px;padding:.7rem 1rem;text-align:left;font-size:.86rem;font-weight:700;color:#1a2332}
+    .co-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:50px;border:none;cursor:pointer;background:#64748b;color:#fff;font-weight:700;font-size:.92rem;font-family:inherit}
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://sgtm.trungsoncare.com/ns.html?id=GTM-WR8BMRNK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Meta Pixel (noscript) -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1353204000286435&ev=PageView&noscript=1"/></noscript>
+
+  <header id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="img/asset-4.webp" alt="Trung Sơn Pharma" class="logo-img">
+      
+      </a>
+      
+      <nav class="nav-menu" id="navMenu" aria-label="Menu chính">
+        <a href="index.html#problem" class="nav-link">Vấn đề</a>
+        <a href="index.html#promise" class="nav-link">Công dụng</a>
+        <a href="index.html#proof" class="nav-link">Bằng chứng</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        
+        <a href="index.html#form" class="btn-primary btn-header-cta">Mua ngay</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Đóng menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a href="index.html#problem" class="nav-link">Vấn đề</a>
+    <a href="index.html#promise" class="nav-link">Công dụng</a>
+    <a href="index.html#proof" class="nav-link">Bằng chứng</a>
+    <a href="index.html#faq" class="nav-link">FAQ</a>
+    <a href="index.html#form" class="btn-primary">Mua ngay</a>
+  </aside>
+
+  <main>
+    <div class="checkout-hero reveal active">
+      <div class="crumb"><a href="index.html">Trang chủ</a> / Thanh toán đơn hàng</div>
+      <h1>Hoàn Tất <span class="gradient-text">Đơn Hàng</span></h1>
+      <p>Điền thông tin đặt hàng bên dưới, quét mã QR để chuyển khoản. Dược sĩ Trung Sơn sẽ gọi xác nhận đơn trong ít phút.</p>
+      <div class="checkout-steps">
+        <span class="checkout-step active" id="stepInfo">1. Thông tin đơn hàng</span>
+        <span class="checkout-step-sep"></span>
+        <span class="checkout-step" id="stepPay">2. Chuyển khoản QR</span>
+        <span class="checkout-step-sep"></span>
+        <span class="checkout-step" id="stepDone">3. Hoàn tất</span>
+      </div>
+    </div>
+
+    <section class="checkout-section">
+      <!-- ══ STEP 1: FORM ══ -->
+      <div class="form-wrapper checkout-card-wrap" id="checkoutFormSection">
+        <div class="form-container">
+          <div class="form-title">
+            <h3>Thông tin đặt hàng</h3>
+            <p>Vui lòng điền đầy đủ thông tin. Dữ liệu được bảo mật.</p>
+          </div>
+          <form id="checkoutForm" class="form-fields" novalidate>
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">Họ và tên *</label>
+              <input type="text" id="fullname" name="fullname" placeholder="VD: Nguyễn Văn A" required>
+              <div class="form-error">Vui lòng nhập họ tên</div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại *</label>
+              <input type="tel" id="phone" name="phone" placeholder="VD: 0901234567" required inputmode="tel">
+              <div class="form-error">SĐT không hợp lệ (10 số)</div>
+            </div>
+          </div>
+
+          <!-- [CUSTOM-FIELDS] -->
+          <div class="form-group">
+            <label for="address">Địa chỉ chi tiết *</label>
+            <input type="text" id="address" name="address" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành" required>
+            <div class="form-error">Vui lòng nhập địa chỉ</div>
+          </div>
+          <div class="form-group">
+              <div class="fpl-product-label">
+                <span>🛒 Chọn sản phẩm <span style="color:#ef4444">*</span></span>
+                <small>Có thể chọn nhiều loại</small>
+              </div>
+              <div class="fpl-list">
+                <!-- Hồng Sâm -->
+                <div class="fpl-item" data-product="hong-sam" data-price="203000" onclick="toggleFplItem(this)">
+                  <span class="fpl-check-wrap"><span class="fpl-check">✓</span></span>
+                  <img class="fpl-img" src="img/asset-17.webp" width="56" height="56" alt="Hồng Sâm">
+                  <div class="fpl-info">
+                    <span class="fpl-name">Hồng Sâm Dongwha</span>
+                    <span class="fpl-price">203,000đ/hộp</span>
+                  </div>
+                  <div class="fpl-qty" onclick="event.stopPropagation()">
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),-1)">−</button>
+                    <span class="fpl-qty-val">1</span>
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),1)">+</button>
+                  </div>
+                </div>
+                <!-- Gas Whal -->
+                <div class="fpl-item" data-product="gas-whal" data-price="210000" onclick="toggleFplItem(this)">
+                  <span class="fpl-check-wrap"><span class="fpl-check">✓</span></span>
+                  <img class="fpl-img" src="img/asset-18.webp" width="56" height="56" alt="Gas Whal">
+                  <div class="fpl-info">
+                    <span class="fpl-name">Gas Whal Dongwha</span>
+                    <span class="fpl-price">210,000đ/hộp</span>
+                  </div>
+                  <div class="fpl-qty" onclick="event.stopPropagation()">
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),-1)">−</button>
+                    <span class="fpl-qty-val">1</span>
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),1)">+</button>
+                  </div>
+                </div>
+                <!-- SangSangTon -->
+                <div class="fpl-item" data-product="sangsangton" data-price="168000" onclick="toggleFplItem(this)">
+                  <span class="fpl-check-wrap"><span class="fpl-check">✓</span></span>
+                  <img class="fpl-img" src="img/asset-19.webp" width="56" height="56" alt="SangSangTon">
+                  <div class="fpl-info">
+                    <span class="fpl-name">SangSangTon Up</span>
+                    <span class="fpl-price">168,000đ/hộp</span>
+                  </div>
+                  <div class="fpl-qty" onclick="event.stopPropagation()">
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),-1)">−</button>
+                    <span class="fpl-qty-val">1</span>
+                    <button type="button" class="fpl-qty-btn" onclick="changeFplQty(this.closest('.fpl-item'),1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-error" id="productError" style="display:none">Vui lòng chọn ít nhất 1 sản phẩm</div>
+              <input type="hidden" id="selectedProduct" name="selectedProduct" value="">
+              <input type="hidden" id="quantity" name="quantity" value="1">
+            </div>
+            <div class="form-group">
+              <label for="note">Ghi chú (không bắt buộc)</label>
+              <input type="text" id="note" name="note" placeholder="VD: giao giờ hành chính">
+            </div>
+          <!-- end [CUSTOM-FIELDS] -->
+          <!-- ORDER BUMP -->
+          <div class="order-bump" id="orderBump">
+            <div class="order-bump-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Chỉ thêm 1 click – Ưu đãi đặc biệt thêm vào đơn hàng
+            </div>
+            <div class="order-bump-body">
+              <div class="order-bump-check">
+                <label>
+                  <input type="checkbox" id="orderBumpCheck" onchange="handleBumpChange(this)">
+                  <div class="order-bump-info">
+                    <div class="order-bump-name">Thêm 1 hộp Gas Whal Dongwha – bạn đồng hành mọi chuyến đi</div>
+                    <div class="order-bump-desc">Thảo mộc Hàn Quốc hỗ trợ tiêu hóa, ấm bụng – ăn hải sản, đồ nướng thoải mái mà không lo đầy bụng. Đi cùng đơn – không tốn thêm phí ship.</div>
+                    <div class="order-bump-price">
+                      <span class="order-bump-price-old">300,000đ</span>
+                      <span class="order-bump-price-new">210,000đ</span>
+                      <span class="order-bump-save">-30%</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- END ORDER BUMP -->
+
+          <!-- GIFT PROGRESS BAR -->
+          <div class="gift-bar-wrap" id="giftBar">
+            <div class="gift-bar-header">
+              <img class="gift-bar-img" src="img/1784782495994_8037431706076599402_g4751216447892692751_80d28ad11e0ab62e4d9601d4d61d0fe4-opt.webp" alt="Áo mưa" loading="lazy">
+              <div class="gift-bar-info">
+                <span class="gift-bar-badge gift-bar-badge--locked" id="giftBadge">CHƯA ĐỦ ĐIỀU KIỆN</span>
+                <div class="gift-bar-title">Áo mưa cao cấp – Quà tặng miễn phí</div>
+                <div class="gift-bar-cond">Mua 3 hộp Hồng Sâm (trọn 1 tháng – 559k) hoặc bill từ 549k → tặng áo mưa cao cấp</div>
+              </div>
+              <span class="gift-bar-lock" id="giftLock">🔒</span>
+            </div>
+            <div class="gift-progress-track">
+              <div class="gift-progress-fill" id="giftFill" style="width:0%"></div>
+            </div>
+            <div class="gift-bar-msg" id="giftMsg">Thêm 549,000đ nữa để nhận quà 🎁</div>
+          </div>
+          <!-- END GIFT PROGRESS BAR -->
+          <!-- ORDER SUMMARY -->
+          <div class="order-summary" id="orderSummary">
+            <div class="order-summary-title">Tóm tắt đơn hàng</div>
+            <div class="order-summary-row">
+              <span>Tạm tính</span>
+              <span id="osTamTinh">—</span>
+            </div>
+            <div class="order-summary-row">
+              <span>Giảm giá <small style="font-size:.72rem;font-weight:400;color:#94a3b8">(mã giảm giá)</small></span>
+              <span class="os-discount" id="osGiamGia">0đ</span>
+            </div>
+            <div class="order-summary-row">
+              <span>Phí vận chuyển <small style="font-size:.72rem;font-weight:400;color:#94a3b8">(tham khảo)</small></span>
+              <span id="osShipFee">—</span>
+            </div>
+            <div class="order-summary-row total">
+              <span>Tổng cộng</span>
+              <span class="os-val" id="osTongCong">—</span>
+            </div>
+            <div id="osGiftRow" style="display:none;margin-top:.55rem;padding:.45rem .7rem;background:rgba(245,158,11,.14);border-radius:8px;font-size:.82rem;font-weight:600;color:var(--primary);display:none;align-items:center;gap:.4rem">
+              🎁 Quà tặng: <strong>Áo mưa cao cấp</strong>
+            </div>
+          </div>
+          <!-- END ORDER SUMMARY -->
+          <div class="form-group" style="margin-top:1rem">
+            <label>Hình thức thanh toán</label>
+            <div style="display:flex;align-items:center;gap:.6rem;padding:.75rem .9rem;border:2px solid var(--primary);border-radius:12px;background:var(--gradient-soft)">
+              <span style="font-size:1.4rem;line-height:1;flex-shrink:0">🏦</span>
+              <span style="font-size:.85rem;line-height:1.4">
+                <strong style="display:block;color:var(--text-primary)">Chuyển khoản QR (VietQR)</strong>
+                <small style="color:var(--text-muted)">Sau khi gửi thông tin, bạn sẽ thấy mã QR để quét chuyển khoản ngay bên dưới.</small>
+              </span>
+            </div>
+          </div>
+
+            <button type="submit" class="form-submit" id="checkoutSubmitBtn">
+              <svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span class="btn-text">Tiếp tục thanh toán chuyển khoản</span>
+            </button>
+            <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:12px;letter-spacing:.01em">🔒 Thông tin của bạn được bảo mật an toàn</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ══ STEP 2: QR THANH TOÁN (section, không phải popup) ══ -->
+      <div class="checkout-card-wrap" id="checkoutPaySection">
+        <button type="button" class="checkout-back-link" id="backToFormBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Quay lại chỉnh sửa đơn hàng
+        </button>
+        <div class="pm-card pm-card--inline">
+          <!-- Header -->
+          <div class="pm-header">
+            <div class="pm-header-left">
+              <div class="pm-logo-dot">🌿</div>
+              <div>
+                <p class="pm-title">Thanh toán đơn hàng</p>
+                <p class="pm-sub">Hồng sâm Dongwha – Nhà thuốc Trung Sơn</p>
+              </div>
+            </div>
+            <div class="pm-header-right">
+              <div class="pm-header-timer">
+                <div class="pm-timer-ring" id="pmTimerRing">
+                  <svg viewBox="0 0 40 40"><circle class="ring-track" cx="20" cy="20" r="16"/><circle class="ring-fill" id="pmRingFill" cx="20" cy="20" r="16"/></svg>
+                </div>
+                <div class="pm-timer-text">
+                  <span id="pmTime">05:00</span>
+                  <span class="pm-timer-label">còn lại</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order info -->
+          <div class="pm-order-info">
+            <div class="pm-section-label">Thông tin đơn hàng</div>
+            <div class="pm-info-grid">
+              <div class="pm-info-item"><div class="lbl">Họ tên</div><div class="val" id="pmInfoName">—</div></div>
+              <div class="pm-info-item"><div class="lbl">Địa chỉ giao hàng</div><div class="val" id="pmInfoAddress" style="word-break:break-word">—</div></div>
+              <div class="pm-info-item"><div class="lbl">Số điện thoại</div><div class="val" id="pmInfoPhone">—</div></div>
+              <div class="pm-info-item"><div class="lbl">Số tiền</div><div class="val highlight" id="pmAmount">—</div></div>
+              <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Sản phẩm</div><div class="val" id="pmInfoProduct" style="word-break:break-word">—</div></div>
+              <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Mã đơn</div><div class="val" id="pmOrderCode">—</div></div>
+            </div>
+          </div>
+
+          <div class="pm-body">
+            <!-- QR col -->
+            <div class="pm-qr-col">
+              <div class="pm-section-label">Quét QR để thanh toán</div>
+              <div class="pm-qr-frame">
+                <img id="qrImage" src="img/vietqr-qr-only-opt.webp" alt="QR thanh toán VietQR - CONG TY TNHH TRUNG SON ALPHA" width="260" height="260">
+              </div>
+              <button class="pm-dl-btn" id="pmDownloadBtn" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Tải QR về máy
+              </button>
+            </div>
+            <!-- Bank info col -->
+            <div class="pm-bank-col">
+              <div class="pm-section-label">Chuyển khoản ngân hàng</div>
+              <div class="pm-bank-row">
+                <span class="lbl">Ngân hàng</span>
+                <span style="display:flex;align-items:center;gap:.5rem">
+                  <span class="val">VIETINBANK CN CAN THO</span>
+                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </span>
+              </div>
+              <div class="pm-bank-row">
+                <span class="lbl">Số tài khoản</span>
+                <span style="display:flex;align-items:center;gap:.5rem">
+                  <span class="val">111003064062</span>
+                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'111003064062')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </span>
+              </div>
+              <div class="pm-bank-row">
+                <span class="lbl">Chủ TK</span>
+                <span style="display:flex;align-items:center;gap:.5rem">
+                  <span class="val">CONG TY TNHH TRUNG SON ALPHA</span>
+                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </span>
+              </div>
+              <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">—</span></div>
+              <div class="pm-bank-row" style="align-items:center;gap:.5rem;flex-wrap:wrap">
+                <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
+                <div class="pm-transfer-box" style="flex:1;min-width:0">
+                  <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
+                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Check payment -->
+          <div style="padding:1rem 1.4rem 1.25rem;border-top:1px solid rgba(0,0,0,.07)">
+            <button class="pm-check-btn" id="checkPaymentBtn" type="button" onclick="handlePaymentCheck(this)">
+              ✅ Tôi đã chuyển khoản – Kiểm tra ngay
+            </button>
+            <div class="pm-status-msg" id="paymentStatusMsg" style="display:none;margin-top:.6rem;font-size:.84rem;color:#ef4444;text-align:center"></div>
+            <p class="pm-note" style="margin-top:.75rem;font-size:.8rem;color:#64748b;text-align:center;line-height:1.5">
+              Sau khi chuyển khoản, <strong style="color:#1a2332">dược sĩ nhà thuốc Trung Sơn sẽ gọi điện để xác nhận</strong> trong ít phút.<br>
+              Hỗ trợ: <strong>1800 55 88 98</strong> (miễn phí)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ STEP 3: XÁC NHẬN THÀNH CÔNG ══ -->
+      <div class="checkout-card-wrap" id="checkoutConfirmedSection">
+        <div class="co-state-wrap">
+          <div class="co-icon-circle">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><polyline points="7,18 14,25 27,10" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h2>Thanh toán thành công!</h2>
+          <p class="co-desc" id="coConfirmSub">Cảm ơn bạn đã đặt hàng. Dược sĩ Trung Sơn sẽ liên hệ xác nhận trong ít phút.</p>
+          <div class="co-order-code-box">
+            📦 <span id="coConfirmProduct">Hồng Sâm DONGWHA</span><br>
+            📍 <span id="coConfirmAddr">—</span><br>
+            🧾 <span id="coConfirmCode">Đang tạo mã đơn…</span>
+          </div>
+          <div style="background:#f0f7ff;border-radius:12px;padding:.8rem 1rem;margin-bottom:1.1rem;text-align:left;max-width:420px;margin-left:auto;margin-right:auto">
+            <div style="font-weight:700;font-size:.88rem;margin-bottom:.25rem">🔥 Chờ đã ! Còn 1 ưu đãi chờ bạn</div>
+            <p style="font-size:.8rem;color:#475569;margin:0">Bấm <strong>"Theo dõi"</strong> Zalo OA → nhận ngay <strong>Voucher 50.000đ</strong> cho lần mua tiếp theo. Chỉ mất 5 giây!</p>
+          </div>
+          <button class="ty-cta-btn" style="max-width:320px;margin:0 auto .7rem" onclick="window.open('https://zalo.me/780850929659163636','_blank')">💬 Bấm Theo dõi — Nhận Voucher ngay</button>
+          <div><a href="index.html" style="font-size:.82rem;color:var(--text-muted);text-decoration:underline">Về trang chủ</a></div>
+        </div>
+      </div>
+
+      <!-- ══ STEP: HẾT HẠN GIỮ GIÁ ══ -->
+      <div class="checkout-card-wrap" id="checkoutExpiredSection">
+        <div class="co-state-wrap">
+          <div class="co-icon-circle warn">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h2 style="color:#e8690c">Giỏ hàng đã hết hạn!</h2>
+          <p class="co-desc">Thời gian giữ giá ưu đãi đã hết. Vui lòng đặt hàng lại để được giá tốt nhất.</p>
+          <button class="co-btn-secondary" id="resetCheckoutBtn" type="button">Đặt lại đơn hàng</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+
+      <!-- Cột 1: Thông tin thương hiệu -->
+      <div class="footer-col-brand">
+        <a href="#" style="display:inline-block;margin-bottom:.85rem">
+          <img class="footer-logo-desktop" src="img/asset-26.webp" class="footer-logo-mobile" alt="Trung Sơn Pharma" style="max-height:56px;width:auto">
+          <img src="img/asset-27.webp" alt="Trung Sơn Pharma" style="height:90px;width:auto;display:block;object-fit:contain">
+        </a>
+        <ul class="footer-contact-list">
+          <li>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Tầng 4, số 12 Mai Chí Thọ, KDC 586, Phường Hưng Phú, TP. Cần Thơ
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hotro@trungsonpharma.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hotro@trungsonpharma.com
+            </a>
+          </li>
+          <li>
+            <a href="tel:1800558898">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              1800 55 88 98 (miễn phí)
+            </a>
+          </li>
+          <li>
+            <a href="#" style="cursor:default">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Công ty TNHH Trung Sơn Alpha – ĐKKD/MST: 1801397528, cấp ngày 01/01/2020
+            </a>
+          </li>
+        </ul>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/nhathuoctrungson" target="_blank" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://zalo.me/780850929659163636" target="_blank" aria-label="Zalo" style="font-size:.72rem;font-weight:800;letter-spacing:-.5px">Zalo</a>
+
+        </div>
+      </div>
+
+      <!-- Cột 2: Về chúng tôi -->
+      <div>
+        <div class="footer-col-title">Về chúng tôi</div>
+        <ul class="footer-nav-list">
+          <li><a href="#">Giới thiệu Trung Sơn</a></li>
+          <li><a href="#">Nhà thuốc chuẩn GPP</a></li>
+          <li><a href="#">Đối tác Dongwha Pharm</a></li>
+          <li><a href="#proof">Bằng chứng khách hàng</a></li>
+          <li><a href="#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Liên hệ với chúng tôi</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 3: Sản phẩm -->
+      <div>
+        <div class="footer-col-title">Sản phẩm</div>
+        <ul class="footer-nav-list">
+          <li><a href="#">Hồng Sâm Gold Drink 100ml</a></li>
+          <li><a href="https://trungsoncare.com/" target="_blank" rel="noopener">Các sản phẩm khác</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 4: Liên hệ nhanh -->
+      <div class="footer-col-contact">
+        <div class="footer-col-title">Liên hệ nhanh</div>
+        <p>Hotline miễn phí:<br><strong>1800 55 88 98</strong></p>
+        <p>Giờ làm việc:<br>Thứ 2 – Chủ nhật: <strong>6:00 – 22:00</strong></p>
+        <p>Chat nhanh qua:<br>
+          <a href="https://zalo.me/780850929659163636" target="_blank" style="color:var(--primary);text-decoration:none;font-weight:600">💬 Zalo ngay</a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-copy-row">
+      <p class="footer-copy">&copy; 2026 Công ty TNHH Trung Sơn Alpha.</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
+        <a href="chinh-sach-bao-mat.html" target="_blank" rel="noopener">Chính sách bảo mật</a>
+        <a href="dieu-khoan-su-dung.html" target="_blank" rel="noopener">Điều khoản dịch vụ</a>
+        <a href="chinh-sach-thanh-toan.html" target="_blank" rel="noopener">Chính sách thanh toán</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <div class="floating-btns">
+    <a href="https://m.me/nhathuoctrungson" class="fb-btn fb-zalo" target="_blank" aria-label="Chat Messenger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </a>
+    <a href="tel:1800558898" class="fb-btn fb-phone" aria-label="Goi dien">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+  </div>
+
+
+  <script>
+    /* ══════════════════════════════════════════════════════════
+       THANH TOÁN CHECKOUT — logic dùng chung (form + QR + check_pay)
+       Nội dung tương đương popup thanh toán ở trang chính (index.html),
+       nhưng hiển thị dưới dạng SECTION trong trang riêng, không phải popup.
+       ══════════════════════════════════════════════════════════ */
+
+    // ===== Header scroll + mobile menu =====
+    var header=document.getElementById('header');
+    function setBodyPad(){ if(header) document.body.style.paddingTop = header.offsetHeight + 'px'; }
+    setBodyPad();
+    window.addEventListener('load',setBodyPad);
+    window.addEventListener('resize',setBodyPad,{passive:true});
+    window.addEventListener('scroll',function(){ if(header) header.classList.toggle('scrolled', window.scrollY>50); },{passive:true});
+
+    var menuToggle=document.getElementById('menuToggle');
+    var mobileNav=document.getElementById('mobileNav');
+    var mobileOverlay=document.getElementById('mobileOverlay');
+    var mobileNavClose=document.getElementById('mobileNavClose');
+    function openMenu(){mobileNav.classList.add('open');mobileOverlay.classList.add('open');menuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+    function closeMenu(){mobileNav.classList.remove('open');mobileOverlay.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    if(menuToggle){
+      menuToggle.addEventListener('click',openMenu);
+      mobileNavClose.addEventListener('click',closeMenu);
+      mobileOverlay.addEventListener('click',closeMenu);
+      mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    }
+
+    // ===== Copy + cookie helpers (giống trang chính) =====
+    function getCookie(n){var m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?decodeURIComponent(m[2]):'';}
+    function copyToClipboard(btn,text){
+      navigator.clipboard.writeText(text).then(function(){
+        var old=btn.innerHTML;
+        btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function(){btn.innerHTML=old;},1500);
+      });
+    }
+    function getFbc(){var c=getCookie('_fbc');if(c)return c;var p=new URLSearchParams(window.location.search);var fb=p.get('fbclid');if(fb){c='fb.1.'+Date.now()+'.'+fb;document.cookie='_fbc='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}return '';}
+    function getFbp(){var c=getCookie('_fbp');if(c)return c;var r=Math.floor(Math.random()*2147483647);c='fb.1.'+Date.now()+'.'+r;document.cookie='_fbp='+c+'; max-age='+(90*24*60*60)+'; path=/; SameSite=Lax';return c;}
+    function getGaClientId(){var c=getCookie('_ga');if(!c)return '';var parts=c.split('.');return parts.length>=4?parts.slice(-2).join('.'):'';}
+
+    // ===== IP fetch (giống trang chính) =====
+    var userIP='';var ipResolved=false;
+    function tryCloudflare(){return fetch('https://www.cloudflare.com/cdn-cgi/trace',{cache:'no-store'}).then(function(r){return r.text();}).then(function(t){var m=t.match(/ip=([^\n]+)/);if(m&&m[1])return m[1].trim();return Promise.reject('no ip');});}
+    function tryIpify(){return fetch('https://api.ipify.org?format=json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.ip)return d.ip;return Promise.reject('no ip');});}
+    function tryIpinfo(){return fetch('https://ipinfo.io/json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.ip)return d.ip;return Promise.reject('no ip');});}
+    tryCloudflare().catch(function(){return tryIpify();}).catch(function(){return tryIpinfo();}).then(function(ip){userIP=ip;}).catch(function(){}).then(function(){ipResolved=true;});
+    function waitForIP(cb){if(ipResolved){cb();return;}var w=0;var iv=setInterval(function(){w+=100;if(ipResolved||w>=2000){clearInterval(iv);cb();}},100);}
+
+    // ===== Vietnamese utils =====
+    function removeDiacritics(s){var m={'à':'a','á':'a','ả':'a','ã':'a','ạ':'a','ă':'a','ằ':'a','ắ':'a','ẳ':'a','ẵ':'a','ặ':'a','â':'a','ầ':'a','ấ':'a','ẩ':'a','ẫ':'a','ậ':'a','è':'e','é':'e','ẻ':'e','ẽ':'e','ẹ':'e','ê':'e','ề':'e','ế':'e','ể':'e','ễ':'e','ệ':'e','ì':'i','í':'i','ỉ':'i','ĩ':'i','ị':'i','ò':'o','ó':'o','ỏ':'o','õ':'o','ọ':'o','ô':'o','ồ':'o','ố':'o','ổ':'o','ỗ':'o','ộ':'o','ơ':'o','ờ':'o','ớ':'o','ở':'o','ỡ':'o','ợ':'o','ù':'u','ú':'u','ủ':'u','ũ':'u','ụ':'u','ư':'u','ừ':'u','ứ':'u','ử':'u','ữ':'u','ự':'u','ỳ':'y','ý':'y','ỷ':'y','ỹ':'y','ỵ':'y','đ':'d'};return s.toLowerCase().split('').map(function(c){return m[c]||c;}).join('');}
+    function toTransferName(n){return removeDiacritics(n).toUpperCase().replace(/\s+/g,'');}
+    function generateCode(){var ch='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';var a=new Uint8Array(8);window.crypto.getRandomValues(a);var c='';for(var i=0;i<8;i++)c+=ch[a[i]%ch.length];return c;}
+
+    // ===== CONFIG =====
+    var WEBHOOK_URL='https://script.google.com/macros/s/AKfycbyZdYALGhIMranvla22dV0c5DrlJtCURkX3NsPzIfqdUn2J_6rVD2E-WUCkkDgzck1-GA/exec';
+    var TRANSFER_PREFIX='DONGWHA';
+    var BASE_AMOUNT=203000;
+    var BUMP_AMOUNT=210000;
+    var AMOUNT=203000;
+    var STORAGE_KEY='tsc_checkout_order';
+
+    // ===== Sản phẩm + tóm tắt đơn hàng (giống trang chính) =====
+    function syncFplPayload(){
+      var parts=[], totalQty=0;
+      document.querySelectorAll('.fpl-item').forEach(function(it){
+        if(it.classList.contains('active')){
+          var qty=parseInt(it.querySelector('.fpl-qty-val').textContent)||1;
+          parts.push(it.dataset.product+':'+qty);
+          totalQty+=qty;
+        }
+      });
+      var b=document.getElementById('orderBumpCheck');
+      if(b&&b.checked){ parts.push('gas-whal:1'); totalQty++; }
+      var sp=document.getElementById('selectedProduct'); if(sp) sp.value=parts.join(',');
+      var qEl=document.getElementById('quantity'); if(qEl) qEl.value=totalQty||0;
+    }
+    function updateGiftBar(realAmount){
+      var threshold=549000;
+      var amt=(typeof realAmount!=='undefined')?realAmount:AMOUNT;
+      var pct=Math.min(100,Math.round(amt/threshold*100));
+      var fill=document.getElementById('giftFill');
+      var badge=document.getElementById('giftBadge');
+      var lock=document.getElementById('giftLock');
+      var msg=document.getElementById('giftMsg');
+      if(!fill) return;
+      fill.style.width=pct+'%';
+      if(amt>=threshold){
+        fill.className='gift-progress-fill gift-progress-fill--done';
+        badge.className='gift-bar-badge gift-bar-badge--unlocked';
+        badge.textContent='ĐỦ ĐIỀU KIỆN';
+        lock.textContent='🔓';
+        msg.className='gift-bar-msg gift-bar-msg--done';
+        msg.textContent='Bạn đã đủ điều kiện nhận quà! 🎉';
+      }else{
+        fill.className='gift-progress-fill';
+        badge.className='gift-bar-badge gift-bar-badge--locked';
+        badge.textContent='CHƯA ĐỦ ĐIỀU KIỆN';
+        lock.textContent='🔒';
+        msg.className='gift-bar-msg';
+        msg.textContent='Thêm '+(threshold-amt).toLocaleString('vi-VN')+'đ nữa để nhận quà 🎁';
+      }
+    }
+    function updateAmount(){
+      var productTotal=0, hasActive=false;
+      document.querySelectorAll('.fpl-item.active').forEach(function(it){
+        var price=parseInt(it.dataset.price)||0;
+        var qty=parseInt(it.querySelector('.fpl-qty-val').textContent)||1;
+        productTotal+=price*qty;
+        hasActive=true;
+      });
+      var b=document.getElementById('orderBumpCheck');
+      var addTotal=(b&&b.checked?BUMP_AMOUNT:0);
+      var subTotal=(hasActive?productTotal:BASE_AMOUNT)+addTotal;
+      var SHIP_FEE=25000, FREE_SHIP_THRESHOLD=300000;
+      var shipFee=subTotal<FREE_SHIP_THRESHOLD?SHIP_FEE:0;
+      AMOUNT=subTotal+shipFee;
+      updateGiftBar(hasActive?productTotal+addTotal:0);
+      var t1=document.getElementById('osTamTinh');
+      var t2=document.getElementById('osTongCong');
+      var t3=document.getElementById('osShipFee');
+      if(t1)t1.textContent=hasActive?subTotal.toLocaleString('vi-VN')+'đ':'—';
+      if(t3)t3.textContent=hasActive?(shipFee>0?shipFee.toLocaleString('vi-VN')+'đ':'Miễn phí'):'—';
+      if(t2)t2.textContent=hasActive?AMOUNT.toLocaleString('vi-VN')+'đ':'—';
+      var giftRow=document.getElementById('osGiftRow');
+      if(giftRow)giftRow.style.display=(hasActive&&subTotal>=549000)?'flex':'none';
+    }
+    function toggleFplItem(el){ el.classList.toggle('active'); syncFplPayload(); updateAmount(); }
+    function changeFplQty(el,delta){
+      var valEl=el.querySelector('.fpl-qty-val');
+      var cur=parseInt(valEl.textContent)||1;
+      valEl.textContent=Math.max(1,Math.min(20,cur+delta));
+      syncFplPayload(); updateAmount();
+    }
+    function handleBumpChange(cb){
+      var bump=document.getElementById('orderBump');
+      if(cb.checked)bump.classList.add('checked');else bump.classList.remove('checked');
+      syncFplPayload(); updateAmount();
+    }
+    function buildOrderSummaryText(){
+      var parts=[];
+      document.querySelectorAll('.fpl-item.active').forEach(function(it){
+        var nameEl=it.querySelector('.fpl-name');
+        var qtyEl=it.querySelector('.fpl-qty-val');
+        var name=nameEl?nameEl.textContent.trim():'';
+        var qty=qtyEl?(parseInt(qtyEl.textContent)||1):1;
+        if(name) parts.push(name+(qty>1?' x'+qty:''));
+      });
+      var bump=document.getElementById('orderBumpCheck');
+      if(bump&&bump.checked){
+        var bumpItem=document.querySelector('.fpl-item[data-product="gas-whal"]');
+        if(!bumpItem||!bumpItem.classList.contains('active')) parts.push('Gas Whal Dongwha');
+      }
+      var text=parts.length?parts.join(', '):'Hồng Sâm DONGWHA – 1 hộp 10 chai';
+      var giftRow=document.getElementById('osGiftRow');
+      if(giftRow&&giftRow.style.display==='flex') text+=' + Quà tặng: Áo mưa cao cấp';
+      return text;
+    }
+    syncFplPayload(); updateAmount();
+
+    // ===== Form validation (giống trang chính) =====
+    function validateField(i){
+      var g=i.closest('.form-group');if(!g)return true;var ok=true;
+      var v=i.value.trim();
+      if(i.required&&!v)ok=false;
+      else if(i.type==='tel'&&v)ok=/^(0[0-9]{9}|\+84[0-9]{9})$/.test(v);
+      if(ok){g.classList.remove('has-error');i.classList.remove('error');}else{g.classList.add('has-error');i.classList.add('error');}
+      return ok;
+    }
+    var checkoutForm=document.getElementById('checkoutForm');
+    checkoutForm.querySelectorAll('[required]').forEach(function(i){
+      i.addEventListener('blur',function(){validateField(this);});
+      i.addEventListener('input',function(){if(this.classList.contains('error'))validateField(this);});
+    });
+
+    // ===== Countdown timer (giống trang chính) =====
+    var pmCountdownTimer=null, pmSecondsLeft=300;
+    var TOTAL_CIRC=100.53;
+    function startCountdown(){
+      if(pmCountdownTimer)clearInterval(pmCountdownTimer);
+      pmSecondsLeft=300;
+      updateCountdownUI(pmSecondsLeft);
+      pmCountdownTimer=setInterval(function(){
+        pmSecondsLeft--;
+        updateCountdownUI(pmSecondsLeft);
+        if(pmSecondsLeft<=0){
+          clearInterval(pmCountdownTimer);
+          showExpired();
+        }
+      },1000);
+    }
+    function updateCountdownUI(s){
+      var m=Math.floor(s/60), sec=s%60;
+      var timeEl=document.getElementById('pmTime');
+      if(timeEl)timeEl.textContent=(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;
+      var pct=s/300;
+      var ring=document.getElementById('pmRingFill');
+      if(ring){
+        ring.style.strokeDasharray=TOTAL_CIRC+' '+TOTAL_CIRC;
+        ring.style.strokeDashoffset=(-TOTAL_CIRC*(1-pct)).toFixed(2);
+      }
+      var wrap=document.getElementById('pmTimerRing');
+      if(wrap){
+        wrap.classList.remove('warn','danger');
+        if(s<=60)wrap.classList.add('danger');
+        else if(s<=120)wrap.classList.add('warn');
+      }
+    }
+
+    // Download QR
+    var pmDlBtn=document.getElementById('pmDownloadBtn');
+    if(pmDlBtn){
+      pmDlBtn.addEventListener('click',function(){
+        var img=document.getElementById('qrImage');
+        if(!img||!img.src)return;
+        fetch(img.src).then(function(r){return r.blob();}).then(function(b){
+          var url=URL.createObjectURL(b);
+          var a=document.createElement('a');
+          a.href=url;a.download='QR-Dongwha-ThanhToan.png';
+          document.body.appendChild(a);a.click();
+          document.body.removeChild(a);URL.revokeObjectURL(url);
+        }).catch(function(){window.open(img.src,'_blank');});
+      });
+    }
+
+    // ===== Chuyển bước (section) =====
+    var stepInfo=document.getElementById('stepInfo'),stepPay=document.getElementById('stepPay'),stepDone=document.getElementById('stepDone');
+    var secForm=document.getElementById('checkoutFormSection'),secPay=document.getElementById('checkoutPaySection'),
+        secConfirmed=document.getElementById('checkoutConfirmedSection'),secExpired=document.getElementById('checkoutExpiredSection');
+
+    function showFormStep(){
+      secForm.style.display='';secPay.style.display='none';secConfirmed.style.display='none';secExpired.style.display='none';
+      stepInfo.className='checkout-step active';stepPay.className='checkout-step';stepDone.className='checkout-step';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function showPayStep(){
+      secForm.style.display='none';secPay.style.display='block';secConfirmed.style.display='none';secExpired.style.display='none';
+      stepInfo.className='checkout-step done';stepPay.className='checkout-step active';stepDone.className='checkout-step';
+      window.scrollTo({top:0,behavior:'smooth'});
+      startCountdown();
+    }
+    function showConfirmedStep(){
+      if(pmCountdownTimer)clearInterval(pmCountdownTimer);
+      secForm.style.display='none';secPay.style.display='none';secConfirmed.style.display='block';secExpired.style.display='none';
+      stepInfo.className='checkout-step done';stepPay.className='checkout-step done';stepDone.className='checkout-step active';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function showExpired(){
+      secForm.style.display='none';secPay.style.display='none';secConfirmed.style.display='none';secExpired.style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    document.getElementById('backToFormBtn').addEventListener('click',function(){
+      if(pmCountdownTimer)clearInterval(pmCountdownTimer);
+      showFormStep();
+    });
+    document.getElementById('resetCheckoutBtn').addEventListener('click',function(){
+      try{sessionStorage.removeItem(STORAGE_KEY);}catch(e){}
+      showFormStep();
+    });
+
+    // ===== Đổ dữ liệu vào section 2 (QR) =====
+    function populatePaySection(payload, productSummaryText, transferContent){
+      var n=document.getElementById('pmInfoName');if(n)n.textContent=payload.fullname||'—';
+      var p=document.getElementById('pmInfoPhone');if(p)p.textContent=payload.phone||'—';
+      var ad=document.getElementById('pmInfoAddress');if(ad)ad.textContent=payload.full_address||payload.address||'—';
+      var am=document.getElementById('pmAmount');if(am)am.textContent=(payload.total_amount||0).toLocaleString('vi-VN')+'đ';
+      var amb=document.getElementById('pmAmountBank');if(amb)amb.textContent=(payload.total_amount||0).toLocaleString('vi-VN')+'đ';
+      var pip=document.getElementById('pmInfoProduct');if(pip)pip.textContent=productSummaryText||'—';
+      document.getElementById('pmOrderCode').textContent='Đang tạo mã đơn…';
+      document.getElementById('transferContent').textContent=transferContent||'';
+      var sm=document.getElementById('paymentStatusMsg');if(sm){sm.className='pm-status-msg';sm.style.display='none';}
+      showPayStep();
+    }
+
+    // ===== Gửi webhook (lead) + lấy mã đơn thật, dùng chung cho cả 2 luồng vào trang =====
+    function fireLeadWebhook(payload){
+      var codeTargetId='pmOrderCode';
+      var codeFallbackMsg='Đang xử lý – dược sĩ sẽ gọi xác nhận kèm mã đơn';
+      var codeTimer=setTimeout(function(){
+        var el=document.getElementById(codeTargetId);
+        if(el&&el.textContent==='Đang tạo mã đơn…')el.textContent=codeFallbackMsg;
+      },10000);
+      fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();})
+        .then(function(res){
+          clearTimeout(codeTimer);
+          var el=document.getElementById(codeTargetId);
+          if(el)el.textContent=(res&&res.order_id)?('#'+res.order_id):codeFallbackMsg;
+        })
+        .catch(function(){
+          clearTimeout(codeTimer);
+          var el=document.getElementById(codeTargetId);
+          if(el)el.textContent=codeFallbackMsg;
+        });
+    }
+
+    // ===== Luồng A: khách được chuyển từ trang chính (index.html) sang, dữ liệu nằm trong sessionStorage =====
+    (function(){
+      var raw=null;
+      try{raw=sessionStorage.getItem(STORAGE_KEY);}catch(e){}
+      if(!raw)return;
+      try{
+        var data=JSON.parse(raw);
+        sessionStorage.removeItem(STORAGE_KEY);
+        if(data&&data.payload){
+          populatePaySection(data.payload, data.productSummaryText, data.transferContent);
+          fireLeadWebhook(data.payload);
+        }
+      }catch(e){}
+    })();
+
+    // ===== Luồng B: khách vào thẳng trang checkout, tự điền form tại đây =====
+    var checkoutSubmitBtn=document.getElementById('checkoutSubmitBtn');
+    checkoutForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(checkoutSubmitBtn.disabled)return;
+      if(document.getElementById('website').value)return; // honeypot
+
+      var ok=true;
+      var hasProduct=document.querySelectorAll('.fpl-item.active').length>0;
+      var prodErr=document.getElementById('productError');
+      if(!hasProduct){ if(prodErr) prodErr.style.display='block'; ok=false; } else { if(prodErr) prodErr.style.display='none'; }
+      checkoutForm.querySelectorAll('[required]').forEach(function(i){if(!validateField(i))ok=false;});
+      if(!ok){
+        var sb=document.getElementById('checkoutSubmitBtn');
+        if(sb){sb.classList.add('shake');setTimeout(function(){sb.classList.remove('shake');},500);}
+        return;
+      }
+
+      checkoutSubmitBtn.classList.add('loading');checkoutSubmitBtn.disabled=true;
+
+      waitForIP(function(){
+        var eventId='lead_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+        var regCode=generateCode();
+        var qp=new URLSearchParams(window.location.search);
+
+        var payload={
+          event:'lead',
+          fullname:document.getElementById('fullname').value.trim(),
+          phone:document.getElementById('phone').value.trim(),
+          address:document.getElementById('address').value.trim(),
+          province:'',province_code:'',district:'',district_code:'',
+          full_address:document.getElementById('address').value.trim(),
+          quantity:document.getElementById('quantity').value,
+          products:document.getElementById('selectedProduct').value,
+          note:document.getElementById('note').value.trim(),
+          order_bump:document.getElementById('orderBumpCheck').checked,
+          payment_method:'bank',
+          total_amount:AMOUNT,
+          code:regCode,
+          timestamp:new Date().toISOString(),
+          event_time:Math.floor(Date.now()/1000),
+          event_id:eventId,
+          fbc:getFbc(),fbp:getFbp(),
+          fbclid:qp.get('fbclid')||'',
+          ga_client_id:getGaClientId(),
+          client_user_agent:navigator.userAgent||'',
+          client_ip_address:userIP,
+          event_source_url:window.location.href,
+          action_source:'website',
+          event_name:'Lead',
+          utm_source:qp.get('utm_source')||'',
+          utm_medium:qp.get('utm_medium')||'',
+          utm_campaign:qp.get('utm_campaign')||'',
+          utm_content:qp.get('utm_content')||'',
+          utm_term:qp.get('utm_term')||'',
+          ref:qp.get('ref')||''
+        };
+
+        checkoutSubmitBtn.classList.remove('loading');
+        checkoutSubmitBtn.disabled=false;
+
+        // KHÔNG gọi CAPI ở đây — backend tự xử lý qua webhook
+        if(typeof fbq!=='undefined')fbq('track','Lead',{content_name:'Dongwha Red Ginseng',value:AMOUNT,currency:'VND'},{eventID:eventId});
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:'generate_lead',event_id:eventId,value:AMOUNT,currency:'VND',payment_method:'bank',content_name:'Dongwha Red Ginseng'});
+
+        var nameClean=toTransferName(payload.fullname);
+        var transferContent=nameClean+' '+TRANSFER_PREFIX+' '+payload.phone;
+        var productSummaryText=buildOrderSummaryText();
+
+        populatePaySection(payload, productSummaryText, transferContent);
+        fireLeadWebhook(payload);
+      });
+    });
+
+    // ===== Kiểm tra thanh toán → hiện xác nhận (section, không phải popup) =====
+    function handlePaymentCheck(btn){
+      var oldTxt=btn.innerHTML;
+      btn.disabled=true;
+      btn.innerHTML='⏳ Đang kiểm tra...';
+      var addr=document.getElementById('pmInfoAddress').textContent||'—';
+      var code=document.getElementById('pmOrderCode').textContent||'—';
+      var amount=document.getElementById('pmAmount').textContent||'';
+      var product=document.getElementById('pmInfoProduct').textContent||'—';
+      setTimeout(function(){
+        btn.disabled=false;
+        btn.innerHTML=oldTxt;
+        document.getElementById('coConfirmProduct').textContent=product;
+        document.getElementById('coConfirmAddr').textContent=addr;
+        document.getElementById('coConfirmCode').textContent=code+' · '+amount;
+        showConfirmedStep();
+      },1500);
+    }
+  </script>
+
+  <!-- TrackAsia Autocomplete v2 (giống trang chính) -->
+  <script>
+  (function(){
+    var KEY='2c1773889324e30bd8727234e2a89e59fe';
+    var inp=document.getElementById('address');
+    if(!inp)return;
+
+    var wrap=document.createElement('div');
+    wrap.className='address-ac-wrap';
+    inp.parentNode.insertBefore(wrap,inp);
+    wrap.appendChild(inp);
+    var dd=document.createElement('div');
+    dd.className='address-suggestions';
+    wrap.appendChild(dd);
+
+    function hideDd(){dd.classList.remove('show');}
+
+    function renderItems(preds){
+      dd.innerHTML='';
+      if(!preds||!preds.length){hideDd();return;}
+      preds.forEach(function(p){
+        var el=document.createElement('div');
+        el.className='sug-item';
+        var sf=p.structured_formatting||{};
+        var main=sf.main_text||p.name||p.description||'';
+        var sub=sf.secondary_text||'';
+        el.innerHTML='<div class="sug-main">'+main+'</div>'+(sub?'<div class="sug-sub">'+sub+'</div>':'');
+        el.addEventListener('mousedown',function(e){
+          e.preventDefault();
+          var terms=p.terms||[];
+          var provName='';
+          if(terms.length>=2)provName=terms[terms.length-2].value||'';
+          var desc=p.description||p.formatted_address||'';
+          desc=desc.replace(/,?\s*Vi\u1ec7t Nam\s*$/i,'');
+          if(provName){
+            var esc=provName.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+            desc=desc.replace(new RegExp(',?\\s*'+esc+'\\s*$','i'),'').replace(/,\s*$/,'');
+          }
+          inp.value=desc.trim();
+          hideDd();
+        });
+        dd.appendChild(el);
+      });
+      dd.classList.add('show');
+    }
+
+    var timer=null,lastQ='';
+    inp.addEventListener('input',function(){
+      var q=inp.value.trim();
+      if(q.length<3){hideDd();return;}
+      if(q===lastQ)return;
+      lastQ=q;
+      clearTimeout(timer);
+      timer=setTimeout(function(){
+        fetch('https://maps.track-asia.com/api/v2/place/autocomplete/json?input='+encodeURIComponent(q)+'&size=6&key='+KEY+'&new_admin=true')
+          .then(function(r){return r.json();})
+          .then(function(d){if(d.status==='OK')renderItems(d.predictions);else hideDd();})
+          .catch(hideDd);
+      },350);
+    });
+
+    inp.addEventListener('blur',function(){setTimeout(hideDd,180);});
+  })();
+  </script>
+
+</body>
+</html>

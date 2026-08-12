@@ -424,11 +424,20 @@ var TSC_SHIPPING_ID = '9';       // ✅ "Giao hàng tận nơi" — status Activ
                                   // id=7 đã Tắt (đơn giản là bản đặt sai tên trước đây, không dùng). id=8 lỗi cũ đã tự Disabled.
 var LP_SHIPPING_FEE = 25000;     // Phí ship landing page báo khách — dùng để so sánh/log, đối chiếu total.
 var TSC_PRODUCT_ID_MAP = {       // slug trong chuỗi "products" của form → product_id thật bên hệ thống
-  'hong-sam': '6372',    // ✅ "NƯỚC UỐNG HỒNG SÂM DONGWHA" — giá 203,000đ khớp, status Active
-  'gas-whal': '6373',    // ✅ "Nước uống thảo mộc có ga Dongwha Gas Whal 75ml" — giá 210,000đ khớp, status Active
-  'sangsangton': '7851'  // ✅ "NƯỚC UỐNG TĂNG LỰC DONGWHA SANGSANGTON UP" — giá 168,000đ khớp, status Active
+  'hong-sam': '6372',    // "NƯỚC UỐNG HỒNG SÂM DONGWHA", status Active
+  'gas-whal': '6373',    // "Nước uống thảo mộc có ga Dongwha Gas Whal 75ml", status Active
+  'sangsangton': '7851'  // "NƯỚC UỐNG TĂNG LỰC DONGWHA SANGSANGTON UP", status Active
   // Lưu ý: mỗi sản phẩm có 2-3 product_id trùng tên (bản disabled, hoặc giá bằng 1/10 — có vẻ là giá/chai lẻ
   // thay vì giá/hộp 10 chai). Đã chọn đúng bản khớp giá hộp trên landing page + status Active.
+};
+// Giá landing page thật đang bán (khớp data-price trong index.html) — LUÔN gửi kèm giá này khi tạo đơn,
+// KHÔNG dựa vào giá catalog CS-Cart của product_id ở trên nữa. Lý do: catalog CS-Cart lưu "giá gốc" (trước
+// giảm 30%) chứ không phải giá thật khách trả — đã bắt gặp 2 lần (Gas Whal ghi 300k, Hồng Sâm ghi 290k
+// trong khi landing page bán 210k/203k) khiến dòng sản phẩm trên đơn hiện sai giá dù Tổng cộng vẫn đúng.
+var TSC_PRODUCT_PRICE_MAP = {
+  'hong-sam': 203000,
+  'gas-whal': 210000,
+  'sangsangton': 168000
 };
 var TSC_GIFT_PRODUCT_ID = '7864'; // "Áo mưa Trung Sơn - SangSangTon" (SKU 934509) — giá gốc 99.000đ, dùng làm quà tặng (giá ghi đè = 0đ)
 var TSC_GIFT_THRESHOLD = 549000;  // Hóa đơn landing page (đã gồm giảm giá, CHƯA gồm ship) >= mốc này thì tự động tặng kèm áo mưa
@@ -486,7 +495,10 @@ function tscCreateOrder(data) {
     var a = p.split(':');
     var pid = TSC_PRODUCT_ID_MAP[a[0]];
     if (!pid) { dbg('⚠️ Không tìm thấy product_id cho slug "' + a[0] + '" — bỏ qua đơn.'); return; }
-    products[idx++] = { product_id: String(pid), amount: String(a[1] || 1) };
+    var lpPrice = TSC_PRODUCT_PRICE_MAP[a[0]];
+    var item = { product_id: String(pid), amount: String(a[1] || 1) };
+    if (lpPrice != null) item.price = String(lpPrice); // ép giá đúng theo landing page, không lấy giá catalog CS-Cart
+    products[idx++] = item;
   });
   if (!Object.keys(products).length) { dbg('⚠️ Không map được sản phẩm nào (data.products="' + (data.products || '') + '") — bỏ qua tạo đơn.'); return null; }
 

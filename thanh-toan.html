@@ -1613,9 +1613,9 @@
                   </span>
                 </div>
                 <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">—</span></div>
-                <div class="pm-bank-row" style="align-items:center;gap:.5rem;flex-wrap:wrap">
-                  <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
-                  <div class="pm-transfer-box" style="flex:1;min-width:0">
+                <div class="pm-bank-row" style="flex-direction:column;align-items:stretch;gap:.4rem">
+                  <span class="lbl">Nội dung CK</span>
+                  <div class="pm-transfer-box" style="display:flex;align-items:center;gap:.5rem;width:100%">
                     <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
                     <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
                   </div>

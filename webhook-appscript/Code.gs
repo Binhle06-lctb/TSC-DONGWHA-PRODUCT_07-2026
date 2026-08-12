@@ -38,7 +38,8 @@ function doPost(e) {
       'Bump hộp 2', 'Thanh toán', 'Tổng tiền', 'Ghi chú', 'Trạng thái gọi',
       'UTM Source', 'UTM Medium', 'UTM Campaign', 'UTM Content', 'UTM Term', 'Ref', 'fbclid', 'Event ID', 'URL nguồn',
       'Mã đơn hệ thống', 'Đã nhận tiền (CK)', 'Products raw (ẩn)',
-      'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID'];
+      'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID',
+      'GCLID', 'Referrer'];
     if (sh.getLastRow() === 0) {
       sh.appendRow(headers);
       sh.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#d1fae5');
@@ -59,7 +60,7 @@ function doPost(e) {
       data.utm_content || '', data.utm_term || '', data.ref || '', data.fbclid || '',
       data.event_id || '', data.event_source_url || '', '', '', data.products || '',
       data.province || '', data.province_code || '', data.district || '', data.district_code || '',
-      '', data.ga_client_id || ''
+      '', data.ga_client_id || '', data.gclid || '', data.referrer || ''
     ]);
 
     // COD lẫn CK → đẩy ngay vào hệ thống trungsoncare.com lúc khách đặt hàng (dược sĩ thấy đơn ngay,
@@ -600,7 +601,8 @@ function tscCreateOrder(data) {
 /** Đảm bảo Sheet có đủ 3 cột mới (idempotent — gọi nhiều lần vô hại) */
 function ensureExtraColumns(sh) {
   var wanted = ['Mã đơn hệ thống', 'Đã nhận tiền (CK)', 'Products raw (ẩn)',
-    'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID'];
+    'Tỉnh/Thành', 'Mã Tỉnh', 'Quận/Huyện', 'Mã Quận', 'Debug (CS-Cart)', 'GA Client ID',
+    'GCLID', 'Referrer'];
   var lastCol = Math.max(sh.getLastColumn(), 1);
   var existing = sh.getRange(1, 1, 1, lastCol).getValues()[0];
   wanted.forEach(function (name) {

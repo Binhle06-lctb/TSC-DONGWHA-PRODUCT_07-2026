@@ -2859,6 +2859,16 @@
         var eventId='lead_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
         var regCode=generateCode();
         var qp=new URLSearchParams(window.location.search);
+        // Google Ads mặc định chỉ tự gắn gclid vào URL, KHÔNG tự gắn utm_source/utm_medium (phải cấu hình
+        // "Final URL suffix" ở Google Ads mới có) — nếu thiếu utm_source mà có gclid/fbclid thì suy luận
+        // luôn ra nguồn traffic, tránh để trống hết cột UTM cho toàn bộ traffic quảng cáo thật.
+        var gclid=qp.get('gclid')||qp.get('gbraid')||qp.get('wbraid')||'';
+        var inferredSource=qp.get('utm_source')||'';
+        var inferredMedium=qp.get('utm_medium')||'';
+        if(!inferredSource){
+          if(gclid){ inferredSource='google'; inferredMedium=inferredMedium||'cpc'; }
+          else if(qp.get('fbclid')){ inferredSource='facebook'; inferredMedium=inferredMedium||'paid-social'; }
+        }
         var loc=(typeof getSelectedLocation==='function')?getSelectedLocation():{province_code:'',province_name:'',district_code:'',district_name:''};
         if(!loc.province_code&&typeof matchLocationFromText==='function'){
           var fallbackLoc=matchLocationFromText(document.getElementById('address').value);
@@ -2894,13 +2904,15 @@
           event_source_url:window.location.href,
           action_source:'website',
           event_name:'Lead',
-          // UTM
-          utm_source:qp.get('utm_source')||'',
-          utm_medium:qp.get('utm_medium')||'',
+          // UTM (utm_source/medium suy luận từ gclid/fbclid nếu link quảng cáo không tự gắn utm_*)
+          utm_source:inferredSource,
+          utm_medium:inferredMedium,
           utm_campaign:qp.get('utm_campaign')||'',
           utm_content:qp.get('utm_content')||'',
           utm_term:qp.get('utm_term')||'',
-          ref:qp.get('ref')||''
+          ref:qp.get('ref')||'',
+          gclid:gclid,
+          referrer:document.referrer||''
         };
 
         // KHONG goi Meta Conversions API o frontend - backend tu xu ly

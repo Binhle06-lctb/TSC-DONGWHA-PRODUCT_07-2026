@@ -3201,6 +3201,7 @@
           desc=desc.replace(new RegExp(',?\\s*'+esc+'\\s*$','i'),'').replace(/,\s*$/,'');
         }
         inp.value=desc.trim();
+        if(window.setSelectedLocationFromTerms)window.setSelectedLocationFromTerms(terms);
         hideDd();
       });
       dd.appendChild(el);
@@ -3472,62 +3473,45 @@
   })();
 </script>
 <script>
-/* Province/District select -- populate from vn-locations.json (numeric GSO codes, matches CS-Cart tslocation) */
+/* Map tên Tỉnh/Quận mà TrackAsia autocomplete trả về (chỉ là chuỗi text) sang mã GSO số thật trong
+   vn-locations.json (khớp đúng hệ thống tslocation của trungsoncare.com) — dùng để gửi kèm đơn hàng.
+   Trước đây trang này có 2 ô <select id="province">/<select id="district"> nhưng đã bị bỏ khỏi form
+   từ lâu (dùng ô địa chỉ tự do + autocomplete thay thế), khiến getSelectedLocation() luôn trả về rỗng
+   cho MỌI đơn — CS-Cart lúc đó tự hiển thị về địa chỉ mặc định của cửa hàng (Cần Thơ) thay vì tỉnh
+   thật của khách. Bản dưới đây lấy tên tỉnh/quận thẳng từ kết quả autocomplete khách vừa chọn. */
 (function(){
-  var provinceSel=document.getElementById('province');
-  var districtSel=document.getElementById('district');
-  if(!provinceSel||!districtSel)return;
   var VN_LOCATIONS=[];
-
   fetch('vn-locations.json').then(function(r){return r.json();}).then(function(data){
     VN_LOCATIONS=data||[];
-    var frag=document.createDocumentFragment();
-    VN_LOCATIONS.forEach(function(p){
-      var opt=document.createElement('option');
-      opt.value=p.code;
-      opt.textContent=p.name;
-      frag.appendChild(opt);
-    });
-    provinceSel.appendChild(frag);
   }).catch(function(err){ console.error('Khong tai duoc vn-locations.json', err); });
 
-  window.onProvinceChange=function(){
-    var code=provinceSel.value;
-    districtSel.innerHTML='';
-    var placeholder=document.createElement('option');
-    placeholder.value='';
-    if(!code){
-      placeholder.textContent='-- Chon Tinh/Thanh truoc --';
-      districtSel.appendChild(placeholder);
-      districtSel.disabled=true;
-      return;
+  function normalizeVN(s){
+    return String(s||'').toLowerCase()
+      .replace(/^(thành phố|tp\.?|tỉnh)\s+/i,'')
+      .replace(/^(quận|huyện|thị xã|tp\.?)\s+/i,'')
+      .trim();
+  }
+
+  var selected={province_code:'',province_name:'',district_code:'',district_name:''};
+
+  window.setSelectedLocationFromTerms=function(terms){
+    selected={province_code:'',province_name:'',district_code:'',district_name:''};
+    if(!terms||!terms.length||!VN_LOCATIONS.length)return;
+    var provTerm=terms.length>=2?(terms[terms.length-2].value||''):'';
+    var distTerm=terms.length>=3?(terms[terms.length-3].value||''):'';
+    var provNorm=normalizeVN(provTerm);
+    var prov=VN_LOCATIONS.find(function(p){return normalizeVN(p.name)===provNorm;});
+    if(!prov)return;
+    selected.province_code=String(prov.code);
+    selected.province_name=prov.name;
+    if(distTerm){
+      var distNorm=normalizeVN(distTerm);
+      var dist=(prov.districts||[]).find(function(d){return normalizeVN(d.name)===distNorm;});
+      if(dist){ selected.district_code=String(dist.code); selected.district_name=dist.name; }
     }
-    placeholder.textContent='-- Chon Quan/Huyen --';
-    districtSel.appendChild(placeholder);
-    var prov=VN_LOCATIONS.find(function(p){return String(p.code)===String(code);});
-    var districts=(prov&&prov.districts)||[];
-    var frag=document.createDocumentFragment();
-    districts.forEach(function(d){
-      var opt=document.createElement('option');
-      opt.value=d.code;
-      opt.textContent=d.name;
-      frag.appendChild(opt);
-    });
-    districtSel.appendChild(frag);
-    districtSel.disabled=false;
   };
 
-  window.getSelectedLocation=function(){
-    var pCode=provinceSel.value, dCode=districtSel.value;
-    var prov=VN_LOCATIONS.find(function(p){return String(p.code)===String(pCode);});
-    var dist=prov&&(prov.districts||[]).find(function(d){return String(d.code)===String(dCode);});
-    return {
-      province_code: pCode||'',
-      province_name: prov?prov.name:'',
-      district_code: dCode||'',
-      district_name: dist?dist.name:''
-    };
-  };
+  window.getSelectedLocation=function(){ return selected; };
 })();
 </script>
 <script>

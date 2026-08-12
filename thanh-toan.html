@@ -888,6 +888,13 @@
       .pm-body{grid-template-columns:1fr}
     }
 
+    /* ── Đặt khối "Thông tin đơn hàng" nằm bên trái khối QR/chuyển khoản (chỉ dùng ở trang thanh-toan.html) ── */
+    .pm-content-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:1.1rem;margin-bottom:1.1rem}
+    .pm-content-grid>.pm-order-info,.pm-content-grid>.pm-body{margin-bottom:0}
+    @media(max-width:900px){
+      .pm-content-grid{grid-template-columns:1fr}
+    }
+
     /* ── QR COL ── */
     .pm-qr-col{
       padding:1.1rem 1rem 1.1rem 1.4rem;
@@ -1312,6 +1319,7 @@
     .checkout-step-sep{width:22px;height:2px;background:#e2e8f0;flex-shrink:0}
     .checkout-section{padding:1.25rem 1.5rem 5rem}
     .checkout-card-wrap{max-width:640px;margin:0 auto}
+    #checkoutPaySection{max-width:960px}
     .pm-card--inline{position:static;max-width:100%;width:100%;margin:0;animation:none;box-shadow:none;border:none;border-radius:0;background:transparent;max-height:none;overflow:visible}
     #checkoutFormSection,#checkoutPaySection,#checkoutConfirmedSection,#checkoutExpiredSection{display:none}
     .co-state-wrap{background:var(--bg-primary);border-radius:16px;padding:2.75rem 1.9rem;text-align:center;box-shadow:none;border:1px solid rgba(15,92,74,.14)}
@@ -1554,61 +1562,63 @@
             </div>
           </div>
 
-          <!-- Order info -->
-          <div class="pm-order-info">
-            <div class="pm-section-label">Thông tin đơn hàng</div>
-            <div class="pm-info-grid">
-              <div class="pm-info-item"><div class="lbl">Họ tên</div><div class="val" id="pmInfoName">—</div></div>
-              <div class="pm-info-item"><div class="lbl">Địa chỉ giao hàng</div><div class="val" id="pmInfoAddress" style="word-break:break-word">—</div></div>
-              <div class="pm-info-item"><div class="lbl">Số điện thoại</div><div class="val" id="pmInfoPhone">—</div></div>
-              <div class="pm-info-item"><div class="lbl">Số tiền</div><div class="val highlight" id="pmAmount">—</div></div>
-              <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Sản phẩm</div><div class="val" id="pmInfoProduct" style="word-break:break-word">—</div></div>
-              <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Mã đơn</div><div class="val" id="pmOrderCode">—</div></div>
+          <div class="pm-content-grid">
+            <!-- Order info -->
+            <div class="pm-order-info">
+              <div class="pm-section-label">Thông tin đơn hàng</div>
+              <div class="pm-info-grid">
+                <div class="pm-info-item"><div class="lbl">Họ tên</div><div class="val" id="pmInfoName">—</div></div>
+                <div class="pm-info-item"><div class="lbl">Địa chỉ giao hàng</div><div class="val" id="pmInfoAddress" style="word-break:break-word">—</div></div>
+                <div class="pm-info-item"><div class="lbl">Số điện thoại</div><div class="val" id="pmInfoPhone">—</div></div>
+                <div class="pm-info-item"><div class="lbl">Số tiền</div><div class="val highlight" id="pmAmount">—</div></div>
+                <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Sản phẩm</div><div class="val" id="pmInfoProduct" style="word-break:break-word">—</div></div>
+                <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Mã đơn</div><div class="val" id="pmOrderCode">—</div></div>
+              </div>
             </div>
-          </div>
 
-          <div class="pm-body">
-            <!-- QR col -->
-            <div class="pm-qr-col">
-              <div class="pm-section-label">Quét QR để thanh toán</div>
-              <div class="pm-qr-frame">
-                <img id="qrImage" src="img/vietqr-qr-only-opt.webp" alt="QR thanh toán VietQR - CONG TY TNHH TRUNG SON ALPHA" width="260" height="260">
+            <div class="pm-body">
+              <!-- QR col -->
+              <div class="pm-qr-col">
+                <div class="pm-section-label">Quét QR để thanh toán</div>
+                <div class="pm-qr-frame">
+                  <img id="qrImage" src="img/vietqr-qr-only-opt.webp" alt="QR thanh toán VietQR - CONG TY TNHH TRUNG SON ALPHA" width="260" height="260">
+                </div>
+                <button class="pm-dl-btn" id="pmDownloadBtn" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Tải QR về máy
+                </button>
               </div>
-              <button class="pm-dl-btn" id="pmDownloadBtn" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Tải QR về máy
-              </button>
-            </div>
-            <!-- Bank info col -->
-            <div class="pm-bank-col">
-              <div class="pm-section-label">Chuyển khoản ngân hàng</div>
-              <div class="pm-bank-row">
-                <span class="lbl">Ngân hàng</span>
-                <span style="display:flex;align-items:center;gap:.5rem">
-                  <span class="val">VIETINBANK CN CAN THO</span>
-                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-                </span>
-              </div>
-              <div class="pm-bank-row">
-                <span class="lbl">Số tài khoản</span>
-                <span style="display:flex;align-items:center;gap:.5rem">
-                  <span class="val">111003064062</span>
-                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'111003064062')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-                </span>
-              </div>
-              <div class="pm-bank-row">
-                <span class="lbl">Chủ TK</span>
-                <span style="display:flex;align-items:center;gap:.5rem">
-                  <span class="val">CONG TY TNHH TRUNG SON ALPHA</span>
-                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-                </span>
-              </div>
-              <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">—</span></div>
-              <div class="pm-bank-row" style="align-items:center;gap:.5rem;flex-wrap:wrap">
-                <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
-                <div class="pm-transfer-box" style="flex:1;min-width:0">
-                  <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
-                  <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+              <!-- Bank info col -->
+              <div class="pm-bank-col">
+                <div class="pm-section-label">Chuyển khoản ngân hàng</div>
+                <div class="pm-bank-row">
+                  <span class="lbl">Ngân hàng</span>
+                  <span style="display:flex;align-items:center;gap:.5rem">
+                    <span class="val">VIETINBANK CN CAN THO</span>
+                    <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'VIETINBANK CN CAN THO')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                  </span>
+                </div>
+                <div class="pm-bank-row">
+                  <span class="lbl">Số tài khoản</span>
+                  <span style="display:flex;align-items:center;gap:.5rem">
+                    <span class="val">111003064062</span>
+                    <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'111003064062')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                  </span>
+                </div>
+                <div class="pm-bank-row">
+                  <span class="lbl">Chủ TK</span>
+                  <span style="display:flex;align-items:center;gap:.5rem">
+                    <span class="val">CONG TY TNHH TRUNG SON ALPHA</span>
+                    <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,'CONG TY TNHH TRUNG SON ALPHA')" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                  </span>
+                </div>
+                <div class="pm-bank-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmountBank">—</span></div>
+                <div class="pm-bank-row" style="align-items:center;gap:.5rem;flex-wrap:wrap">
+                  <span class="lbl" style="white-space:nowrap">Nội dung CK</span>
+                  <div class="pm-transfer-box" style="flex:1;min-width:0">
+                    <span id="transferContent" style="flex:1;font-size:.85rem;font-weight:700;color:#0f172a;font-family:monospace;word-break:break-all"></span>
+                    <button class="pm-copy-btn" type="button" onclick="copyToClipboard(this,document.getElementById('transferContent').textContent.trim())" aria-label="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                  </div>
                 </div>
               </div>
             </div>

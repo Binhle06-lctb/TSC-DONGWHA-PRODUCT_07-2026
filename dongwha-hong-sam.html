@@ -12,7 +12,9 @@
   <link rel="apple-touch-icon" href="img/asset-2.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -3328,8 +3330,19 @@
     document.addEventListener('pause', function(e){ if(e.target && e.target.tagName==='VIDEO') refreshVideoState(); }, true);
     document.addEventListener('ended', function(e){ if(e.target && e.target.tagName==='VIDEO') refreshVideoState(); }, true);
 
+    // Chỉ chạy hiệu ứng rơi confetti trong 6 giây đầu (lúc mới vào trang) rồi dừng hẳn —
+    // trước đây requestAnimationFrame chạy vô thời hạn suốt phiên, tốn CPU/pin và gây giật khi lướt trang trên máy yếu.
+    var startTime = Date.now();
+    var DURATION_MS = 6000;
+
     function loop(){
-      if(!anyVideoPlaying){
+      if(Date.now() - startTime > DURATION_MS){
+        ctx.clearRect(0,0,W,H);
+        canvas.style.display = 'none';
+        window.removeEventListener('resize', resize);
+        return;
+      }
+      if(!anyVideoPlaying && !document.hidden){
         ctx.clearRect(0,0,W,H);
         pieces.forEach(function(p){ p.update(); p.draw(); });
       }

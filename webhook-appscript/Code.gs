@@ -50,12 +50,17 @@ function doPost(e) {
     var payLabel = (data.payment_method === 'cod') ? 'COD' : 'Chuyển khoản';
     var products = formatProducts(data.products || ''); // bump Gas Whal đã nằm sẵn trong chuỗi products
     var total = Number(data.total_amount || 0).toLocaleString('vi-VN') + 'đ';
+    // Ghi chú thêm cho dược sĩ biết đơn này có được tặng áo mưa hay không (ngưỡng giống hệt điều kiện
+    // tự thêm sản phẩm quà tặng trong tscCreateOrder — xem TSC_GIFT_THRESHOLD) — chỉ note trong Sheet nội
+    // bộ, KHÔNG đụng vào "notes" gửi CS-Cart (ô đó chỉ để đúng những gì khách tự gõ).
+    var giftNote = (Number(data.total_amount || 0) >= TSC_GIFT_THRESHOLD) ? '🎁 Đơn ≥549k – tặng áo mưa cao cấp' : '';
+    var noteCombined = [data.note || '', giftNote].filter(Boolean).join(' — ');
 
     sh.appendRow([
       new Date(), data.code || '', data.fullname || '', "'" + (data.phone || ''), data.address || '',
       products, data.quantity || '',
       data.order_bump ? 'Có' : 'Không', payLabel, data.total_amount || '',
-      data.note || '', (data.payment_method === 'cod' ? 'Chưa gọi' : 'Chờ chuyển khoản'),
+      noteCombined, (data.payment_method === 'cod' ? 'Chưa gọi' : 'Chờ chuyển khoản'),
       data.utm_source || '', data.utm_medium || '', data.utm_campaign || '',
       data.utm_content || '', data.utm_term || '', data.ref || '', data.fbclid || '',
       data.event_id || '', data.event_source_url || '', '', '', data.products || '',

@@ -965,6 +965,12 @@
     .hero-badges-row{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin-bottom:1.25rem}
     @media(max-width:768px){.hero-badges-row{margin-top:5vw}}
     .hero-badges-row .hero-badge{margin-bottom:0}
+    /* Giữ 2 khung badge trên cùng 1 hàng ở mobile: khung "MÙA HÈ..." giữ nguyên kích thước,
+       khung "Hàng chính hãng..." co lại chiếm phần còn lại + tự xuống dòng chữ bên trong nếu cần */
+    @media(max-width:480px){
+      .hero-badges-row .wc-hero-badge-standalone{flex-shrink:0}
+      .hero-badges-row .hero-badge{flex:1 1 150px;min-width:0}
+    }
     .wc-hero-badge-standalone{
       display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
       background:linear-gradient(135deg,#f97316,#0891b2);

@@ -1296,6 +1296,11 @@
     .checkout-hero .crumb a:hover{text-decoration:underline}
     .checkout-hero h1{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem;color:var(--text-primary)}
     .checkout-hero p{color:var(--text-secondary);font-size:.95rem;max-width:560px;margin:0 auto}
+    .checkout-steps{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1.35rem 0 .25rem;flex-wrap:wrap}
+    .checkout-step{display:flex;align-items:center;gap:.4rem;font-size:.76rem;font-weight:700;color:#94a3b8;padding:.4rem .85rem;border-radius:50px;background:#eef2f1;transition:all .25s}
+    .checkout-step.active{color:#fff;background:var(--gradient);box-shadow:0 3px 10px rgba(15,92,74,.28)}
+    .checkout-step.done{color:#fff;background:#16a34a}
+    .checkout-step-sep{width:22px;height:2px;background:#e2e8f0;flex-shrink:0}
     .checkout-section{padding:1.25rem 1.5rem 5rem}
     .checkout-card-wrap{max-width:640px;margin:0 auto}
     .pm-card--inline{position:static;max-width:100%;width:100%;margin:0;animation:none;box-shadow:none;border:none;border-radius:0;background:transparent}
@@ -1331,7 +1336,12 @@
     <div class="checkout-hero reveal active">
       <div class="crumb"><a href="/">Trang chủ</a> / Thanh toán đơn hàng</div>
       <h1>Hoàn Tất <span class="gradient-text">Đơn Hàng</span></h1>
-      <p>Điền thông tin đặt hàng bên dưới, quét mã QR để chuyển khoản. Dược sĩ Trung Sơn sẽ gọi xác nhận đơn trong ít phút.</p>
+      <p>Quét mã QR bên dưới để hoàn tất chuyển khoản. Dược sĩ Trung Sơn sẽ gọi xác nhận đơn trong ít phút.</p>
+      <div class="checkout-steps" id="checkoutStepsBar" style="display:none">
+        <span class="checkout-step active" id="stepPay">1. Chuyển khoản QR</span>
+        <span class="checkout-step-sep"></span>
+        <span class="checkout-step" id="stepDone">2. Hoàn tất</span>
+      </div>
     </div>
 
     <section class="checkout-section">
@@ -1977,18 +1987,22 @@
     var secForm=document.getElementById('checkoutFormSection'),secPay=document.getElementById('checkoutPaySection'),
         secConfirmed=document.getElementById('checkoutConfirmedSection'),secExpired=document.getElementById('checkoutExpiredSection');
 
+    var stepsBar=document.getElementById('checkoutStepsBar'),stepPay=document.getElementById('stepPay'),stepDone=document.getElementById('stepDone');
     function showFormStep(){
       secForm.style.display='';secPay.style.display='none';secConfirmed.style.display='none';secExpired.style.display='none';
+      if(stepsBar)stepsBar.style.display='none';
       window.scrollTo({top:0,behavior:'smooth'});
     }
     function showPayStep(){
       secForm.style.display='none';secPay.style.display='block';secConfirmed.style.display='none';secExpired.style.display='none';
+      if(stepsBar){stepsBar.style.display='flex';stepPay.className='checkout-step active';stepDone.className='checkout-step';}
       window.scrollTo({top:0,behavior:'smooth'});
       startCountdown();
     }
     function showConfirmedStep(){
       if(pmCountdownTimer)clearInterval(pmCountdownTimer);
       secForm.style.display='none';secPay.style.display='none';secConfirmed.style.display='block';secExpired.style.display='none';
+      if(stepsBar){stepsBar.style.display='flex';stepPay.className='checkout-step done';stepDone.className='checkout-step active';}
       window.scrollTo({top:0,behavior:'smooth'});
     }
     function showExpired(){

@@ -954,6 +954,21 @@
     .pm-check-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,83,9,.4)}
     .pm-note{text-align:center;font-size:.76rem;color:#64748b;margin-top:.65rem;line-height:1.5}
     .pm-note strong{color:#1a2332}
+    .pm-wait-badge{
+      display:flex;align-items:center;justify-content:center;gap:.55rem;
+      background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;
+      border-radius:999px;padding:.55rem 1.1rem;font-size:.85rem;font-weight:700;
+      margin-bottom:1rem;
+    }
+    .pm-wait-dot{
+      width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;
+      animation:pmWaitPulse 1.8s infinite;
+    }
+    @keyframes pmWaitPulse{
+      0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}
+      70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}
+      100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+    }
     .pm-status-msg{margin-top:.6rem;padding:.55rem .85rem;border-radius:8px;font-size:.8rem;text-align:center;display:none}
     .pm-status-msg.error{display:block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
     .pm-status-msg.success{display:block;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
@@ -1626,6 +1641,8 @@
 
           <!-- Check payment -->
           <div style="padding:1rem 1.4rem 1.25rem;border-top:1px solid rgba(0,0,0,.07)">
+            <p style="text-align:center;font-size:.78rem;color:#94a3b8;margin:0 0 .75rem">Bấm vào thông tin để copy nhanh. Dược sĩ sẽ gọi xác nhận ngay sau khi bạn chuyển khoản.</p>
+            <div class="pm-wait-badge"><span class="pm-wait-dot"></span>Đang chờ thanh toán…</div>
             <button class="pm-check-btn" id="checkPaymentBtn" type="button" onclick="handlePaymentCheck(this)">
               ✅ Tôi đã chuyển khoản – Kiểm tra ngay
             </button>

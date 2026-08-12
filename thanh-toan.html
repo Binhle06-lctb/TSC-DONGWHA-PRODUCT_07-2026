@@ -871,11 +871,13 @@
       font-size:.65rem;font-weight:700;letter-spacing:1.5px;
       color:#94a3b8;text-transform:uppercase;margin-bottom:.65rem;
     }
-    .pm-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .75rem}
-    .pm-info-item{}
-    .pm-info-item .lbl{font-size:.72rem;color:#94a3b8;margin-bottom:.1rem}
-    .pm-info-item .val{font-size:.88rem;font-weight:700;color:#1a2332}
-    .pm-info-item .val.highlight{color:#f48120}
+    .pm-info-rows{}
+    .pm-info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+      padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.85rem}
+    .pm-info-row:last-child{border-bottom:none}
+    .pm-info-row .lbl{color:#94a3b8;flex-shrink:0}
+    .pm-info-row .val{color:#1a2332;font-weight:700;text-align:right;word-break:break-word}
+    .pm-info-row .val.highlight{color:#f48120;font-size:1.05rem;font-weight:800}
 
     /* ── MAIN BODY 2-col ── */
     .pm-body{
@@ -1026,7 +1028,6 @@
     @media(max-width:480px){
       .pm-card{border-radius:18px 18px 0 0;max-height:95vh;position:fixed;bottom:0;left:0;right:0;max-width:100%}
       .pm-overlay{align-items:flex-end;padding:0}
-      .pm-info-grid{grid-template-columns:1fr 1fr}
     }
 
     /* === Mini countdown (urgency bar) === */
@@ -1580,14 +1581,14 @@
           <div class="pm-content-grid">
             <!-- Order info -->
             <div class="pm-order-info">
-              <div class="pm-section-label">Thông tin đơn hàng</div>
-              <div class="pm-info-grid">
-                <div class="pm-info-item"><div class="lbl">Họ tên</div><div class="val" id="pmInfoName">—</div></div>
-                <div class="pm-info-item"><div class="lbl">Địa chỉ giao hàng</div><div class="val" id="pmInfoAddress" style="word-break:break-word">—</div></div>
-                <div class="pm-info-item"><div class="lbl">Số điện thoại</div><div class="val" id="pmInfoPhone">—</div></div>
-                <div class="pm-info-item"><div class="lbl">Số tiền</div><div class="val highlight" id="pmAmount">—</div></div>
-                <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Sản phẩm</div><div class="val" id="pmInfoProduct" style="word-break:break-word">—</div></div>
-                <div class="pm-info-item" style="grid-column:1/-1"><div class="lbl">Mã đơn</div><div class="val" id="pmOrderCode">—</div></div>
+              <div class="pm-section-label">Xác nhận thông tin của bạn</div>
+              <div class="pm-info-rows">
+                <div class="pm-info-row"><span class="lbl">Họ tên</span><span class="val" id="pmInfoName">—</span></div>
+                <div class="pm-info-row"><span class="lbl">Địa chỉ giao hàng</span><span class="val" id="pmInfoAddress">—</span></div>
+                <div class="pm-info-row"><span class="lbl">Số điện thoại</span><span class="val" id="pmInfoPhone">—</span></div>
+                <div class="pm-info-row"><span class="lbl">Sản phẩm</span><span class="val" id="pmInfoProduct">—</span></div>
+                <div class="pm-info-row"><span class="lbl">Mã đơn hàng</span><span class="val" id="pmOrderCode">—</span></div>
+                <div class="pm-info-row"><span class="lbl">Số tiền</span><span class="val highlight" id="pmAmount">—</span></div>
               </div>
             </div>
 

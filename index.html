@@ -2949,24 +2949,26 @@
           });
         }
         // COD lẫn CK giờ đều tạo đơn thật ngay bên CS-Cart lúc khách đặt hàng — chờ webhook trả về
-        // order_id thật rồi thay vào ô mã đơn. Có timeout 6s: nếu chậm/lỗi thì dùng tạm mã ngắn tự
-        // sinh (regCode), không để khách chờ vô thời hạn.
+        // order_id THẬT rồi mới hiện vào ô mã đơn. KHÔNG bịa mã đơn giả (regCode chỉ dùng nội bộ
+        // để đối chiếu trong Sheet, không được hiện cho khách như thể là mã đơn CS-Cart thật) —
+        // nếu chậm/lỗi thì hiện thông báo trung thực, không hiện số trông như mã đơn thật.
         var codeTargetId=(payload.payment_method==='cod')?'tyOrderCode':'pmOrderCode';
+        var codeFallbackMsg='Đang xử lý – dược sĩ sẽ gọi xác nhận kèm mã đơn';
         var codeTimer=setTimeout(function(){
           var el=document.getElementById(codeTargetId);
-          if(el&&el.textContent==='Đang tạo mã đơn…')el.textContent=regCode;
-        },6000);
+          if(el&&el.textContent==='Đang tạo mã đơn…')el.textContent=codeFallbackMsg;
+        },10000);
         fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
           .then(function(r){return r.json();})
           .then(function(res){
             clearTimeout(codeTimer);
             var el=document.getElementById(codeTargetId);
-            if(el)el.textContent=(res&&res.order_id)?('#'+res.order_id):regCode;
+            if(el)el.textContent=(res&&res.order_id)?('#'+res.order_id):codeFallbackMsg;
           })
           .catch(function(){
             clearTimeout(codeTimer);
             var el=document.getElementById(codeTargetId);
-            if(el)el.textContent=regCode;
+            if(el)el.textContent=codeFallbackMsg;
           });
       });
     });

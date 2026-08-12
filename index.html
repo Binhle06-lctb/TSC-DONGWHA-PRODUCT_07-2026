@@ -267,12 +267,14 @@
     .hero-mascot-wrap{display:flex;justify-content:center;align-items:flex-end;position:relative;padding-top:0;margin-top:-2rem}
     .hero-mascot-img{width:100%;max-width:760px;height:auto;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.18));animation:mascotFloat 3.5s ease-in-out infinite}
     @keyframes mascotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-soft);color:var(--primary);padding:.5rem 1.2rem;border-radius:var(--radius-pill);font-size:.85rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 4px 15px rgba(19,103,53,.15)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-soft);color:var(--primary);padding:.5rem 1.2rem;border-radius:var(--radius-pill);font-size:.85rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 4px 15px rgba(19,103,53,.15);max-width:100%}
+    .hero-badge svg{flex-shrink:0}
+    .hero-badge span{min-width:0}
     .hero h1{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.5rem}
     .hero-desc{font-size:1.15rem;color:var(--text-secondary);max-width:680px;margin:0 auto 1rem}
     .hero-sub{font-size:.95rem;color:var(--text-muted);margin-bottom:2.5rem}
     .hero-cta{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap;margin-bottom:3rem}
-    .price-hero{display:inline-flex;align-items:center;gap:.75rem;background:var(--glass-bg);backdrop-filter:blur(20px);padding:.75rem 1.5rem;border-radius:var(--radius-pill);box-shadow:var(--glass-shadow)}
+    .price-hero{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;background:var(--glass-bg);backdrop-filter:blur(20px);padding:.75rem 1.5rem;border-radius:var(--radius-pill);box-shadow:var(--glass-shadow)}
     .price-old{text-decoration:line-through;color:var(--text-muted);font-size:1rem}
     .price-new{font-size:1.5rem;font-weight:800;color:var(--primary)!important}
     .price-save{background:#ef4444!important;color:#fff;font-size:.8rem;font-weight:700;padding:.25rem .6rem;border-radius:var(--radius-pill)}
@@ -546,7 +548,9 @@
       .form-section{padding:4rem 1rem}
       .form-container{padding:1.5rem}
       .offer-box{padding:2rem 1.25rem}
-      .offer-price-new{font-size:2rem}
+      .offer-price-old{font-size:1rem}
+      .offer-price-new{font-size:1.6rem}
+      .offer-price-badge{font-size:.85rem;padding:.35rem .75rem}
       .bank-info-row{flex-direction:column;gap:.2rem}
       .stats-grid{grid-template-columns:repeat(2,1fr)}
       .problem-section,.promise-section,.proof-section,.ingredients-section,.offer-section,.faq-section{padding:4rem 1rem}
@@ -832,7 +836,7 @@
       .hero-text{text-align:center}
       .hero h1{font-size:clamp(1.6rem,8vw,2rem)!important}
       .wc-hero-badge{font-size:.7rem;padding:.9rem 1rem .5rem}
-      .hero-badge{font-size:.78rem;padding:.9rem 1.1rem .55rem}
+      .hero-badge{font-size:.78rem;padding:.5rem .85rem}
     }
 
     /* Stats: mobile 2 cột */
@@ -1559,7 +1563,7 @@
         </div>
         <div class="hero-badge">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Hàng chính hãng – Trung Sơn Pharma – DONGWHA
+          <span>Hàng chính hãng – Trung Sơn Pharma – DONGWHA</span>
         </div>
       </div>
       <h1 class="reveal">Người Hàn Quốc Ít Ốm&nbsp;Hơn.<br><span class="gradient-text">Bí Quyết Của Họ Đã Có Mặt Tại Việt Nam.</span></h1>

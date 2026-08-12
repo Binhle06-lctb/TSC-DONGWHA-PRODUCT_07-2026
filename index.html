@@ -946,7 +946,7 @@
 
 
     
-    .hero-badges-row{display:flex;align-items:center;gap:.65rem;flex-wrap:nowrap;margin-bottom:1.25rem}
+    .hero-badges-row{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin-bottom:1.25rem}
     @media(max-width:768px){.hero-badges-row{margin-top:5vw}}
     .hero-badges-row .hero-badge{margin-bottom:0}
     .wc-hero-badge-standalone{
@@ -2921,27 +2921,27 @@
           var ctaBar2=document.querySelector('.mobile-cta-bar');if(ctaBar2)ctaBar2.style.setProperty('display','none','important');
           var liveN2=document.getElementById('live-notify');if(liveN2)liveN2.style.setProperty('display','none','important');
         }else{
-          // ── Chuyển khoản: build QR + mở modal thanh toán ──
+          // ── Chuyển khoản: chuyển sang trang checkout riêng (thanh-toan.html) thay vì mở popup ──
+          // Trang thanh-toan.html sẽ tự hiện tóm tắt đơn hàng + QR (dạng section) và tự gửi
+          // webhook để lấy mã đơn thật — KHÔNG gửi webhook trùng lặp ở đây.
           var nameClean=toTransferName(payload.fullname);
           var addInfo=nameClean+' '+TRANSFER_PREFIX+' '+payload.phone;
-          document.getElementById('transferContent').textContent=addInfo;
-          document.getElementById('pmAmount').textContent=AMOUNT.toLocaleString('vi-VN')+'đ';
-          document.getElementById('pmOrderCode').textContent='Đang tạo mã đơn…';
-          var pmIP=document.getElementById('pmInfoProduct');if(pmIP)pmIP.textContent=buildOrderSummaryText();
-          var pmP=document.getElementById('pmConfirmProduct');if(pmP)pmP.textContent='📦 '+buildOrderSummaryText();
-          openPaymentModal({
-            name: payload.fullname,
-            phone: payload.phone,
-            address: payload.full_address||payload.address,
-            province: payload.province,
-            amount: AMOUNT
-          });
+          try{
+            sessionStorage.setItem('tsc_checkout_order', JSON.stringify({
+              payload: payload,
+              productSummaryText: buildOrderSummaryText(),
+              transferContent: addInfo
+            }));
+          }catch(e){}
+          window.location.href='thanh-toan.html';
+          return;
         }
-        // COD lẫn CK giờ đều tạo đơn thật ngay bên CS-Cart lúc khách đặt hàng — chờ webhook trả về
-        // order_id THẬT rồi mới hiện vào ô mã đơn. KHÔNG bịa mã đơn giả (regCode chỉ dùng nội bộ
-        // để đối chiếu trong Sheet, không được hiện cho khách như thể là mã đơn CS-Cart thật) —
-        // nếu chậm/lỗi thì hiện thông báo trung thực, không hiện số trông như mã đơn thật.
-        var codeTargetId=(payload.payment_method==='cod')?'tyOrderCode':'pmOrderCode';
+        // COD tạo đơn thật ngay bên CS-Cart lúc khách đặt hàng — chờ webhook trả về order_id
+        // THẬT rồi mới hiện vào ô mã đơn. KHÔNG bịa mã đơn giả (regCode chỉ dùng nội bộ để đối
+        // chiếu trong Sheet, không được hiện cho khách như thể là mã đơn CS-Cart thật) — nếu
+        // chậm/lỗi thì hiện thông báo trung thực, không hiện số trông như mã đơn thật.
+        // (Nhánh chuyển khoản đã return ở trên — đoạn dưới đây chỉ còn chạy cho COD.)
+        var codeTargetId='tyOrderCode';
         var codeFallbackMsg='Đang xử lý – dược sĩ sẽ gọi xác nhận kèm mã đơn';
         var codeTimer=setTimeout(function(){
           var el=document.getElementById(codeTargetId);

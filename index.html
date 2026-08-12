@@ -2940,8 +2940,6 @@
           // ── Chuyển khoản: build QR + mở modal thanh toán ──
           var nameClean=toTransferName(payload.fullname);
           var addInfo=nameClean+' '+TRANSFER_PREFIX+' '+payload.phone;
-          var qrUrl='https://img.vietqr.io/image/'+BANK_CODE+'-'+BANK_STK+'-compact2.png?amount='+AMOUNT+'&addInfo='+encodeURIComponent(addInfo)+'&accountName='+encodeURIComponent(ACCOUNT_NAME);
-          document.getElementById('qrImage').src=qrUrl;
           document.getElementById('transferContent').textContent=addInfo;
           document.getElementById('pmAmount').textContent=AMOUNT.toLocaleString('vi-VN')+'đ';
           document.getElementById('pmOrderCode').textContent=regCode;
@@ -3076,12 +3074,12 @@
 
       <!-- ── STATE 1: QR ── -->
       <div class="pm-state active" id="pmQR">
-        <div class="pm-body" style="grid-template-columns:1fr">
-          <!-- QR col: tạm ẩn, chuyển sang nhập tay thông tin chuyển khoản -->
-          <div class="pm-qr-col" style="display:none">
+        <div class="pm-body">
+          <!-- QR col -->
+          <div class="pm-qr-col">
             <div class="pm-section-label">Quét QR để thanh toán</div>
             <div class="pm-qr-frame">
-              <img id="qrImage" src="" alt="QR thanh toán VietQR" width="160" height="160">
+              <img id="qrImage" src="img/vietqr-bank-qr-opt.webp" alt="QR thanh toán VietQR - CONG TY TNHH TRUNG SON ALPHA" width="160" height="160">
             </div>
             <button class="pm-dl-btn" id="pmDownloadBtn">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>

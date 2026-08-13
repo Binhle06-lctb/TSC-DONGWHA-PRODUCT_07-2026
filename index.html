@@ -989,10 +989,15 @@
     @media(max-width:768px){.hero-badges-row{margin-top:5vw}}
     .hero-badges-row .hero-badge{margin-bottom:0}
     /* Giữ 2 khung badge trên cùng 1 hàng ở mobile: khung "MÙA HÈ..." giữ nguyên kích thước,
-       khung "Hàng chính hãng..." co lại chiếm phần còn lại + tự xuống dòng chữ bên trong nếu cần */
-    @media(max-width:480px){
+       khung "Hàng chính hãng..." co lại chiếm phần còn lại + tự xuống dòng chữ bên trong nếu cần.
+       CHỈ áp dụng từ 381-480px — dưới 380px (điện thoại nhỏ như iPhone SE 320px) 2 khung cộng lại
+       không đủ chỗ, ép cùng hàng sẽ tràn ngang cả trang → để mặc định xuống hàng riêng cho an toàn. */
+    @media(min-width:381px) and (max-width:480px){
       .hero-badges-row .wc-hero-badge-standalone{flex-shrink:0}
       .hero-badges-row .hero-badge{flex:1 1 150px;min-width:0}
+    }
+    @media(max-width:380px){
+      .hero-badges-row .hero-badge{flex:1 1 100%}
     }
     .wc-hero-badge-standalone{
       display:inline-flex; align-items:center; justify-content:center; gap:.4rem;

@@ -2985,6 +2985,7 @@
           var tyA=document.getElementById('tyAddr');if(tyA)tyA.textContent=payload.full_address||payload.address||'—';
           var tyS=document.getElementById('tySub');if(tyS)tyS.textContent='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi xác nhận trong ít phút. Bạn thanh toán khi nhận hàng – nhớ đồng kiểm cùng bưu tá nhé!';
           var tyP=document.getElementById('tyProduct');if(tyP)tyP.textContent=buildOrderSummaryText();
+          var tyT=document.getElementById('tyTotal');if(tyT)tyT.textContent=(payload.total_amount||0).toLocaleString('vi-VN')+'đ';
           var tyOv=document.getElementById('thankYouOverlay');if(tyOv)tyOv.classList.add('active');
           var ctaBar2=document.querySelector('.mobile-cta-bar');if(ctaBar2)ctaBar2.style.setProperty('display','none','important');
           var liveN2=document.getElementById('live-notify');if(liveN2)liveN2.style.setProperty('display','none','important');
@@ -3213,6 +3214,10 @@
         <div class="ty-info-row">
           <div class="ty-info-icon">🧾</div>
           <div><div class="ty-info-label">Mã đơn</div><div class="ty-info-val" id="tyOrderCode">Đang tạo mã đơn…</div></div>
+        </div>
+        <div class="ty-info-row">
+          <div class="ty-info-icon">💵</div>
+          <div><div class="ty-info-label">Tổng thanh toán</div><div class="ty-info-val" id="tyTotal" style="color:#f48120">—</div></div>
         </div>
       </div>
       <div class="ty-next-box">

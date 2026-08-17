@@ -38,7 +38,39 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1353204000286435');
     fbq('track', 'PageView');
-  
+
+
+    // ===== Meta Pixel ViewContent: bắn khi khách cuộn >=50% VÀ ở lại trang >=10s (khách thật sự quan tâm) =====
+    document.addEventListener("DOMContentLoaded", function() {
+      var timeSatisfied = false;
+      var scrollSatisfied = false;
+      var eventFired = false;
+
+      setTimeout(function() {
+        timeSatisfied = true;
+        checkAndFirePixel();
+      }, 10000);
+
+      window.addEventListener('scroll', function() {
+        if (scrollSatisfied || eventFired) return;
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollPercent >= 50) {
+          scrollSatisfied = true;
+          checkAndFirePixel();
+        }
+      }, {passive:true});
+
+      function checkAndFirePixel() {
+        if (timeSatisfied && scrollSatisfied && !eventFired) {
+          if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent');
+          }
+          eventFired = true;
+        }
+      }
+    });
 
     // ===== PAYMENT MODAL =====
     var pmCountdownTimer=null, pmSecondsLeft=300;

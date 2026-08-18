@@ -2797,52 +2797,10 @@
         msg.textContent='Thêm '+remain+'đ nữa để nhận quà 🎁';
       }
     }
-    function updateAmount() {
-      var productTotal = 0;
-      var hasActive = false;
-      document.querySelectorAll('.fpl-item.active').forEach(function(it){
-        var price = parseInt(it.dataset.price)||0;
-        var qty = parseInt(it.querySelector('.fpl-qty-val').textContent)||1;
-        // Hồng Sâm: hộp đầu 203k, từ hộp thứ 2 giá combo 153k — khớp với offer "2 hộp 356k" trên ads
-        if(it.dataset.product==='hong-sam' && qty>1){
-          productTotal += price + (qty-1)*153000;
-        }else{
-          productTotal += price * qty;
-        }
-        hasActive = true;
-      });
-      var bump = document.getElementById('orderBumpCheck');
-      var bumpAmt = (bump && bump.checked ? BUMP_AMOUNT : 0);
-      // subTotal = tien hang truoc phi van chuyen; fallback to BASE_AMOUNT if nothing selected
-      var subTotal = (hasActive ? productTotal : BASE_AMOUNT) + bumpAmt;
-      // Phi van chuyen tham khao: 25.000d, mien phi tu 300.000d
-      var SHIP_FEE = 25000, FREE_SHIP_THRESHOLD = 300000;
-      var shipFee = subTotal < FREE_SHIP_THRESHOLD ? SHIP_FEE : 0;
-      // AMOUNT for payment includes phi van chuyen
-      AMOUNT = subTotal + shipFee;
-      var btnText = document.querySelector('#submitBtn .btn-text');
-      if(btnText) btnText.textContent = 'Đặt hàng';
-      // Gift bar uses REAL selected total only (no fallback)
-      updateGiftBar(hasActive ? productTotal + bumpAmt : 0);
-      // Update order summary
-      var hasSelection = hasActive;
-      var tamTinhEl = document.getElementById('osTamTinh');
-      var tongCongEl = document.getElementById('osTongCong');
-      var shipFeeEl = document.getElementById('osShipFee');
-      if(tamTinhEl) tamTinhEl.textContent = hasSelection ? subTotal.toLocaleString('vi-VN') + 'đ' : '—';
-      if(shipFeeEl) shipFeeEl.textContent = hasSelection ? (shipFee > 0 ? shipFee.toLocaleString('vi-VN') + 'đ' : 'Miễn phí') : '—';
-      if(tongCongEl) tongCongEl.textContent = hasSelection ? AMOUNT.toLocaleString('vi-VN') + 'đ' : '—';
-      var giftRow = document.getElementById('osGiftRow');
-      if(giftRow) giftRow.style.display = (hasSelection && subTotal >= 549000) ? 'flex' : 'none';
-    }
-
-    function handleBumpChange(cb) {
-      var bump = document.getElementById('orderBump');
-      if(cb.checked) bump.classList.add('checked');
-      else bump.classList.remove('checked');
-      updateAmount();
-    }
-
+    // updateAmount()/handleBumpChange()/syncFplPayload() bị khai báo lặp lại ở 1 <script> khác phía
+    // dưới (block "Logic chon san pham + gia bac thang Hong Sam (override)") — bản dưới đó mới là
+    // bản THẬT SỰ chạy (khai báo function sau cùng thắng, và không còn dùng giá bậc thang cũ này
+    // nữa — đã bỏ theo yêu cầu trước đó), nên đã xoá bản trùng/chết ở đây.
     function toggleFplItem(el){
       el.classList.toggle('active');
       syncFplPayload();
@@ -2854,20 +2812,6 @@
       valEl.textContent = Math.max(1, Math.min(20, cur+delta));
       syncFplPayload();
       updateAmount();
-    }
-    function syncFplPayload(){
-      var parts=[], totalQty=0;
-      document.querySelectorAll('.fpl-item').forEach(function(it){
-        if(it.classList.contains('active')){
-          var qty=parseInt(it.querySelector('.fpl-qty-val').textContent)||1;
-          parts.push(it.dataset.product+':'+qty);
-          totalQty+=qty;
-        }
-      });
-      var sp=document.getElementById('selectedProduct');
-      if(sp) sp.value=parts.join(',');
-      var qEl=document.getElementById('quantity');
-      if(qEl) qEl.value=totalQty||0;
     }
 
 

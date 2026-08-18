@@ -340,6 +340,10 @@
       .offer-box,.form-container,.faq-item{
         background:rgba(246,251,250,.97);
       }
+      /* Ảnh mascot là ảnh lớn nhất + luôn ở đầu trang (LCP) — animation nổi lên xuống + filter
+         drop-shadow chạy vô thời hạn buộc GPU phải kết xuất lại liên tục suốt phiên. Giữ hiệu ứng
+         ở desktop, tắt ở mobile để đỡ tốn tài nguyên trên máy yếu. */
+      .hero-mascot-img{animation:none!important;filter:none!important}
     }
     .hero-trust{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;margin-top:1rem;justify-items:start;justify-content:center}
     .hero-trust-item{display:flex;align-items:flex-start;gap:.4rem;font-size:.85rem;color:var(--text-secondary)}
@@ -1635,7 +1639,7 @@
       <p class="hero-desc reveal">Hồng sâm Hàn Quốc chuẩn hóa Saponin 70mg/g, được cấp phép số đăng ký 01-TP/PHARMINA/2024. 1 chai mỗi ngày để cơ thể tăng cường đề kháng và phục hồi năng lượng.</p>
       <div class="hero-mascot-mobile-inline">
       <div class="hero-mascot-wrap reveal">
-        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển" fetchpriority="high">
+        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển" fetchpriority="high" width="500" height="500">
       </div>
       </div>
       <div class="hero-cta reveal" style="flex-wrap:wrap;margin-bottom:3rem">
@@ -1680,7 +1684,7 @@
       </div><!-- end .hero-text -->
 
       <div class="hero-mascot-wrap reveal hero-mascot-desktop">
-        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển" fetchpriority="high">
+        <img src="img/ChatGPT_Image_18_08_35_10_thg_8__2026-removebg-preview-opt.webp" class="hero-mascot-img" alt="Mascot Dongwha du lịch biển" fetchpriority="high" width="500" height="500">
       </div>
     </div>
   </section>

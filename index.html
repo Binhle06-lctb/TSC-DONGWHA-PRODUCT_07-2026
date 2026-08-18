@@ -1124,6 +1124,16 @@
     .pm-info-item .val{font-size:.88rem;font-weight:700;color:#1a2332}
     .pm-info-item .val.highlight{color:#f48120}
 
+    /* ── Khung xác nhận thông tin kiểu thanh-toan.html (dùng cho popup cảm ơn COD) ── */
+    .pm-info-rows{margin-top:.9rem}
+    .pm-info-box{border:1px solid rgba(0,0,0,.09);border-radius:12px;padding:0 .9rem}
+    .pm-info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+      padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.85rem;text-align:left}
+    .pm-info-row:last-child{border-bottom:none}
+    .pm-info-row .lbl{color:#475569;flex-shrink:0}
+    .pm-info-row .val{color:#1a2332;font-weight:700;text-align:right;word-break:break-word}
+    .pm-info-row .val.highlight{color:#f48120;font-size:1.05rem;font-weight:800}
+
     /* ── MAIN BODY 2-col ── */
     .pm-body{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
     @media(max-width:520px){
@@ -1228,12 +1238,6 @@
     .ty-badge{display:inline-flex;align-items:center;gap:.35rem;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;border-radius:50px;padding:.22rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.05em;margin-bottom:.6rem}
     .ty-heading{font-size:1.15rem;font-weight:900;color:#1a2332;margin:0 0 .3rem;line-height:1.25}
     .ty-sub{font-size:.81rem;color:#64748b;line-height:1.5;margin-bottom:.75rem}
-    .ty-info-grid{background:#f8fafc;border-radius:10px;overflow:hidden;margin-bottom:.65rem;text-align:left;border:1px solid #e2e8f0}
-    .ty-info-row{display:flex;align-items:center;gap:.6rem;padding:.5rem .85rem;border-bottom:1px solid #e2e8f0}
-    .ty-info-row:last-child{border-bottom:none}
-    .ty-info-icon{font-size:1rem;flex-shrink:0}
-    .ty-info-label{font-size:.64rem;font-weight:700;color:#94a3b8;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.1rem}
-    .ty-info-val{font-size:.82rem;font-weight:700;color:#1a2332}
     .ty-next-box{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:12px;padding:.7rem .85rem;margin-bottom:.75rem;text-align:center}
     .ty-next-title{font-size:.8rem;font-weight:800;color:#1e40af;margin-bottom:.28rem;display:flex;align-items:center;justify-content:center;gap:.35rem}
     .ty-next-body{font-size:.79rem;color:#1e3a8a;line-height:1.55;margin:0;text-align:center}
@@ -3024,10 +3028,13 @@
         registeredPhone=payload.phone;registeredCode=regCode;
         if(payload.payment_method==='cod'){
           // ── COD: xác nhận đơn ngay, không cần chuyển khoản trước ──
+          var tyN=document.getElementById('tyName');if(tyN)tyN.textContent=payload.fullname||'—';
+          var tyPh=document.getElementById('tyPhone');if(tyPh)tyPh.textContent=payload.phone||'—';
           var tyA=document.getElementById('tyAddr');if(tyA)tyA.textContent=payload.full_address||payload.address||'—';
           var tyS=document.getElementById('tySub');if(tyS)tyS.textContent='Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi xác nhận trong ít phút. Bạn thanh toán khi nhận hàng – nhớ đồng kiểm cùng bưu tá nhé!';
           var tyP=document.getElementById('tyProduct');if(tyP)tyP.textContent=buildOrderSummaryText();
           var tyT=document.getElementById('tyTotal');if(tyT)tyT.textContent=(payload.total_amount||0).toLocaleString('vi-VN')+'đ';
+          var tyGift=document.getElementById('tyGiftNote');if(tyGift)tyGift.style.display=(Number(payload.total_amount||0)>=549000)?'block':'none';
           var tyOv=document.getElementById('thankYouOverlay');if(tyOv)tyOv.classList.add('active');
           var ctaBar2=document.querySelector('.mobile-cta-bar');if(ctaBar2)ctaBar2.style.setProperty('display','none','important');
           var liveN2=document.getElementById('live-notify');if(liveN2)liveN2.style.setProperty('display','none','important');
@@ -3244,23 +3251,21 @@
       <div class="ty-badge">● ĐẶT HÀNG THÀNH CÔNG</div>
       <h2 class="ty-heading">Cảm ơn bạn đã đặt hàng!</h2>
       <p class="ty-sub" id="tySub">Đơn hàng của bạn đã được tiếp nhận. Dược sĩ Trung Sơn sẽ gọi cho bạn để xác nhận đơn hàng trong ít phút!</p>
-      <div class="ty-info-grid">
-        <div class="ty-info-row">
-          <div class="ty-info-icon">📦</div>
-          <div><div class="ty-info-label">Sản phẩm</div><div class="ty-info-val" id="tyProduct">Hồng Sâm DONGWHA – 1 hộp 10 chai</div></div>
+      <div class="pm-order-info" style="padding:0;border-bottom:none">
+        <div class="pm-section-label" style="color:#475569;text-align:left">Xác nhận thông tin của bạn</div>
+        <div class="pm-info-box">
+          <div class="pm-info-row"><span class="lbl">Họ tên</span><span class="val" id="tyName">—</span></div>
+          <div class="pm-info-row"><span class="lbl">Địa chỉ giao hàng</span><span class="val" id="tyAddr">—</span></div>
+          <div class="pm-info-row"><span class="lbl">Số điện thoại</span><span class="val" id="tyPhone">—</span></div>
         </div>
-        <div class="ty-info-row">
-          <div class="ty-info-icon">📍</div>
-          <div><div class="ty-info-label">Giao đến</div><div class="ty-info-val" id="tyAddr">—</div></div>
+        <div class="pm-info-rows">
+          <div class="pm-info-row"><span class="lbl">Sản phẩm</span><span class="val" id="tyProduct">—</span></div>
+          <div class="pm-info-row"><span class="lbl">Mã đơn hàng</span><span class="val" id="tyOrderCode">Đang tạo mã đơn…</span></div>
+          <div class="pm-info-row"><span class="lbl">Số tiền</span><span class="val highlight" id="tyTotal">—</span></div>
         </div>
-        <div class="ty-info-row">
-          <div class="ty-info-icon">🧾</div>
-          <div><div class="ty-info-label">Mã đơn</div><div class="ty-info-val" id="tyOrderCode">Đang tạo mã đơn…</div></div>
-        </div>
-        <div class="ty-info-row">
-          <div class="ty-info-icon">💵</div>
-          <div><div class="ty-info-label">Tổng thanh toán</div><div class="ty-info-val" id="tyTotal" style="color:#f48120">—</div></div>
-        </div>
+      </div>
+      <div id="tyGiftNote" style="display:none;background:#fef3e2;color:#854F0B;font-weight:700;font-size:.85rem;border-radius:10px;padding:.6rem .9rem;margin:.75rem 0 0;text-align:center">
+        🎁 Đơn hàng của bạn được TẶNG KÈM áo mưa cao cấp Hàn Quốc!
       </div>
       <div class="ty-next-box">
         <div class="ty-next-title"><span style="font-size:1rem">🔥</span> Chờ đã ! Còn 1 ưu đãi chờ bạn</div>
